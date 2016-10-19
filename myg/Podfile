@@ -1,0 +1,6 @@
+target 'myg' do
+platform :ios, '7.0'
+pod 'UMengAnalytics'
+pod 'MJExtension'
+pod 'Masonry'
+end
