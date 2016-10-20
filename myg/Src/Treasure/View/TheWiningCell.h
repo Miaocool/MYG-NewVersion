@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BeforeModel.h"
 @interface TheWiningCell : UITableViewCell
-
+@property (nonatomic,strong)BeforeModel *beforeModel;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ShoppingModel.h"
 @interface UserDataSingleton : NSObject
 +(UserDataSingleton *)userInformation;
 
@@ -30,4 +30,5 @@
 
 @property (nonatomic,strong)NSString *currentVersion;
 @property (nonatomic,strong)NSString *xinVersion;
+@property (nonatomic,strong)ShoppingModel *shopModel;
 @end

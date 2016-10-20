@@ -38,6 +38,9 @@
                     <state key="normal" title="10%">
                         <color key="titleColor" red="0.35070353403141363" green="0.35070353403141363" blue="0.35070353403141363" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="firstRateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="rFy-HE-qO5"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qot-6w-tpY">
                     <color key="backgroundColor" red="1" green="0.0" blue="0.041046944600000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,6 +48,9 @@
                     <state key="normal" title="20%">
                         <color key="titleColor" red="0.28609702225130895" green="0.28609702225130895" blue="0.28609702225130895" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="secendRateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="FVM-rV-KB7"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khe-4Q-fo7">
                     <color key="backgroundColor" red="1" green="0.0" blue="0.041046944600000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,6 +58,9 @@
                     <state key="normal" title="25%">
                         <color key="titleColor" red="0.33012925392670156" green="0.33012925392670156" blue="0.33012925392670156" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="thirdRateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="4gy-8s-8Fv"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7l-D8-Axh">
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +100,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="partakeRateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vn3-tQ-2b6"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvc-Bq-gDE">
                     <color key="backgroundColor" red="1" green="0.0" blue="0.041046944600000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,6 +110,9 @@
                     <state key="normal" title="包尾">
                         <color key="titleColor" red="0.32532995200698067" green="0.32532995200698067" blue="0.32532995200698067" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="tailRateAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="meW-JB-aHu"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -133,7 +148,17 @@
                 <constraint firstItem="wQq-Tb-96w" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zPX-XQ-XpW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="49.5" y="-61"/>
+            <connections>
+                <outlet property="fisrtRateBtn" destination="V4I-Pe-h6T" id="PDz-b6-Jht"/>
+                <outlet property="partakeRateBtn" destination="ek8-14-uDe" id="mkH-A4-Vb2"/>
+                <outlet property="rateText" destination="GGJ-px-3F8" id="Ahd-To-V8B"/>
+                <outlet property="secendRateBtn" destination="Qot-6w-tpY" id="WT8-Jm-Jel"/>
+                <outlet property="subtBtn" destination="waZ-KH-OTI" id="6ia-Rx-ort"/>
+                <outlet property="sumRate" destination="wQq-Tb-96w" id="lZE-ej-nbk"/>
+                <outlet property="tailRateBtn" destination="tvc-Bq-gDE" id="kqK-Cg-1no"/>
+                <outlet property="thirdRateBtn" destination="khe-4Q-fo7" id="04j-Zd-ruh"/>
+            </connections>
+            <point key="canvasLocation" x="-118" y="-125"/>
         </view>
     </objects>
 </document>

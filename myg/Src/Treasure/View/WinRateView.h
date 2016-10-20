@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class WinRateView;
+@protocol WinRateViewDelegate <NSObject>
 
+- (void)winRateView:(WinRateView *)winRateView goodModel:(ShoppingModel *)good;
+
+@end
 @interface WinRateView : UIView
-
+@property (nonatomic,weak)id<WinRateViewDelegate>delegate;
 @end

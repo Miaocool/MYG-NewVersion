@@ -47,6 +47,7 @@
 #import "AFNetworking.h"
 #import "RegisteredViewController.h"
 #import "MyRedViewController.h"
+#import "WinRateView.h"
 typedef void (^VersionBlock)(NSString *);
 @interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,HeadlineScrollviewDelegate,GoodsCollectionViewCellDelegate,UIScrollViewDelegate, CloseTipViewDelegate>{
     NSInteger       _timedata; //时间计时
@@ -150,9 +151,6 @@ static NSString *collectionCellName2 = @"collectionCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jiexiaoRes) name:@"jiexiaoResult" object:nil];
     
       [self gainNewVersion];
-    
- 
-    
     
     [RedPageAlertView shareInstance].closeBlock = ^(){
         if ([UserDataSingleton userInformation].isLogin) {

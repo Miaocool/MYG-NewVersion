@@ -47,6 +47,8 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 #import "RedPageAlertView.h"
+#import "ChanceofViewController.h"
+
 @interface AppDelegate ()<WXApiDelegate,JPUSHRegisterDelegate>
 {
     NSString *Newurl;
@@ -62,6 +64,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 {
+    
+    
+   
     
     
 //    [RedPageAlertView show];
@@ -411,7 +416,8 @@
     [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,listingNav,myNav]];
      [tabBar.tabBar setTintColor:MainColor];
    
-    self.window.rootViewController = tabBar;
+//    self.window.rootViewController = tabBar;
+    self.window.rootViewController = [ChanceofViewController new];
     
     
 //    RedPageAlertView *redview = [[RedPageAlertView alloc]initWithFrame:[UIScreen mainScreen].bounds];
