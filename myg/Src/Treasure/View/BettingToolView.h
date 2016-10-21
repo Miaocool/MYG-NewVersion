@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BettingToolView;
+@protocol BettingToolViewDelegate <NSObject>
+
+- (void)bettingToolView:(BettingToolView *)bettingToolView index:(NSInteger )index;
+
+@end
 
 @interface BettingToolView : UIView
-
+@property (nonatomic,weak)id<BettingToolViewDelegate>delegate;
+- (void)setTitleWithSourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex;
 @end
