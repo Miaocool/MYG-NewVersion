@@ -416,8 +416,8 @@
     [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,listingNav,myNav]];
      [tabBar.tabBar setTintColor:MainColor];
    
-//    self.window.rootViewController = tabBar;
-    self.window.rootViewController = [ChanceofViewController new];
+    self.window.rootViewController = tabBar;
+//    self.window.rootViewController = [ChanceofViewController new];
     
     
 //    RedPageAlertView *redview = [[RedPageAlertView alloc]initWithFrame:[UIScreen mainScreen].bounds];

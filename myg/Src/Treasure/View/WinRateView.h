@@ -15,4 +15,5 @@
 @end
 @interface WinRateView : UIView
 @property (nonatomic,weak)id<WinRateViewDelegate>delegate;
+@property (nonatomic,strong)ShoppingModel *model;
 @end

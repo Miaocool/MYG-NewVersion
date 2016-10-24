@@ -298,7 +298,7 @@
         NSDictionary *resultData = responseObject[@"data"];
 //        [[RedPageAlertView shareInstance] showWithState:NO checkTitle:@"查看红包" imageName:@"redpage_look"];
         
-        if (!(resultData == nil)) {
+        if (!([resultData isEqual:@""])) {
             id status = resultData[@"showStatus"];
             if (![status isEqualToString:@"false"]) {
                 [[RedPageAlertView shareInstance] showWithState:NO checkTitle:@"查看红包" imageName:@"redpage_look"];

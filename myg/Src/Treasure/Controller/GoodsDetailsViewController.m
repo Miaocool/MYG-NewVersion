@@ -34,6 +34,7 @@
 #import "EGOImageLoader.h"
 #import "AwardTipView.h"
 #import "WinningRecordViewController.h"
+#import "ChanceofViewController.h"
 @interface GoodsDetailsViewController ()<PullingRefreshTableViewDelegate,UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,UITextFieldDelegate,CloseTipViewDelegate>
 @property (nonatomic, strong) PullingRefreshTableView *tableView;
 @property (nonatomic, assign) NSInteger num; //记录当前页数
@@ -1909,6 +1910,24 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
 #pragma mark 确定一元夺宝 -----> 购物车 立即参与
 - (void)yiyuanxunbaoaaaa
 {
+    ChanceofViewController *chanceofVC = [ChanceofViewController new];
+    
+    ShoppingModel *model = [[ShoppingModel alloc]init];
+    model.goodsId = _model.idd;
+    model.num = [_model.minNumber integerValue];
+    [UserDataSingleton userInformation].shopModel = model;
+    
+    ListingModel *listM = [ListingModel new];
+    listM.zongrenshu = _model.zongrenshu;
+    listM.shengyurenshu = [NSString stringWithFormat:@"%zd",[_model.zongrenshu integerValue] - [_model.canyurenshu integerValue]];
+    listM.shopid = _model.idd;
+    listM.title = _model.title;
+    [UserDataSingleton userInformation].listModel = listM;
+    chanceofVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:chanceofVC animated:NO completion:nil];
+}
+- (void)aaa{
+    
     if ([UserDataSingleton userInformation].shoppingArray.count == 0)
     {
         
@@ -1964,7 +1983,7 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
                 {
                     if ([_model.xiangou isEqualToString:@"1"])
                     {
-//                        [self.view showHUDTextAtCenter:@"参与人数不能大于剩余人数"];
+                        //                        [self.view showHUDTextAtCenter:@"参与人数不能大于剩余人数"];
                         
                         isAdd = YES;
                         *stop = YES;
@@ -2015,7 +2034,7 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
                     model.num = [_model.minNumber integerValue];
                     [[UserDataSingleton userInformation].shoppingArray addObject:model];
                 }
-        }
+            }
         }
     }
     
@@ -2029,6 +2048,7 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
         self.tabBarController.selectedIndex = 3;
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
+    
 }
 #pragma mark - 上榜规则
 -(void)shangbangguize{
@@ -2064,19 +2084,7 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
     }];
     
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

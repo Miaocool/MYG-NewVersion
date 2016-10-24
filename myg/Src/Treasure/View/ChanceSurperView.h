@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ListingModel.h"
+#import "ShoppingModel.h"
 @interface ChanceSurperView : UIView
-
+@property (nonatomic,strong)ShoppingModel *model;
 @end

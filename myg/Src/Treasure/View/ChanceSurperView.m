@@ -11,12 +11,17 @@
 #import "WinRateView.h"
 #import "TheWiningCell.h"
 #import "BettingToolView.h"
+
+
+
+
 @interface ChanceSurperView ()<WinRateViewDelegate,PeopleTimeViewDelegate,UITableViewDelegate,UITableViewDataSource,BettingToolViewDelegate,UIScrollViewDelegate>
 @property (nonatomic,strong)UIScrollView *scrollView;
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *beforeModelArray;
 @property (nonatomic,strong)BettingToolView *bettingToolView;
 @property (nonatomic,assign)CGFloat startOffsetX;
+@property (nonatomic,assign)BOOL isForbidScrollDelegate;
 @end
 @implementation ChanceSurperView
 
@@ -31,21 +36,22 @@ static NSString *const cellID = @"cellID";
     
     self.backgroundColor = [UIColor redColor];
     
-    [self addSubview:self.scrollView];
-
+    UIView *coverView = [[UIView alloc]initWithFrame:self.bounds];
+    [self addSubview:coverView];
+    
     BettingToolView *bettingToolView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([BettingToolView class]) owner:nil options:nil].lastObject;
     bettingToolView.frame = CGRectMake(0, 0, MSW, 40);
     [self addSubview:bettingToolView];
+    [self addSubview:self.scrollView];
+
     bettingToolView.delegate = self;
-    
+    self.bettingToolView = bettingToolView;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([TheWiningCell class]) bundle:nil] forCellReuseIdentifier:cellID];
     
     self.startOffsetX = 0;
 }
 - (UIScrollView *)scrollView{
     if (!_scrollView) {
-        
-        
         
         _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 40, MSW, 304)];
         _scrollView.pagingEnabled = YES;
@@ -99,29 +105,53 @@ static NSString *const cellID = @"cellID";
 }
 #pragma mark -BettingToolViewDelegate
 - (void)bettingToolView:(BettingToolView *)bettingToolView index:(NSInteger)index{
+    _isForbidScrollDelegate = YES;
     
     [_scrollView setContentOffset:CGPointMake(index * MSW, 0) animated:YES];
    
 }
 #pragma mark -UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    DebugLog(@"begin --- %f",scrollView.contentOffset.x);
+//    DebugLog(@"begin --- %f",scrollView.contentOffset.x);
+    _isForbidScrollDelegate = NO;
     self.startOffsetX = scrollView.contentOffset.x;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     DebugLog(@"did --- %f",scrollView.contentOffset.x);
-    
+    if (_isForbidScrollDelegate) {
+        return;
+    }
     NSInteger source = 0;
     NSInteger target = 0;
+    CGFloat progress = 0.0;
     CGFloat contOffsetX = scrollView.contentOffset.x;
     if (contOffsetX > self.startOffsetX) { //左滑
-//        source = 
+        DebugLog(@"左滑");
+        progress = contOffsetX / MSW - floor(MSW);
+        source = (NSInteger)(contOffsetX / MSW);
+        target = source + 1;
+        if (target >= 3) {
+            target = 2;
+        }
+        if (contOffsetX - self.startOffsetX == MSW) {
+            target = source;
+        }
     } else { //右滑
-        
+        DebugLog(@"右滑");
+        progress = 1 - (contOffsetX / MSW - floor(MSW));
+        target = (NSInteger)(contOffsetX / MSW);
+        source = target + 1;
+        if (source >= 3) {
+            source = 2;
+        }
     }
-    
+    [self.bettingToolView setTitleWithSourceIndex:source targetIndex:target progress:progress];
+}
+
+- (void)setModel:(ShoppingModel *)model{
+    _model = model;
 }
 
 #pragma mark - 往期中奖data

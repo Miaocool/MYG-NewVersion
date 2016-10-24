@@ -8,6 +8,17 @@
 
 #import "BettingToolView.h"
 
+typedef enum : NSUInteger {
+    NormalColorR = 4,
+    NormalColorG = 4,
+    NormalColorB = 4,
+} NormalColor;
+typedef enum : NSUInteger {
+    SelectColorR = 201,
+    SelectColorG = 60,
+    SelectColorB = 80,
+} SelectColor;
+
 @interface BettingToolView ()
 /** 经典模式 */
 @property (weak, nonatomic) IBOutlet UIButton *classicsBtn;
@@ -30,37 +41,58 @@
     self.staffBtn.tag = 101;
     self.heighRateBtn.tag = 102;
     _currentTag = 100;
-    [self.classicsBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
+    [self.classicsBtn setTitleColor:[UIColor colorWithHexString:@"#da264d"] forState:UIControlStateNormal];
     [self.classicsBtn addTarget:self action:@selector(allBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.staffBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
     [self.staffBtn addTarget:self action:@selector(allBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.heighRateBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
     [self.heighRateBtn addTarget:self action:@selector(allBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)allBtnAction:(UIButton *)cilck{
     if (cilck.tag == _currentTag) {
         return;
     }else{
+        
+        UIButton *btn = (UIButton *)[self viewWithTag:_currentTag];
+        [btn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
+        
+        
         [cilck setTitleColor:[UIColor colorWithHexString:@"#da264d"] forState:UIControlStateNormal];
+        _currentTag = cilck.tag;
         CGRect frame = _lineView.frame;
         frame.origin.x = cilck.frame.origin.x;
         frame.size.width = cilck.frame.size.width;
         [UIView animateWithDuration:0.2 animations:^{
             _lineView.frame = frame;
         }];
-        UIButton *btn = (UIButton *)[self viewWithTag:_currentTag];
-        [btn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
-        _currentTag = cilck.tag;
+        
     }
+    
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(bettingToolView:index:)]) {
         [self.delegate bettingToolView:self index:_currentTag-100];
     }
 }
-- (void)setTitleWithSourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex{
+- (void)setTitleWithSourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex progress:(CGFloat)progress{
     
-    UIButton *btn = [self viewWithTag:sourceIndex];
+    DebugLog(@"sour: %zd,----tar: %zd",sourceIndex,targetIndex);
+    UIButton *sourceBtn= [self viewWithTag:sourceIndex + 100];
+    UIButton *targetBtn = [self viewWithTag:targetIndex + 100];
     
+    CGRect frame = self.lineView.frame;
+    frame.origin.x = targetBtn.frame.origin.x;
+    [UIView animateWithDuration:0.15 animations:^{
+        self.lineView.frame = frame;
+    }];
+//    NSInteger colorR = SelectColorR - NormalColorR;
+//    NSInteger colorG = SelectColorG - NormalColorG;
+//    NSInteger colorB = SelectColorB - NormalColorB;
+//    [sourceBtn setTitleColor:[UIColor colorWithRed:(SelectColorR - colorR*progress)/255.0 green:(SelectColorG - colorG*progress)/255.0 blue:(SelectColorB - colorB*progress)/255.0 alpha:1.0] forState:UIControlStateNormal];
+//    [targetBtn setTitleColor:[UIColor colorWithRed:(NormalColorR + colorR*progress)/255.0 green:(NormalColorG + colorG*progress)/255.0 blue:(NormalColorB + colorB*progress)/255.0 alpha:1.0]
+    [sourceBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
+    [targetBtn setTitleColor:[UIColor colorWithHexString:@"#da264d"] forState:UIControlStateNormal];
+    _currentTag = targetIndex + 100;
     
 }
 @end

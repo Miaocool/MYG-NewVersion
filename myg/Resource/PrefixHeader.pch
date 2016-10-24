@@ -20,8 +20,9 @@
 //#define APPHost @"http://myg.ishangwai.com/?" //ce
 
 //#define APPHost @"http://pgmyg.miyungou.com/?" //host3
-
+//http://www.miyungou.com/?
 #define APPHost @"http://www.miyungou.com/?" //sheng
+#define DeveHost @"http://192.168.1.188"
 
 
 #define XinLang @"http://lqdb.buguyuan.com" //新浪微博回调

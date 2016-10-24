@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ShoppingModel.h"
+#import "ListingModel.h"
 @interface UserDataSingleton : NSObject
 +(UserDataSingleton *)userInformation;
 
@@ -31,4 +32,5 @@
 @property (nonatomic,strong)NSString *currentVersion;
 @property (nonatomic,strong)NSString *xinVersion;
 @property (nonatomic,strong)ShoppingModel *shopModel;
+@property (nonatomic,strong)ListingModel *listModel;
 @end

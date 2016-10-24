@@ -16,5 +16,5 @@
 
 @interface BettingToolView : UIView
 @property (nonatomic,weak)id<BettingToolViewDelegate>delegate;
-- (void)setTitleWithSourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex;
+- (void)setTitleWithSourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex progress:(CGFloat)progress;
 @end

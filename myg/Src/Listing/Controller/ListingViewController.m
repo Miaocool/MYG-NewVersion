@@ -106,6 +106,9 @@
     self.num = 0;
     [[UserDataSingleton userInformation].shoppingArray enumerateObjectsUsingBlock:^(ShoppingModel *obj, NSUInteger idx, BOOL *stop) {
         self.num += obj.num;
+        
+        
+        
     DebugLog(@"%li",self.num);
     }];
     //总需
