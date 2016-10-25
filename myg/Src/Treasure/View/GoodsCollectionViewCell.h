@@ -14,7 +14,7 @@
 
 @protocol GoodsCollectionViewCellDelegate <NSObject>//协议
 
-- (void)clickCell:(GoodsCollectionViewCell *)cell;//代理方法
+- (void)clickCell:(GoodsCollectionViewCell *)cell model:(GoodsModel *)model;//代理方法
 
 @end
 

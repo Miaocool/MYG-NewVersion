@@ -22,14 +22,12 @@
 
 @implementation HomeCollectionCell
 
-- (instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-        [self setUpUI];
-    }
-    return self;
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    [self setUpUI];
 }
 - (void)setUpUI{
-    
+     
     self.progress.layer.cornerRadius = 5;
     self.progress.userInteractionEnabled = YES;
     self.progress.layer.masksToBounds = YES;
@@ -45,13 +43,20 @@
     //设置进度值并动画显示
     [self.progress setProgress:0.7 animated:YES];
     
+    self.productIcon.userInteractionEnabled = YES;
+    
     self.involveBtn.layer.cornerRadius = 5;
     self.involveBtn.layer.masksToBounds = YES;
-   
+    [self.involveBtn addTarget:self action:@selector(involveBtnAction) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)setGoodsModel:(GoodsModel *)goodsModel{
     _goodsModel = goodsModel;
-       
+     [_productIcon sd_setImageWithURL:[NSURL URLWithString:goodsModel.thumb] placeholderImage:[UIImage imageNamed:DefaultImage]];
+}
+- (void)involveBtnAction{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(homeCollectionCell:button:)]) {
+        [self.delegate homeCollectionCell:self button:nil];
+    }
 }
 
 @end

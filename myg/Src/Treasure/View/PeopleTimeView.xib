@@ -19,6 +19,9 @@
                         <constraint firstAttribute="width" constant="40" id="xgg-zZ-7vg"/>
                     </constraints>
                     <state key="normal" image="jian"/>
+                    <connections>
+                        <action selector="subAction:" destination="w8z-op-eYB" eventType="touchUpInside" id="3Dl-zL-moE"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ui0-Hb-rlj">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,6 +32,9 @@
                     <state key="normal" title="10%">
                         <color key="titleColor" red="0.35070353399999998" green="0.35070353399999998" blue="0.35070353399999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="firstTimeAction:" destination="w8z-op-eYB" eventType="touchUpInside" id="he8-hQ-Uqn"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvA-g6-Srx">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,6 +42,9 @@
                     <state key="normal" title="20%">
                         <color key="titleColor" red="0.2860970223" green="0.2860970223" blue="0.2860970223" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="secendTimeAction:" destination="w8z-op-eYB" eventType="touchUpInside" id="mkZ-5q-hhN"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-cn-k4N">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,6 +52,9 @@
                     <state key="normal" title="25%">
                         <color key="titleColor" red="0.33012925389999997" green="0.33012925389999997" blue="0.33012925389999997" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="thirdTimeAction:" destination="w8z-op-eYB" eventType="touchUpInside" id="kWf-pr-Dca"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbn-Uu-ErR">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +63,9 @@
                         <constraint firstAttribute="width" constant="40" id="tEy-DT-Vwb"/>
                     </constraints>
                     <state key="normal" image="jia"/>
+                    <connections>
+                        <action selector="addAction:" destination="w8z-op-eYB" eventType="touchUpInside" id="T9O-Kr-oIC"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWT-Cu-ucG">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,6 +90,9 @@
                     <state key="normal" title="包尾">
                         <color key="titleColor" red="0.32532995199999998" green="0.32532995199999998" blue="0.32532995199999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="tailTimeAction:" destination="w8z-op-eYB" eventType="touchUpInside" id="qnH-NM-wbP"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-Sw-EVo">
                     <subviews>

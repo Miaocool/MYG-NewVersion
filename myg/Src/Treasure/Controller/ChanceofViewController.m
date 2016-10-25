@@ -9,12 +9,24 @@
 #import "ChanceofViewController.h"
 #import "ChanceSurperView.h"
 #import "BettingToolView.h"
-@interface ChanceofViewController ()
+#import "SettlementModel.h"
+#import "SettlementViewController.h"
+@interface ChanceofViewController ()<ChanceSurperViewDelegate>
 @property (nonatomic,strong)ChanceSurperView *chanceSurperView;
 @property (nonatomic,assign)BOOL isKeyboardVisible;
+
+@property(nonatomic,strong)NSMutableArray *classArray;  //支付方式
+@property(nonatomic,strong)NSMutableArray *zhifuNameArray; //支付名
+@property(nonatomic,strong)NSMutableArray *zhifuTishiArray; //支付小标题
+@property(nonatomic,strong)NSMutableArray *zhifuColorArray; //支付颜色
+@property(nonatomic,strong)NSMutableArray *zhifuImgArray; //支付图片
 @end
 
 @implementation ChanceofViewController
+{
+    int _isback;//是否从结算返回
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,15 +36,24 @@
     // 初始化
     [self setUpUI];
     
+    
+    self.classArray=[NSMutableArray array];
+    self.zhifuNameArray=[NSMutableArray array];
+    self.zhifuColorArray=[NSMutableArray array];
+    self.zhifuImgArray=[NSMutableArray array];
+    self.zhifuTishiArray=[NSMutableArray array];
+    
     DebugLog(@"待处理的数据： %@",[UserDataSingleton userInformation].shopModel);
     [self keyboardNotification];
+    
+    
    
 }
 /** 
  *键盘收起与弹出
  */
 - (void)keyboardNotification{
-   
+    DebugLog(@"aaa");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide) name:UIKeyboardWillHideNotification object:nil];
     
@@ -42,12 +63,17 @@
  */
 - (void)keyboardShow{
     DebugLog(@"keyboard will show");
-    _isKeyboardVisible = YES;
-    CGRect frame =  self.chanceSurperView.frame;
-    frame.origin.y = self.chanceSurperView.frame.origin.y - 100;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.chanceSurperView.frame = frame;
-    }];
+    
+    if (_isKeyboardVisible) {
+        return;
+    }else{
+        CGRect frame =  self.chanceSurperView.frame;
+        frame.origin.y = self.chanceSurperView.frame.origin.y - 100;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.chanceSurperView.frame = frame;
+        }];
+        _isKeyboardVisible = YES;
+    }
 }
 /**
  *隐藏
@@ -56,8 +82,8 @@
     _isKeyboardVisible = NO;
     DebugLog(@"keyboard will hide");
     CGRect frame =  self.chanceSurperView.frame;
-    frame.origin.y = self.chanceSurperView.frame.origin.y + 100;
-    [UIView animateWithDuration:0.3 animations:^{
+    frame.origin.y = MSH - self.chanceSurperView.frame.size.height;
+    [UIView animateWithDuration:0.5 animations:^{
         self.chanceSurperView.frame = frame;
     }];
 }
@@ -86,20 +112,38 @@
    
     
 }
+#pragma mark <ChanceSurperViewDelegate>
+- (void)chanceSurperView:(ChanceSurperView *)chanceSurperView settleModel:(ShoppingModel *)model{
+    
+    [self settlement];
+    
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES];
+    
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     CGRect frame = self.chanceSurperView.frame;
-    frame.origin.y = self.view.bounds.size.height - 344;
+    frame.origin.y = self.view.bounds.size.height - 300;
     [UIView animateWithDuration:0.2 animations:^{
         self.chanceSurperView.frame = frame;
     }];
 }
 - (ChanceSurperView *)chanceSurperView{
     if (!_chanceSurperView) {
-        _chanceSurperView = [[ChanceSurperView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 344)];
+        _chanceSurperView = [[ChanceSurperView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 300)];
+        _chanceSurperView.delegate = self;
     }
     return _chanceSurperView;
 }
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     if (_isKeyboardVisible) {
@@ -119,5 +163,98 @@
     DebugLog(@"%@",[touches anyObject].view);
   
 }
+#pragma mark 结算
+- (void)settlement 
+{
+    __block NSString *settlementString;
+    NSMutableArray *settlementArray = [NSMutableArray array]; //结算array
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+    if ([UserDataSingleton userInformation].isLogin == YES)
+    {
+        //解析数据对象
+            settlementString =  [NSString stringWithFormat:@"{\"shopid\":%@,\"number\":%ld}",[UserDataSingleton userInformation].shopModel.goodsId,(long)[UserDataSingleton userInformation].shopModel.num];
+        NSString *string = [NSString stringWithFormat:@"[%@]",settlementString];
+        DebugLog(@"!!!!!!!!!!!解析%@",string);
+//        [{"shopid":10125,"number":10}]
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setValue:[UserDataSingleton userInformation].uid forKey:@"yhid"];
+        [dict setValue:[UserDataSingleton userInformation].code forKey:@"code"];
+        [dict setValue:string forKey:@"cart"];
+        [dict setValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forKey:@"ver"];
+        [MDYAFHelp AFPostHost:APPHost bindPath:xinjiesuan postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
+            DebugLog(@"====%@ ====%@",responseDic,responseDic[@"msg"]);
+            if ([responseDic[@"code"] isEqualToString:@"302"])
+            {
+                [SVProgressHUD showErrorWithStatus:@"请登录"];
+                
+                LoginViewController *loginVC = [[LoginViewController alloc]init];
+                loginVC.hidesBottomBarWhenPushed=YES;
+                [self.navigationController pushViewController:loginVC animated:YES];
+            }
+            if ([responseDic[@"code"]isEqualToString:@"400"])
+            {
+                [SVProgressHUD showErrorWithStatus:responseDic[@"msg"]];
+            }
+            if ([responseDic[@"code"] isEqualToString:@"200"])
+            {
+                [SVProgressHUD dismiss];
+                
+                [self.classArray removeAllObjects];
+                [self.zhifuNameArray removeAllObjects];
+                [self.zhifuTishiArray removeAllObjects];
+                [self.zhifuColorArray removeAllObjects];
+                [self.zhifuImgArray removeAllObjects];
+                
+                NSDictionary *dict = responseDic[@"data"];
+                SettlementModel *model = [[SettlementModel alloc]initWithDictionary:dict];
+                //                DebugLog(@"===================%@",model.jiage);
+                for (int i=0; i<model.pay_type.count; i++) {
+                    NSDictionary*dic1=[model.pay_type objectAtIndex:i];
+                    [self.classArray addObject:dic1[@"pay_class"]];
+                    [self.zhifuNameArray addObject:dic1[@"pay_name"]];
+                    [self.zhifuTishiArray addObject:dic1[@"tishi"]];
+                    [self.zhifuColorArray addObject:dic1[@"color"]];
+                    [self.zhifuImgArray addObject:dic1[@"img"]];
+                    
+                    DebugLog(@"---->%@",self.classArray);
+                    DebugLog(@"++++>%@",self.zhifuNameArray);
+                }
+                
+                
+                
+                SettlementViewController *settVC = [[SettlementViewController alloc]init];
+                settVC.settModel = model;
+                settVC.goods = string;
+                settVC.totalYue = [NSString stringWithFormat:@"%@",dict[@"totalYue"]];
+                settVC.classArray=self.classArray;
+                settVC.zhifuNameArray=self.zhifuNameArray;
+                settVC.zhifuTishiArray=self.zhifuTishiArray;
+                settVC.zhifuColorArray=self.zhifuColorArray;
+                settVC.zhifuImgArray=self.zhifuImgArray;
+                
+                [self.navigationController pushViewController:settVC animated:YES];
+                _isback=1;
+                
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"请检查您的网络"];
+            [settlementArray removeAllObjects];
+            DebugLog(@"%@",error);
+            NSData *data = [operation responseData];
+            NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+            DebugLog(@"请求下来的数据%@",str);
+        }];
+    }
+    else
+    {
+        [SVProgressHUD dismiss];
+        LoginViewController *loginVC = [[LoginViewController alloc]init];
+        loginVC.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+    
+}
+
 
 @end

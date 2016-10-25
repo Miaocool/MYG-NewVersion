@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "GoodsModel.h"
+@class HomeCollectionCell;
+@protocol HomeCollectionCellDelegate <NSObject>
+
+- (void)homeCollectionCell:(HomeCollectionCell *)homeCollectionCell button:(UIButton *)button;
+
+@end
+
 @interface HomeCollectionCell : UICollectionViewCell
 @property (nonatomic, strong) GoodsModel *goodsModel;
+@property (nonatomic, weak)id<HomeCollectionCellDelegate>delegate;
 @end

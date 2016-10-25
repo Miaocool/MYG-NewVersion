@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		180BBECA1DB7529C00BF9F0F /* HomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BBEC91DB7529C00BF9F0F /* HomeCollectionCell.m */; };
-		180BBECC1DB7540100BF9F0F /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBECB1DB7540100BF9F0F /* HomeCollectionCell.xib */; };
 		180BBECF1DB7629900BF9F0F /* TheWiningCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BBECE1DB7629900BF9F0F /* TheWiningCell.m */; };
 		180BBED11DB762A800BF9F0F /* TheWiningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBED01DB762A800BF9F0F /* TheWiningCell.xib */; };
 		180BBED41DB7693100BF9F0F /* BettingToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BBED31DB7693100BF9F0F /* BettingToolView.m */; };
@@ -38,6 +37,7 @@
 		18A41F261DB5AC69000F4E27 /* RedPageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */; };
 		18A41F271DB5AC69000F4E27 /* RegisterRedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */; };
 		18B7BBD11DA8EAD000C8B98E /* MygappInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */; };
+		18BF9EB81DBF52820009A3A7 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */; };
 		18FAEC601D9E0C89002C3D2A /* jpush-ios-2.1.9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FAEC5E1D9E0C89002C3D2A /* jpush-ios-2.1.9.a */; };
 		18FAEC621D9E0D71002C3D2A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FAEC611D9E0D71002C3D2A /* CFNetwork.framework */; };
 		18FAEC641D9E0D87002C3D2A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FAEC631D9E0D87002C3D2A /* CoreFoundation.framework */; };
@@ -431,7 +431,6 @@
 /* Begin PBXFileReference section */
 		180BBEC81DB7529C00BF9F0F /* HomeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionCell.h; sourceTree = "<group>"; };
 		180BBEC91DB7529C00BF9F0F /* HomeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionCell.m; sourceTree = "<group>"; };
-		180BBECB1DB7540100BF9F0F /* HomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
 		180BBECD1DB7629900BF9F0F /* TheWiningCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheWiningCell.h; sourceTree = "<group>"; };
 		180BBECE1DB7629900BF9F0F /* TheWiningCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheWiningCell.m; sourceTree = "<group>"; };
 		180BBED01DB762A800BF9F0F /* TheWiningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheWiningCell.xib; sourceTree = "<group>"; };
@@ -489,6 +488,7 @@
 		18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterRedPageView.m; sourceTree = "<group>"; };
 		18B7BBCF1DA8EAD000C8B98E /* MygappInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MygappInfoModel.h; sourceTree = "<group>"; };
 		18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MygappInfoModel.m; sourceTree = "<group>"; };
+		18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
 		18FAEC5E1D9E0C89002C3D2A /* jpush-ios-2.1.9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.9.a"; sourceTree = "<group>"; };
 		18FAEC5F1D9E0C89002C3D2A /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		18FAEC611D9E0D71002C3D2A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -2128,7 +2128,7 @@
 				2290DBF21C0444D200FD1A14 /* WinningViewCell.m */,
 				180BBEC81DB7529C00BF9F0F /* HomeCollectionCell.h */,
 				180BBEC91DB7529C00BF9F0F /* HomeCollectionCell.m */,
-				180BBECB1DB7540100BF9F0F /* HomeCollectionCell.xib */,
+				18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */,
 				180BBECD1DB7629900BF9F0F /* TheWiningCell.h */,
 				180BBECE1DB7629900BF9F0F /* TheWiningCell.m */,
 				180BBED01DB762A800BF9F0F /* TheWiningCell.xib */,
@@ -3154,6 +3154,7 @@
 				D864156D1C06D8F7008D3A88 /* states02.png in Resources */,
 				191DD47F1C085716003CABD8 /* Address.plist in Resources */,
 				180BBED11DB762A800BF9F0F /* TheWiningCell.xib in Resources */,
+				18BF9EB81DBF52820009A3A7 /* HomeCollectionCell.xib in Resources */,
 				18829E531DB88C7700F4A963 /* Info.plist in Resources */,
 				D84FDC5F1C12CD8700E26DE2 /* egopv_photo_placeholder.png in Resources */,
 				D883080F1C1291AA00705EC0 /* AlipaySDK.bundle in Resources */,
@@ -3178,7 +3179,6 @@
 				D84FDC611C12CD8700E26DE2 /* egopv_right.png in Resources */,
 				19BF123A1BF0345000018261 /* LaunchScreen.xib in Resources */,
 				D864156C1C06D8F7008D3A88 /* states01.png in Resources */,
-				180BBECC1DB7540100BF9F0F /* HomeCollectionCell.xib in Resources */,
 				19595AF81BF1E2DC004B983F /* image3.png in Resources */,
 				1971FAA91C1187BE00FEF145 /* MBProgressHUD.bundle in Resources */,
 				19595AF71BF1E2DC004B983F /* image2.png in Resources */,
@@ -3715,9 +3715,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = myg/myg.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: chunqing wang (X69Y3Y446P)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: chunqing wang (X69Y3Y446P)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: chunqing wang (X69Y3Y446P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: chunqing wang (4CU2T68XK7)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: chunqing wang (4CU2T68XK7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chunqing wang (4CU2T68XK7)";
 				DEVELOPMENT_TEAM = X69Y3Y446P;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -3755,8 +3755,8 @@
 				PODS_ROOT = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bxsapp.myg;
 				PRODUCT_NAME = myg;
-				PROVISIONING_PROFILE = "49057ab1-c512-4859-bd50-a882eb74798d";
-				PROVISIONING_PROFILE_SPECIFIER = myg_dis;
+				PROVISIONING_PROFILE = "62667d87-3863-4c1b-a4b2-231a6284234d";
+				PROVISIONING_PROFILE_SPECIFIER = myg_dev;
 			};
 			name = Debug;
 		};
@@ -3767,8 +3767,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = myg/myg.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: chunqing wang (X69Y3Y446P)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: chunqing wang (X69Y3Y446P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: chunqing wang (4CU2T68XK7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chunqing wang (4CU2T68XK7)";
 				DEVELOPMENT_TEAM = X69Y3Y446P;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -3806,8 +3806,8 @@
 				PODS_ROOT = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bxsapp.myg;
 				PRODUCT_NAME = myg;
-				PROVISIONING_PROFILE = "49057ab1-c512-4859-bd50-a882eb74798d";
-				PROVISIONING_PROFILE_SPECIFIER = myg_dis;
+				PROVISIONING_PROFILE = "62667d87-3863-4c1b-a4b2-231a6284234d";
+				PROVISIONING_PROFILE_SPECIFIER = myg_dev;
 			};
 			name = Release;
 		};

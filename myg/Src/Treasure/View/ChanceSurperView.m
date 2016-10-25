@@ -53,7 +53,7 @@ static NSString *const cellID = @"cellID";
 - (UIScrollView *)scrollView{
     if (!_scrollView) {
         
-        _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 40, MSW, 304)];
+        _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 40, MSW, 260)];
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;
         _scrollView.contentSize = CGSizeMake(MSW * 3, 0);
@@ -62,13 +62,13 @@ static NSString *const cellID = @"cellID";
 
         
         WinRateView *rateView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([WinRateView class]) owner:nil options:nil].lastObject;
-        rateView.frame = CGRectMake(0, 0, MSW, 309);
+        rateView.frame = CGRectMake(MSW * 2, 0, MSW, _scrollView.frame.size.height);
         rateView.delegate = self;
         [_scrollView addSubview:rateView];
         
         PeopleTimeView *peopleTimeView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PeopleTimeView class]) owner:nil options:nil].lastObject;
         peopleTimeView.delegate = self;
-        peopleTimeView.frame = CGRectMake(MSW, 0, MSW, 309);
+        peopleTimeView.frame = CGRectMake(0, 0, MSW, _scrollView.frame.size.height);
         [_scrollView addSubview:peopleTimeView];
         
         [_scrollView addSubview:_tableView];
@@ -79,7 +79,7 @@ static NSString *const cellID = @"cellID";
 }
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(MSW*2, 0, MSW, 309) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(MSW, 0, MSW, 260) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         
@@ -88,11 +88,17 @@ static NSString *const cellID = @"cellID";
 }
 #pragma mark -WinRateViewDelegate
 - (void)winRateView:(WinRateView *)winRateView goodModel:(ShoppingModel *)good{
+    DebugLog(@"%zd,%@",good.num,good.goodsId);
     
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(chanceSurperView:settleModel:)]) {
+        [self.delegate chanceSurperView:self settleModel:good];
+    }
 }
 #pragma mark -PeopleTimeViewDelegate
 - (void)peopleTimeView:(PeopleTimeView *)peopleTimeView good:(ShoppingModel *)good{
-    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(chanceSurperView:settleModel:)]) {
+        [self.delegate chanceSurperView:self settleModel:good];
+    }
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

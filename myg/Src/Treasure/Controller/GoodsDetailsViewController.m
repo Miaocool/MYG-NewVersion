@@ -1912,6 +1912,8 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
 {
     ChanceofViewController *chanceofVC = [ChanceofViewController new];
     
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:chanceofVC];
+    
     ShoppingModel *model = [[ShoppingModel alloc]init];
     model.goodsId = _model.idd;
     model.num = [_model.minNumber integerValue];
@@ -1922,9 +1924,10 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
     listM.shengyurenshu = [NSString stringWithFormat:@"%zd",[_model.zongrenshu integerValue] - [_model.canyurenshu integerValue]];
     listM.shopid = _model.idd;
     listM.title = _model.title;
+//    listM
     [UserDataSingleton userInformation].listModel = listM;
-    chanceofVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:chanceofVC animated:NO completion:nil];
+    nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:nav animated:NO completion:nil];
 }
 - (void)aaa{
     

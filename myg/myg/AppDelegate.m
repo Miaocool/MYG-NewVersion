@@ -397,12 +397,12 @@
     foundNav.tabBarItem = tabBar3;
     
     
-    self.listingVC= [[ListingViewController alloc]init];
-    self.listingVC.title = @"清单";
-    NavViewController *listingNav = [[NavViewController alloc]initWithRootViewController:self.listingVC];
-    self.tabBar5 = [[UITabBarItem alloc]initWithTitle:@"清单" image: [UIImage imageNamed:@"tabbar_cart (6)"]selectedImage: [UIImage imageNamed:@"tabbar_selected (9)"]];
-    
-    listingNav.tabBarItem = self.tabBar5;
+//    self.listingVC= [[ListingViewController alloc]init];
+//    self.listingVC.title = @"清单";
+//    NavViewController *listingNav = [[NavViewController alloc]initWithRootViewController:self.listingVC];
+//    self.tabBar5 = [[UITabBarItem alloc]initWithTitle:@"清单" image: [UIImage imageNamed:@"tabbar_cart (6)"]selectedImage: [UIImage imageNamed:@"tabbar_selected (9)"]];
+//    
+////    listingNav.tabBarItem = self.tabBar5;
     
     MyViewController *myVC = [[MyViewController alloc]init];
     myVC.title = @"我的";
@@ -413,7 +413,8 @@
     
     UITabBarController *tabBar = [[UITabBarController alloc]init];
     
-    [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,listingNav,myNav]];
+//    [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,listingNav,myNav]];
+    [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,myNav]];
      [tabBar.tabBar setTintColor:MainColor];
    
     self.window.rootViewController = tabBar;

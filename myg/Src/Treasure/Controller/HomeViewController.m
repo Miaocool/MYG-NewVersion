@@ -48,8 +48,10 @@
 #import "RegisteredViewController.h"
 #import "MyRedViewController.h"
 #import "WinRateView.h"
+#import "TheWiningCell.h"
+#import "HomeCollectionCell.h"
 typedef void (^VersionBlock)(NSString *);
-@interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,HeadlineScrollviewDelegate,GoodsCollectionViewCellDelegate,UIScrollViewDelegate, CloseTipViewDelegate>{
+@interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,HeadlineScrollviewDelegate,GoodsCollectionViewCellDelegate,UIScrollViewDelegate, CloseTipViewDelegate,HomeCollectionCellDelegate>{
     NSInteger       _timedata; //时间计时
     
     NSString                *_url;      //下载页url
@@ -1396,6 +1398,8 @@ static NSString *collectionCellName2 = @"collectionCell";
 {
     UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc] init];
     layOut.itemSize = CGSizeMake(MSW / 2, 70+MSW/2);
+    layOut.minimumLineSpacing = 0.5;
+    layOut.minimumInteritemSpacing = 0.5;
     if (!self.collectionView)
     {
         self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, MSW, MSH - 64 - 44) collectionViewLayout:layOut];
@@ -1403,6 +1407,7 @@ static NSString *collectionCellName2 = @"collectionCell";
         self.collectionView.delegate = self;
         self.collectionView.backgroundColor = [UIColor whiteColor];
         [self.collectionView registerClass:[GoodsCollectionViewCell class] forCellWithReuseIdentifier:collectionCellName];
+//        [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"HomeCollectionCell"];
         self.collectionView.scrollEnabled = YES;
         self.collectionView.tag = 1;
         [self.view addSubview:self.collectionView];
@@ -1450,7 +1455,7 @@ static NSString *collectionCellName2 = @"collectionCell";
         
         return cell;
     }else{
-        GoodsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellName forIndexPath:indexPath];
+         GoodsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellName forIndexPath:indexPath];
         cell.backgroundColor = [UIColor whiteColor];
         
         cell.delegate = self;
@@ -1460,7 +1465,13 @@ static NSString *collectionCellName2 = @"collectionCell";
     }
     
 }
-
+#pragma mark <HomeCellDelegate>
+- (void)homeCollectionCell:(HomeCollectionCell *)homeCollectionCell button:(UIButton *)button{
+    
+    
+    
+    
+}
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -1523,30 +1534,37 @@ static NSString *collectionCellName2 = @"collectionCell";
 
 
 #pragma mark 购物车动画
-- (void)clickCell:(GoodsCollectionViewCell *)cell
+- (void)clickCell:(GoodsCollectionViewCell *)cell model:(GoodsModel *)model
 {
-    //用坐标转化就将传出来的按钮左边转换为相对self.view的坐标
-    CGRect rect = [cell.goodsImageView convertRect:cell.goodsImageView.bounds toView:self.view];
-    //创建一个视图，模拟购物图片
-    UIImageView *someThing = [[UIImageView alloc]initWithFrame:CGRectMake(rect.origin.x, rect.origin.y+64, MSW/2-20, MSW/2-20)];
-    someThing.layer.cornerRadius = 10;
+//    //用坐标转化就将传出来的按钮左边转换为相对self.view的坐标
+//    CGRect rect = [cell.goodsImageView convertRect:cell.goodsImageView.bounds toView:self.view];
+//    //创建一个视图，模拟购物图片
+//    UIImageView *someThing = [[UIImageView alloc]initWithFrame:CGRectMake(rect.origin.x, rect.origin.y+64, MSW/2-20, MSW/2-20)];
+//    someThing.layer.cornerRadius = 10;
+//    
+//    someThing.image  = cell.goodsImageView.image;
+//    someThing.backgroundColor=[UIColor clearColor];
+//    //加入到父视图
+//    //[self.view addSubview:someThing];
+//    [[UIApplication sharedApplication].keyWindow addSubview:someThing];
+//    
+//    UITabBar *tabBar = self.tabBarController.tabBar;
+//    
+//    //动画改变坐标
+//    [UIView animateWithDuration:1 animations:^{
+//        someThing.frame = CGRectMake(tabBar.frame.origin.x + IPhone4_5_6_6P(215, 215, 250, 280),tabBar.frame.origin.y ,20,20);
+//        
+//    } completion:^(BOOL finished) {
+//        [someThing removeFromSuperview];
+//    }];
     
-    someThing.image  = cell.goodsImageView.image;
-    someThing.backgroundColor=[UIColor clearColor];
-    //加入到父视图
-    //[self.view addSubview:someThing];
-    [[UIApplication sharedApplication].keyWindow addSubview:someThing];
+    GoodsDetailsViewController *detailsVC = [[GoodsDetailsViewController alloc]init];
+    detailsVC.tiaozhuantype = 1;
     
-    UITabBar *tabBar = self.tabBarController.tabBar;
     
-    //动画改变坐标
-    [UIView animateWithDuration:1 animations:^{
-        someThing.frame = CGRectMake(tabBar.frame.origin.x + IPhone4_5_6_6P(215, 215, 250, 280),tabBar.frame.origin.y ,20,20);
-        
-    } completion:^(BOOL finished) {
-        [someThing removeFromSuperview];
-    }];
-    
+    detailsVC.idd = model.idd;
+    detailsVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailsVC animated:YES];
     
 }
 -(void)gotolatesannounce{

@@ -40,13 +40,7 @@
      _shiyuan.image=[UIImage imageNamed:@"3-1"];
     [_goodsImageView addSubview:_shiyuan];
     
-    
-    
-    
-    
-    
-    
-    
+
     self.goodsTieleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, self.goodsImageView.frame.size.height + 25, self.frame.size.width - 20, 30)];
     self.goodsTieleLabel.font = [UIFont systemFontOfSize:MiddleFont];
     self.goodsTieleLabel.numberOfLines = 0;
@@ -63,7 +57,7 @@
 //
     self.lbzong = [[UILabel alloc]initWithFrame:CGRectMake(10, self.goodsTieleLabel.frame.origin.y + self.goodsTieleLabel.frame.size.height +5 , 8*12-5, 12)];
     self.lbzong.font = [UIFont systemFontOfSize:MiddleFont];
-    self.lbzong.text = @"总需：";
+    self.lbzong.text = @"开奖进度：";
     self.lbzong.textColor=RGBCOLOR(153, 154, 155);
     [self addSubview:self.lbzong];
     
@@ -84,7 +78,7 @@
     self.progressView =[[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
     //设置的高度对进度条的高度没影响，整个高度=进度条的高度，进度条也是个圆角矩形
     //但slider滑动控件：设置的高度对slider也没影响，但整个高度=设置的高度，可以设置背景来检验
-    self.progressView.frame=CGRectMake(10, self.lotteryLabel.frame.size.height + self.lotteryLabel.frame.origin.y + 5, self.frame.size.width - 50-5, 20);
+    self.progressView.frame=CGRectMake(10, self.lotteryLabel.frame.size.height + self.lotteryLabel.frame.origin.y + 5, self.frame.size.width - 50-10, 20);
     //设置进度条颜色
     
     self.progressView.trackTintColor= RGBCOLOR(154, 155, 156);
@@ -111,13 +105,14 @@
     [self addSubview:self.progressView];
 
     self.goodsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.goodsButton.frame = CGRectMake(self.frame.size.width - 40, self.lotteryLabel.frame.origin.y,35 , 35);
+    self.goodsButton.frame = CGRectMake(self.frame.size.width - 45, self.lotteryLabel.frame.origin.y+5,40 , 25);
     self.goodsButton.titleLabel.font = [UIFont systemFontOfSize:BigFont];
-//    self.goodsButton.layer.cornerRadius = 6;
-//    self.goodsButton.layer.borderWidth = 0.5;
-//    self.goodsButton.layer.borderColor = MainColor.CGColor;
-    [self.goodsButton setBackgroundImage:[UIImage imageNamed:@"icon_addcart"] forState:UIControlStateNormal];
+    self.goodsButton.layer.cornerRadius = 6;
+    self.goodsButton.layer.borderWidth = 0.5;
+    self.goodsButton.layer.borderColor = [UIColor colorWithHexString:@"#de2f50"].CGColor;
+//    [self.goodsButton setBackgroundImage:[UIImage imageNamed:@"icon_addcart"] forState:UIControlStateNormal];
     [self.goodsButton setTitleColor:MainColor forState:UIControlStateNormal];
+    [self.goodsButton setTitle:@"参与" forState:UIControlStateNormal];
     [self.goodsButton addTarget:self action:@selector(addShopping) forControlEvents:UIControlEventTouchDown];
     [self addSubview:self.goodsButton];
 }
@@ -125,7 +120,7 @@
 #pragma mark - 加入购物车
 - (void)addShopping
 {
-    [self.delegate clickCell:self];
+    [self.delegate clickCell:self model:_goodsModel];
     if ([UserDataSingleton userInformation].shoppingArray.count == 0)
     {
         
@@ -279,6 +274,10 @@
 {
     _goodsModel = goodsModel;
     
+    
+    NSInteger baifenbi = [goodsModel.canyurenshu floatValue] * 100 / [goodsModel.zongrenshu floatValue];
+    _lotteryLabel.text = [NSString stringWithFormat:@"开奖进度：%ld%%",(long)baifenbi];
+    
     NSDictionary* style1 = @{@"body" :
                                  @[
                                      [UIColor grayColor]],
@@ -287,7 +286,7 @@
                                      ]};
 
     
-    _lbzong.text=[NSString stringWithFormat:@"总需：%@",_goodsModel.zongrenshu];
+    _lbzong.text=[NSString stringWithFormat:@"开奖进度：%ld%%",(long)baifenbi];
     
     int zongshu=[_goodsModel.zongrenshu intValue];
     int canyu=[_goodsModel.canyurenshu intValue];
@@ -298,8 +297,6 @@
     
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.thumb] placeholderImage:[UIImage imageNamed:DefaultImage]];
     _goodsTieleLabel.text = goodsModel.title;
-    NSInteger baifenbi = [goodsModel.canyurenshu floatValue] * 100 / [goodsModel.zongrenshu floatValue];
-    _lotteryLabel.text = [NSString stringWithFormat:@"开奖进度：%ld%%",(long)baifenbi];
     
     float a = [goodsModel.canyurenshu floatValue]  / [goodsModel.zongrenshu floatValue];
     _progressView.progress = a;
