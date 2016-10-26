@@ -26,8 +26,12 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UIButton *staffBtn;
 /** 高中奖率模式 */
 @property (weak, nonatomic) IBOutlet UIButton *heighRateBtn;
-@property (weak, nonatomic) IBOutlet UIView *lineView;
+
 @property (nonatomic,assign)NSInteger currentTag;
+
+
+@property (nonatomic,assign)CGFloat lineViewX;
+@property (nonatomic,assign)CGFloat lineViewW;
 @end
 
 @implementation BettingToolView
@@ -47,6 +51,12 @@ typedef enum : NSUInteger {
     [self.staffBtn addTarget:self action:@selector(allBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.heighRateBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
     [self.heighRateBtn addTarget:self action:@selector(allBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide) name:UIKeyboardWillHideNotification object:nil];
+    
     
 }
 
@@ -74,6 +84,14 @@ typedef enum : NSUInteger {
         [self.delegate bettingToolView:self index:_currentTag-100];
     }
 }
+
+- (void)changeSecendBtnStateWith:(NSInteger)tag{
+    
+    UIButton *button = [self viewWithTag:tag];
+    
+    [self allBtnAction:button];
+}
+
 - (void)setTitleWithSourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex progress:(CGFloat)progress{
     
     DebugLog(@"sour: %zd,----tar: %zd",sourceIndex,targetIndex);
@@ -94,5 +112,31 @@ typedef enum : NSUInteger {
     [targetBtn setTitleColor:[UIColor colorWithHexString:@"#da264d"] forState:UIControlStateNormal];
     _currentTag = targetIndex + 100;
     
+}
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    DebugLog(@"%f",self.lineView.frame.origin.x);
+    
+    CGRect frame = self.lineView.frame;
+    frame.origin.x = self.lineViewX;
+    frame.size.width = self.lineViewW;
+    self.lineView.frame = frame;
+    
+    
+}
+- (void)keyboardShow{
+    DebugLog(@"--show");
+    
+    DebugLog(@"%f",self.lineView.frame.origin.x);
+    
+    self.lineViewX = self.lineView.frame.origin.x;
+    self.lineViewW = self.lineView.frame.size.width;
+}
+- (void)keyboardHide{
+    DebugLog(@"--hide");
+    
+    self.lineViewX = self.lineView.frame.origin.x;
+    self.lineViewW = self.lineView.frame.size.width;
 }
 @end

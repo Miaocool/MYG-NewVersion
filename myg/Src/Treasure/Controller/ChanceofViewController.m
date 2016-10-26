@@ -11,6 +11,8 @@
 #import "BettingToolView.h"
 #import "SettlementModel.h"
 #import "SettlementViewController.h"
+#import "BeforeModel.h"
+
 @interface ChanceofViewController ()<ChanceSurperViewDelegate>
 @property (nonatomic,strong)ChanceSurperView *chanceSurperView;
 @property (nonatomic,assign)BOOL isKeyboardVisible;
@@ -20,6 +22,7 @@
 @property(nonatomic,strong)NSMutableArray *zhifuTishiArray; //支付小标题
 @property(nonatomic,strong)NSMutableArray *zhifuColorArray; //支付颜色
 @property(nonatomic,strong)NSMutableArray *zhifuImgArray; //支付图片
+@property (assign,nonatomic)NSInteger num;
 @end
 
 @implementation ChanceofViewController
@@ -46,7 +49,7 @@
     DebugLog(@"待处理的数据： %@",[UserDataSingleton userInformation].shopModel);
     [self keyboardNotification];
     
-    
+    [self refreshData];
    
 }
 /** 
@@ -56,7 +59,9 @@
     DebugLog(@"aaa");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide) name:UIKeyboardWillHideNotification object:nil];
-    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide) name:UIKeyboardDidHideNotification object:nil];
+//    
 }
 /** 
  *弹出
@@ -64,13 +69,17 @@
 - (void)keyboardShow{
     DebugLog(@"keyboard will show");
     
+    
     if (_isKeyboardVisible) {
         return;
     }else{
         CGRect frame =  self.chanceSurperView.frame;
         frame.origin.y = self.chanceSurperView.frame.origin.y - 100;
+        DebugLog(@"%f",self.chanceSurperView.frame.origin.x);
         [UIView animateWithDuration:0.3 animations:^{
+            DebugLog(@"%f",self.chanceSurperView.frame.origin.x);
             self.chanceSurperView.frame = frame;
+            DebugLog(@"%f",self.chanceSurperView.frame.origin.x);
         }];
         _isKeyboardVisible = YES;
     }
@@ -89,7 +98,6 @@
 }
 
 
-
 /**
  *UI初始化
  */
@@ -106,8 +114,13 @@
      zongrenshu = 3959;
      }
      */
+    
+    
     self.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
     [self.view addSubview:self.chanceSurperView];
+    
+    
+    
     
    
     
@@ -131,14 +144,14 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     CGRect frame = self.chanceSurperView.frame;
-    frame.origin.y = self.view.bounds.size.height - 300;
+    frame.origin.y = self.view.bounds.size.height - 340;
     [UIView animateWithDuration:0.2 animations:^{
         self.chanceSurperView.frame = frame;
     }];
 }
 - (ChanceSurperView *)chanceSurperView{
     if (!_chanceSurperView) {
-        _chanceSurperView = [[ChanceSurperView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 300)];
+        _chanceSurperView = [[ChanceSurperView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 340)];
         _chanceSurperView.delegate = self;
     }
     return _chanceSurperView;
@@ -162,6 +175,64 @@
     }
     DebugLog(@"%@",[touches anyObject].view);
   
+}
+- (void)refreshData
+{
+    
+    self.num = 1;
+    
+    NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
+    [dict1 setValue:[UserDataSingleton userInformation].sid forKey:@"sid"];
+    [MDYAFHelp AFPostHost:APPHost bindPath:Before postParam:dict1 getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic)  {
+        
+        DebugLog(@"------%@",responseDic);
+        
+        [self refreshSuccessful:responseDic];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+- (void)refreshSuccessful:(id)data
+{
+//    [self.beforeModelArray removeAllObjects];
+    
+    NSMutableArray *modelArray = [NSMutableArray array];
+    
+    if ([data isKindOfClass:[NSDictionary class]])
+    {
+        if([data[@"code"] isEqualToString:@"200"])
+        {
+            NSArray *array = data[@"data"];
+            
+            if (array.count >=3) {
+                for (NSInteger i = 0; i<3; i++) {
+                    
+                    BeforeModel  *model = [[BeforeModel alloc]initWithDictionary:array[i]];
+                    if (![model.status isEqualToString:@"0"]) {
+                        [modelArray addObject:model];
+                    }
+                }
+                _chanceSurperView.beforeModelArray = modelArray;
+
+            }else{
+                for (NSInteger i = 0; i<array.count; i++) {
+                    
+                    BeforeModel  *model = [[BeforeModel alloc]initWithDictionary:array[i]];
+                    if (![model.status isEqualToString:@"0"]) {
+                        [modelArray addObject:model];
+                    }
+                }
+                _chanceSurperView.beforeModelArray = modelArray;
+ 
+            }
+            
+            
+            
+        }
+    }
+    if ([data[@"code"] isEqualToString:@"400"])
+    {
+    }
 }
 #pragma mark 结算
 - (void)settlement 

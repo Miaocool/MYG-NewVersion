@@ -273,8 +273,8 @@
             }];
             
             //通知 改变徽标个数
-            NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-            [[NSNotificationCenter defaultCenter] postNotification:notification];
+//            NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//            [[NSNotificationCenter defaultCenter] postNotification:notification];
             self.num = 0;
             [[UserDataSingleton userInformation].shoppingArray enumerateObjectsUsingBlock:^(ShoppingModel *obj, NSUInteger idx, BOOL *stop) {
                 self.num += obj.num;
@@ -766,8 +766,8 @@ ListingModel*model=[_dataArray objectAtIndex:index];
         _isDelete = NO;
         self.deleteView. hidden = YES;
         //通知 改变徽标个数
-        NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+//        NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//        [[NSNotificationCenter defaultCenter] postNotification:notification];
         self.numLabel.text = [NSString stringWithFormat:@"共%ld件商品",[UserDataSingleton userInformation].shoppingArray.count];
         
         if ([UserDataSingleton userInformation].shoppingArray.count == 0)

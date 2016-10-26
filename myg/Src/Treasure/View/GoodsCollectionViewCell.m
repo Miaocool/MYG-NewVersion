@@ -266,8 +266,8 @@
 
     
     //通知 改变徽标个数
-    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 - (void)setGoodsModel:(GoodsModel *)goodsModel

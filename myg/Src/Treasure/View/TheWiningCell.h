@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GoodsModel.h"
+#import "BeforeModel.h"
 @class TheWiningCell;
 
 @protocol TheWiningCellDelegate <NSObject>
 
-- (void)theWiningCell:(TheWiningCell *)theWiningCell button:(UIButton *)button;
+- (void)theWiningCell:(TheWiningCell *)theWiningCell button:(UIButton *)button oldPtime:(NSString *)oldptime oldRate:(NSString *)oldrate;
 
 @end
 
 @interface TheWiningCell : UITableViewCell
-@property (nonatomic, strong) GoodsModel *goodsModel;
+@property (nonatomic, strong) BeforeModel *model;
+@property (weak,nonatomic)id<TheWiningCellDelegate>delegate;
 @end

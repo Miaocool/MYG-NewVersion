@@ -118,8 +118,8 @@
         lbcount.hidden=YES;
     }
     
-    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithCustomView:message];
-    self.navigationItem.rightBarButtonItem = rightBtn;
+//    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithCustomView:message];
+//    self.navigationItem.rightBarButtonItem = rightBtn;
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openJiangResult) name:@"openJiang" object:nil];
@@ -346,7 +346,7 @@
         UIButton*carimgBtn=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, 35, 35)];
         [carimgBtn addTarget:self action:@selector(pushShopping) forControlEvents:UIControlEventTouchUpInside];
         [carimgBtn setBackgroundImage:[UIImage imageNamed:@"icon_addcart"] forState:UIControlStateNormal];
-        [_carview addSubview:carimgBtn];
+//        [_carview addSubview:carimgBtn];
     
     }else{
         
@@ -661,9 +661,9 @@
         
     }
     //通知 改变徽标个数
-    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
-    
+//    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    
     
     [self closeAction];
     
@@ -1926,6 +1926,7 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
     listM.title = _model.title;
 //    listM
     [UserDataSingleton userInformation].listModel = listM;
+    [UserDataSingleton userInformation].sid = _model.sid;
     nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:nav animated:NO completion:nil];
 }
@@ -2042,8 +2043,8 @@ if ([_model.type isEqualToString:@"倒计时"]||[_model.type isEqualToString:@"�
     }
     
     //通知 改变徽标个数
-    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
     
     if (iscart==1) {
         

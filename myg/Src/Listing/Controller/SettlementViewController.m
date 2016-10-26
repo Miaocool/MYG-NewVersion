@@ -1082,8 +1082,8 @@
             [[UserDataSingleton userInformation].shoppingArray removeAllObjects];
             
             //通知 改变徽标个数
-            NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-            [[NSNotificationCenter defaultCenter] postNotification:notification];
+//            NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//            [[NSNotificationCenter defaultCenter] postNotification:notification];
             
         }
         else{
@@ -1105,8 +1105,8 @@
     self.tabBarController.selectedIndex = 0;
     
     // 通知 改变徽标个数
-    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
     
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

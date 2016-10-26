@@ -23,40 +23,154 @@
 
 @implementation WinRateView
 
-- (IBAction)firstRateAction:(id)sender {
+- (IBAction)firstRateAction:(UIButton *)sender {
     
-    
-    
-}
-- (IBAction)secendRateAction:(id)sender {
-    
-    
+    [self calculatePtimeWith:sender];
     
 }
-- (IBAction)thirdRateAction:(id)sender {
+- (IBAction)secendRateAction:(UIButton *)sender {
     
-    
-    
-}
-- (IBAction)tailRateAction:(id)sender {
-    
+    [self calculatePtimeWith:sender];
     
 }
-
-- (IBAction)subBtnAction:(id)sender {
+- (IBAction)thirdRateAction:(UIButton *)sender {
     
+    [self calculatePtimeWith:sender];
+    
+}
+- (IBAction)tailRateAction:(UIButton *)sender {
+    [self calculatePtimeWith:sender];
     
 }
 
-- (IBAction)addBtnAction:(id)sender {
+- (IBAction)subBtnAction:(UIButton *)sender {
     
+    CGFloat currentRate = [self.rateText.text floatValue];
+    currentRate--;
     
-    
-    
-    
+    if (self.lowValue < 0.01) {
+        [SVProgressHUD showErrorWithStatus:@"请到经典模式购买!"];
+    }else{
+        if (currentRate == 0) {
+            [SVProgressHUD showErrorWithStatus:@"不能低于最小人次!"];
+            self.rateText.text = @"1%";
+        }else{
+            if (currentRate == [self.fisrtRateBtn.titleLabel.text floatValue]) {
+                [self createLayerBoardLineWith:self.fisrtRateBtn];
+            }else{
+                [self createNormalBoardLineWith:self.fisrtRateBtn];
+            }
+            if (currentRate == [self.secendRateBtn.titleLabel.text floatValue]){
+                [self createLayerBoardLineWith:self.secendRateBtn];
+            }else {
+                [self createNormalBoardLineWith:self.secendRateBtn];
+            }
+            if (currentRate == [self.thirdRateBtn.titleLabel.text floatValue]){
+                [self createLayerBoardLineWith:self.thirdRateBtn];
+            }else{
+                [self createNormalBoardLineWith:self.thirdRateBtn];
+            }
+            if (currentRate * 0.01 < self.lowValue) {
+                [self createNormalBoardLineWith:self.tailRateBtn];
+            }else{
+                
+            }
+            
+            self.rateText.text = [NSString stringWithFormat:@"%.f%%",currentRate];
+        }
+        
+        [self calculatePtimWithRate:self.rateText.text];
+        
+    }
 }
-
-
+- (IBAction)addBtnAction:(UIButton *)sender {
+    CGFloat currentRate = [self.rateText.text floatValue];
+    currentRate++;
+    
+    if (self.lowValue < 0.01) {
+        [SVProgressHUD showErrorWithStatus:@"请到经典模式购买!"];
+    }else{
+        if (currentRate * 0.01 >= self.lowValue) {
+            self.rateText.text = [NSString stringWithFormat:@"%.f%%",self.lowValue * 100];
+            [self createLayerBoardLineWith:self.tailRateBtn];
+            self.sumRate.text = [NSString stringWithFormat:@"%@  人次",[UserDataSingleton userInformation].listModel.shengyurenshu];
+            [SVProgressHUD showSuccessWithStatus2:@"已包尾!"];
+        }else{
+            if (currentRate == [self.fisrtRateBtn.titleLabel.text floatValue]) {
+                [self createLayerBoardLineWith:self.fisrtRateBtn];
+            }else{
+                [self createNormalBoardLineWith:self.fisrtRateBtn];
+            }
+                if (currentRate == [self.secendRateBtn.titleLabel.text floatValue]){
+                [self createLayerBoardLineWith:self.secendRateBtn];
+                }else {
+                    [self createNormalBoardLineWith:self.secendRateBtn];
+                }
+            if (currentRate == [self.thirdRateBtn.titleLabel.text floatValue]){
+                [self createLayerBoardLineWith:self.thirdRateBtn];
+            }else{
+                [self createNormalBoardLineWith:self.thirdRateBtn];
+            }
+            self.rateText.text = [NSString stringWithFormat:@"%.f%%",currentRate];
+            [self calculatePtimWithRate:self.rateText.text];
+        }
+        
+    }
+}
+- (void)calculatePtimeWith:(UIButton *)eachButton{
+    
+    if ([eachButton.titleLabel.text isEqualToString:@"包尾"]) {
+        
+        self.rateText.text  = [NSString stringWithFormat:@"%zd%%",(NSInteger)(self.lowValue * 100 + 1)];
+        self.sumRate.text = [NSString stringWithFormat:@"%@  人次",[UserDataSingleton userInformation].listModel.shengyurenshu];
+        [self createLayerBoardLineWith:eachButton];
+        [self createNormalBoardLineWith:self.fisrtRateBtn];
+        [self createNormalBoardLineWith:self.secendRateBtn];
+        [self createNormalBoardLineWith:self.thirdRateBtn];
+    }else{
+        if (self.lowValue < 0.01) {
+            [SVProgressHUD showErrorWithStatus:@"请到经典模式购买!"];
+        }else{
+            if (([eachButton.titleLabel.text floatValue] * 0.01 * [[UserDataSingleton userInformation].listModel.zongrenshu integerValue] >= [[UserDataSingleton userInformation].listModel.shengyurenshu integerValue])) {
+                self.rateText.text  = [NSString stringWithFormat:@"%zd",(NSInteger)(self.lowValue * 100 + 1)];
+                self.sumRate.text = [UserDataSingleton userInformation].listModel.shengyurenshu;
+                [self createLayerBoardLineWith:self.tailRateBtn];
+            }else{
+                self.rateText.text = [NSString stringWithFormat:@"%@",eachButton.titleLabel.text];
+                self.sumRate.text = [UserDataSingleton userInformation].listModel.shengyurenshu;
+                [self createLayerBoardLineWith:eachButton];
+                
+                if (![eachButton isEqual:self.tailRateBtn]) {
+                    [self createNormalBoardLineWith:self.tailRateBtn];
+                }
+                if (![eachButton isEqual:self.fisrtRateBtn]) {
+                    [self createNormalBoardLineWith:self.fisrtRateBtn];
+                }
+                if (![eachButton isEqual:self.secendRateBtn]) {
+                    [self createNormalBoardLineWith:self.secendRateBtn];
+                }
+                if (![eachButton isEqual:self.thirdRateBtn]) {
+                    [self createNormalBoardLineWith:self.thirdRateBtn];
+                }
+            }
+        }
+        
+        [self calculatePtimWithRate:self.rateText.text];
+        
+    }
+}
+- (void)calculatePtimWithRate:(NSString *)rate{
+    NSInteger finalPtime = 0;
+    CGFloat f1 = ([[UserDataSingleton userInformation].listModel.zongrenshu floatValue] * ([rate floatValue]*0.01));
+    NSInteger f2 = ((NSInteger)[[UserDataSingleton userInformation].listModel.zongrenshu floatValue] * ([rate floatValue]*0.01));
+    CGFloat ff = f1 / f2;
+    if (ff == 1) {
+        finalPtime = (NSInteger)(f2);
+    }else{
+        finalPtime = (NSInteger)(f2 + 1);
+    }
+    self.sumRate.text = [NSString stringWithFormat:@"%zd  人次",finalPtime];
+}
 /**
  *立即参与
  */
@@ -121,14 +235,10 @@
         [self.thirdRateBtn setTitle:@"30%" forState:UIControlStateNormal];
     }else if (prize >= 1000){
         [self.fisrtRateBtn setTitle:@"10%" forState:UIControlStateNormal];
-        [self.secendRateBtn setTitle:@"25%" forState:UIControlStateNormal];
+        [self.secendRateBtn setTitle:@"15%" forState:UIControlStateNormal];
         [self.thirdRateBtn setTitle:@"25%" forState:UIControlStateNormal];
     }
-    
-    
-    
 }
-
 /**
  计算默认值
  */
@@ -153,9 +263,28 @@
     }else{
         initPtime = (NSInteger)(f2 + 1);
     }
-    self.sumRate.text = [NSString stringWithFormat:@"%zd",initPtime];
+    self.sumRate.text = [NSString stringWithFormat:@"%zd  人次",initPtime];
     DebugLog(@"%f",[self.rateText.text floatValue]);
     
+    
+    if (ratio < [self.fisrtRateBtn.titleLabel.text floatValue] * 0.01) {
+        self.fisrtRateBtn.enabled = NO;
+        [self noEnabledWith: self.fisrtRateBtn];
+    }
+    if (ratio < [self.thirdRateBtn.titleLabel.text floatValue] * 0.01) {
+        self.thirdRateBtn.enabled = NO;
+        [self noEnabledWith: self.thirdRateBtn];
+    }
+    if (ratio < [self.secendRateBtn.titleLabel.text floatValue] * 0.01) {
+        self.secendRateBtn.enabled = NO;
+        [self noEnabledWith: self.secendRateBtn];
+    }
+}
+- (void)noEnabledWith:(UIButton *)sender{
+    sender.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
+    sender.layer.borderWidth = 1;
+    [sender setTitleColor:[UIColor colorWithHexString:@"#939393"] forState:UIControlStateNormal];
+    sender.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
 }
 /**
  截取字符串，并转化成小数
@@ -171,28 +300,62 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.rateText resignFirstResponder];
 }
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    [self createNormalBoardLineWith:self.fisrtRateBtn];
+    [self createNormalBoardLineWith:self.secendRateBtn];
+    [self createNormalBoardLineWith:self.thirdRateBtn];
+    [self createNormalBoardLineWith:self.tailRateBtn];
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
     DebugLog(@"-----停止输入------");
     NSInteger finalPtime = 0;
     CGFloat endValue = [textField.text floatValue] * 0.01;
+    
     if (self.lowValue < 0.01) {
         [SVProgressHUD showErrorWithStatus:@"请到经典模式购买！"];
-    }else if (endValue >= self.lowValue){
-        textField.text  = [NSString stringWithFormat:@"%zd%%",(NSInteger)(self.lowValue * 100 + 1)];
-        [self createLayerBoardLineWith:self.tailRateBtn];
     }else{
-        textField.text  = [NSString stringWithFormat:@"%@%%",textField.text];
         
-        CGFloat f1 = ([[UserDataSingleton userInformation].listModel.shengyurenshu floatValue] * endValue);
-        NSInteger f2 = ((NSInteger)[[UserDataSingleton userInformation].listModel.shengyurenshu floatValue] * endValue);
-        CGFloat ff = f1 / f2;
-        if (ff == 1) {
-            finalPtime = (NSInteger)(f2);
+        if ([textField.text floatValue] == 0) {
+            [SVProgressHUD showErrorWithStatus:@"不能低于最小%1！"];
         }else{
-            finalPtime = (NSInteger)(f2 + 1);
+            if (endValue >= self.lowValue){
+                textField.text  = [NSString stringWithFormat:@"%zd%%",(NSInteger)(self.lowValue * 100 + 1)];
+                self.sumRate.text = [UserDataSingleton userInformation].listModel.shengyurenshu;
+                [self createLayerBoardLineWith:self.tailRateBtn];
+                [self createNormalBoardLineWith:self.fisrtRateBtn];
+                [self createNormalBoardLineWith:self.secendRateBtn];
+                [self createNormalBoardLineWith:self.thirdRateBtn];
+            }else{
+                textField.text  = [NSString stringWithFormat:@"%@%%",[textField.text substringToIndex:2]];
+                if ([textField.text isEqualToString:self.fisrtRateBtn.titleLabel.text]) {
+                    [self createLayerBoardLineWith:self.fisrtRateBtn];
+                }else{
+                    [self createNormalBoardLineWith:self.fisrtRateBtn];
+                }
+                if ([textField.text isEqualToString:self.secendRateBtn.titleLabel.text]) {
+                    [self createLayerBoardLineWith:self.secendRateBtn];
+                }else{
+                    [self createNormalBoardLineWith:self.secendRateBtn];
+                }
+                if ([textField.text isEqualToString:self.thirdRateBtn.titleLabel.text]) {
+                    [self createLayerBoardLineWith:self.thirdRateBtn];
+                }else{
+                    [self createNormalBoardLineWith:self.thirdRateBtn];
+                }
+                
+                CGFloat f1 = ([[UserDataSingleton userInformation].listModel.zongrenshu floatValue] * endValue);
+                NSInteger f2 = ((NSInteger)[[UserDataSingleton userInformation].listModel.zongrenshu floatValue] * endValue);
+                CGFloat ff = f1 / f2;
+                if (ff == 1) {
+                    finalPtime = (NSInteger)(f2);
+                }else{
+                    finalPtime = (NSInteger)(f2 + 1);
+                }
+                self.sumRate.text = [NSString stringWithFormat:@"%zd",finalPtime];
+            }
         }
-        self.sumRate.text = [NSString stringWithFormat:@"%zd",finalPtime];
     }
 }
 - (void)createLayerBoardLineWith:(UIButton *)view{
@@ -200,7 +363,12 @@
     view.layer.borderColor = [UIColor colorWithHexString:@"#de2f50"].CGColor;
     view.layer.borderWidth = 1;
 }
-
+- (void)createNormalBoardLineWith:(UIButton *)view{
+    [view setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
+    view.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
+    view.layer.borderWidth = 1;
+    
+}
 
 
 @end

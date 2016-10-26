@@ -609,8 +609,8 @@
             
     }
 
-    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    NSNotification *notification =[NSNotification notificationWithName:@"shoppingNum" object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
 
 }
 

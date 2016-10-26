@@ -33,4 +33,7 @@
 @property (nonatomic,strong)NSString *xinVersion;
 @property (nonatomic,strong)ShoppingModel *shopModel;
 @property (nonatomic,strong)ListingModel *listModel;
+@property (nonatomic,strong)NSString *sid;
+@property (nonatomic,strong)NSString *oldPtime;
+@property (nonatomic,strong)NSString *oldRate;
 @end
