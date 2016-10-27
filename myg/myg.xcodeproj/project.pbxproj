@@ -34,6 +34,8 @@
 		18829E931DB8A01500F4A963 /* ChanceSubViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18829E921DB8A01500F4A963 /* ChanceSubViewCell.m */; };
 		18829E961DB8BB5A00F4A963 /* ChanceofViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18829E951DB8BB5A00F4A963 /* ChanceofViewController.m */; };
 		1883AC651D6EBAB80001DDC1 /* LogisticInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883AC641D6EBAB80001DDC1 /* LogisticInfoVC.m */; };
+		18855EF01DC1E7E70095A8AC /* MYGPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */; };
+		18855EF21DC1E7F40095A8AC /* MYGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */; };
 		18A41F261DB5AC69000F4E27 /* RedPageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */; };
 		18A41F271DB5AC69000F4E27 /* RegisterRedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */; };
 		18B7BBD11DA8EAD000C8B98E /* MygappInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */; };
@@ -482,6 +484,9 @@
 		18829E951DB8BB5A00F4A963 /* ChanceofViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChanceofViewController.m; sourceTree = "<group>"; };
 		1883AC631D6EBAB80001DDC1 /* LogisticInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogisticInfoVC.h; sourceTree = "<group>"; };
 		1883AC641D6EBAB80001DDC1 /* LogisticInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogisticInfoVC.m; sourceTree = "<group>"; };
+		18855EEE1DC1E7E70095A8AC /* MYGPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYGPushGuideView.h; sourceTree = "<group>"; };
+		18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYGPushGuideView.m; sourceTree = "<group>"; };
+		18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYGPushGuideView.xib; sourceTree = "<group>"; };
 		18A41F221DB5AC69000F4E27 /* RedPageAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedPageAlertView.h; sourceTree = "<group>"; };
 		18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedPageAlertView.m; sourceTree = "<group>"; };
 		18A41F241DB5AC69000F4E27 /* RegisterRedPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterRedPageView.h; sourceTree = "<group>"; };
@@ -2316,6 +2321,9 @@
 				1883AC641D6EBAB80001DDC1 /* LogisticInfoVC.m */,
 				18B7BBCF1DA8EAD000C8B98E /* MygappInfoModel.h */,
 				18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */,
+				18855EEE1DC1E7E70095A8AC /* MYGPushGuideView.h */,
+				18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */,
+				18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */,
 				18FAEC5D1D9E0C89002C3D2A /* Lib */,
 				19BF12331BF0345000018261 /* Main.storyboard */,
 				19BF12361BF0345000018261 /* Images.xcassets */,
@@ -3161,6 +3169,7 @@
 				D84FDC601C12CD8700E26DE2 /* egopv_photo_placeholder@2x.png in Resources */,
 				D84FDC5A1C12CD8700E26DE2 /* egopv_fullscreen_button.png in Resources */,
 				D84FDC5D1C12CD8700E26DE2 /* egopv_left@2x.png in Resources */,
+				18855EF21DC1E7F40095A8AC /* MYGPushGuideView.xib in Resources */,
 				D84FDC5E1C12CD8700E26DE2 /* egopv_minimize_fullscreen_button.png in Resources */,
 				D8E001801C3BCA2D000B7A2F /* BPushConfig.plist in Resources */,
 				19595AF51BF1E2DC004B983F /* image0.png in Resources */,
@@ -3441,6 +3450,7 @@
 				19665CC11BFAB826005591E1 /* UserAddressViewController.m in Sources */,
 				D857190E1CBD098B00092F3D /* UITabBar+badge.m in Sources */,
 				332398061CBF468900A896D1 /* UITabBar+badge.m in Sources */,
+				18855EF01DC1E7E70095A8AC /* MYGPushGuideView.m in Sources */,
 				D88308181C1291AA00705EC0 /* MD5DataSigner.m in Sources */,
 				D86BA7281C1FB056001DD82E /* CalculateDetailController.m in Sources */,
 				2280A15C1BFD641E00C8B185 /* TopupController.m in Sources */,

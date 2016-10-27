@@ -278,7 +278,7 @@
     if (ratio < [self.secendRateBtn.titleLabel.text floatValue] * 0.01) {
         self.secendRateBtn.enabled = NO;
         [self noEnabledWith: self.secendRateBtn];
-    }
+    } 
 }
 - (void)noEnabledWith:(UIButton *)sender{
     sender.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
