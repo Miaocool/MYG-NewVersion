@@ -297,8 +297,9 @@ static NSString *collectionCellName2 = @"collectionCell";
 {
     [super viewWillAppear:animated];
     
-    [self gainCurrentVersion];
-    
+    if ([UserDataSingleton userInformation].currentVersion == nil) {
+        [self gainCurrentVersion];
+    }
     _LatesAnnArray=[NSMutableArray array];
     [self GetLatesAnnounce];
     if (self.num>1) {

@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MYGPushGuideView : UIView
-//+ (instancetype)guideView;
 - (void)show;
 @end

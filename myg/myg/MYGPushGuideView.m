@@ -9,7 +9,6 @@
 #import "MYGPushGuideView.h"
 static MYGPushGuideView *guideView;
 @implementation MYGPushGuideView
-
 + (instancetype)guideView{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
