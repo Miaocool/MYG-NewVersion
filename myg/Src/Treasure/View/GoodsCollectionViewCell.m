@@ -49,7 +49,7 @@
     self.goodsTieleLabel.textColor=RGBCOLOR(8, 8, 10);
     [self addSubview:self.goodsTieleLabel];
     
-    self.lotteryLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, self.goodsTieleLabel.frame.origin.y + self.goodsTieleLabel.frame.size.height + 5, 8*12, 12)];
+    self.lotteryLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, self.goodsTieleLabel.frame.origin.y + self.goodsTieleLabel.frame.size.height + 5, 100, 12)];
     self.lotteryLabel.font = [UIFont systemFontOfSize:MiddleFont];
     self.lotteryLabel.text = @"开奖进度：";
     self.lotteryLabel.textColor=RGBCOLOR(153, 154, 155);
@@ -68,13 +68,7 @@
     self.lbsheng.text = @"开奖进度：";
     self.lbsheng.textColor=RGBCOLOR(153, 154, 155);
     [self addSubview:self.lbsheng];
-    
-    
-    
-    
-    
-    
-    
+
     self.progressView =[[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
     //设置的高度对进度条的高度没影响，整个高度=进度条的高度，进度条也是个圆角矩形
     //但slider滑动控件：设置的高度对slider也没影响，但整个高度=设置的高度，可以设置背景来检验
@@ -116,7 +110,6 @@
     [self.goodsButton addTarget:self action:@selector(addShopping) forControlEvents:UIControlEventTouchDown];
     [self addSubview:self.goodsButton];
 }
-
 #pragma mark - 加入购物车
 - (void)addShopping
 {

@@ -24,8 +24,6 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UIButton *classicsBtn;
 /** 中奖参谋 */
 @property (weak, nonatomic) IBOutlet UIButton *staffBtn;
-/** 高中奖率模式 */
-@property (weak, nonatomic) IBOutlet UIButton *heighRateBtn;
 
 @property (nonatomic,assign)NSInteger currentTag;
 

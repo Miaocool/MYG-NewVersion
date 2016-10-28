@@ -19,4 +19,7 @@
 - (void)setTitleWithSourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex progress:(CGFloat)progress;
 - (void)changeSecendBtnStateWith:(NSInteger)tag;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
+
+/** 高中奖率模式 */
+@property (weak, nonatomic) IBOutlet UIButton *heighRateBtn;
 @end

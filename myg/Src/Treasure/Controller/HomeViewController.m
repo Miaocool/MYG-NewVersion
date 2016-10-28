@@ -316,10 +316,6 @@ static NSString *collectionCellName2 = @"collectionCell";
     //    [self startTimer];
     
     [self httpGetAwardTip];
-    
-    
-    
-
 }
 
 #pragma mark - 请求新品推介

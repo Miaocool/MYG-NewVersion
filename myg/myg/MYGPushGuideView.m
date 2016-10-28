@@ -7,26 +7,15 @@
 //
 
 #import "MYGPushGuideView.h"
-static MYGPushGuideView *guideView;
 @implementation MYGPushGuideView
 + (instancetype)guideView{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        guideView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
-        guideView.frame = [UIScreen mainScreen].bounds;
-    });
-    return guideView;
+        return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
 }
-- (void)show{
-    [[UIApplication sharedApplication].keyWindow addSubview:guideView];
-}
-- (void)dismiss{
-    
-    [guideView removeFromSuperview];
-    
-    
-}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self dismiss];
+     [self removeFromSuperview];
+    DebugLog(@"----触摸----");
+    
 }
+
 @end

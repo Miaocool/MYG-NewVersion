@@ -66,10 +66,17 @@ static NSString *const cellID = @"cellID";
     [self.scrollView addSubview:self.tableView];
     self.startOffsetX = 0;
 //    [self refreshData];
-    
-    
-    
+ 
+    NSString *surplus = [UserDataSingleton userInformation].listModel.shengyurenshu;
+    NSString *sumPtime = [UserDataSingleton userInformation].listModel.zongrenshu;
+    CGFloat ratio = [surplus floatValue] / [sumPtime floatValue];
+    if (ratio < 0.01) {
+        self.bettingToolView.heighRateBtn.enabled = NO;
+        [self.bettingToolView.heighRateBtn setTitleColor:[UIColor colorWithHexString:@"#939393"] forState:UIControlStateNormal];
+    }
 }
+
+
 - (UIScrollView *)scrollView{
     if (!_scrollView) {
         
@@ -78,6 +85,7 @@ static NSString *const cellID = @"cellID";
         _scrollView.scrollEnabled = YES;
         _scrollView.contentSize = CGSizeMake(MSW * 3, 0);
         _scrollView.delegate = self;
+        _scrollView.scrollEnabled = NO;
 //        _scrollView.backgroundColor = [UIColor redColor];
 
         

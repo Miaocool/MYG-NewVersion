@@ -8,18 +8,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MYGPushGuideView">
             <rect key="frame" x="0.0" y="0.0" width="428" height="572"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wenzi" translatesAutoresizingMaskIntoConstraints="NO" id="aZ3-zV-rGJ"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pq8-iE-NJu">
-                    <constraints>
-                        <constraint firstAttribute="width" constant="117" id="dh0-a0-w3f"/>
-                        <constraint firstAttribute="height" constant="50" id="dwi-oS-TbF"/>
-                    </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiaotou" translatesAutoresizingMaskIntoConstraints="NO" id="M14-Gb-6yU"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gaozhongjiang" translatesAutoresizingMaskIntoConstraints="NO" id="Pq8-iE-NJu"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guidelayer" translatesAutoresizingMaskIntoConstraints="NO" id="M14-Gb-6yU"/>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67575431034482758" colorSpace="calibratedRGB"/>
             <constraints>
@@ -35,7 +30,8 @@
         </view>
     </objects>
     <resources>
-        <image name="jiaotou" width="97" height="63"/>
-        <image name="wenzi" width="221" height="17"/>
+        <image name="gaozhongjiang" width="109" height="39"/>
+        <image name="guidelayer" width="80" height="49"/>
+        <image name="wenzi" width="240" height="19"/>
     </resources>
 </document>

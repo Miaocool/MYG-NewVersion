@@ -12,7 +12,7 @@
 #import "SettlementModel.h"
 #import "SettlementViewController.h"
 #import "BeforeModel.h"
-
+#import "MYGPushGuideView.h"
 @interface ChanceofViewController ()<ChanceSurperViewDelegate>
 @property (nonatomic,strong)ChanceSurperView *chanceSurperView;
 @property (nonatomic,assign)BOOL isKeyboardVisible;
@@ -23,6 +23,7 @@
 @property(nonatomic,strong)NSMutableArray *zhifuColorArray; //支付颜色
 @property(nonatomic,strong)NSMutableArray *zhifuImgArray; //支付图片
 @property (assign,nonatomic)NSInteger num;
+
 @end
 
 @implementation ChanceofViewController
@@ -51,9 +52,36 @@
     
     [self refreshData];
     
-    
+    // 判断引导是否第一次加载
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"first"])
+//    {
+//        
+//    }
+//    else
+//    {
+//        
+//    }
+    [self judgeGuideView];
    
 }
+- (void)judgeGuideView{
+    
+    NSString *keyString =@"CFBundleShortVersionString";
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[keyString];
+    NSString *saboxVersion = [[NSUserDefaults standardUserDefaults] stringForKey:keyString];
+    if (![currentVersion isEqualToString:saboxVersion]) {
+        
+        MYGPushGuideView *guideView = [MYGPushGuideView guideView];
+        guideView.frame = self.view.bounds;
+        [[UIApplication sharedApplication].keyWindow addSubview:guideView];
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:keyString];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
+    
+}
+
 /** 
  *键盘收起与弹出
  */

@@ -204,7 +204,6 @@
     [self.secendRateBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
     [self.thirdRateBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
     [self.tailRateBtn setTitleColor:[UIColor colorWithHexString:@"#040404"] forState:UIControlStateNormal];
-    
     self.fisrtRateBtn.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
     self.fisrtRateBtn.layer.borderWidth = 1;
     self.secendRateBtn.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
@@ -216,6 +215,7 @@
     self.rateText.returnKeyType = UIReturnKeyDone;
     self.rateText.delegate = self;
     self.rateText.textAlignment = NSTextAlignmentCenter;
+    self.rateText.keyboardType = UIKeyboardTypeNumberPad;
     [self setUpRateWithRequestData];
     
     [self calculateDegaultValue];
