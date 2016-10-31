@@ -284,6 +284,11 @@
 		33CDB8F91CEF0A3C00129ABC /* ShareSDKShareActionSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33CDB8E71CEF0A3C00129ABC /* ShareSDKShareActionSheet.framework */; };
 		44BA11F0290108272C28B842 /* libPods-myg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C54716B8155FEF5C51DFE2 /* libPods-myg.a */; };
 		ABB2F2F61D421EB400778553 /* AwardTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB2F2F51D421EB400778553 /* AwardTipView.m */; };
+		C84C91C81DC4394A00D5B2D8 /* PKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C84C91C71DC4394A00D5B2D8 /* PKViewController.m */; };
+		C84C91CC1DC439B900D5B2D8 /* PKListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C84C91CA1DC439B900D5B2D8 /* PKListCell.m */; };
+		C84C91CD1DC439B900D5B2D8 /* PKListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C84C91CB1DC439B900D5B2D8 /* PKListCell.xib */; };
+		C84C91D01DC4EB6C00D5B2D8 /* PKSettleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C84C91CF1DC4EB6C00D5B2D8 /* PKSettleView.m */; };
+		C84C91D21DC4EB8D00D5B2D8 /* PKSettleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C84C91D11DC4EB8D00D5B2D8 /* PKSettleView.xib */; };
 		D60D840A1D34B93900F7772C /* InviteFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60D84091D34B93900F7772C /* InviteFriendsView.m */; };
 		D61984A01D2F705700C0E2F6 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D619849F1D2F705700C0E2F6 /* InviteFriendsViewController.m */; };
 		D61984A31D2F8E0700C0E2F6 /* InviteFriendsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D61984A21D2F8E0700C0E2F6 /* InviteFriendsViewCell.m */; };
@@ -954,6 +959,14 @@
 		ABB2F2F41D421EB400778553 /* AwardTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardTipView.h; sourceTree = "<group>"; };
 		ABB2F2F51D421EB400778553 /* AwardTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardTipView.m; sourceTree = "<group>"; };
 		C6C54716B8155FEF5C51DFE2 /* libPods-myg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84C91C61DC4394A00D5B2D8 /* PKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKViewController.h; sourceTree = "<group>"; };
+		C84C91C71DC4394A00D5B2D8 /* PKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKViewController.m; sourceTree = "<group>"; };
+		C84C91C91DC439B900D5B2D8 /* PKListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKListCell.h; sourceTree = "<group>"; };
+		C84C91CA1DC439B900D5B2D8 /* PKListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKListCell.m; sourceTree = "<group>"; };
+		C84C91CB1DC439B900D5B2D8 /* PKListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKListCell.xib; sourceTree = "<group>"; };
+		C84C91CE1DC4EB6C00D5B2D8 /* PKSettleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKSettleView.h; sourceTree = "<group>"; };
+		C84C91CF1DC4EB6C00D5B2D8 /* PKSettleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKSettleView.m; sourceTree = "<group>"; };
+		C84C91D11DC4EB8D00D5B2D8 /* PKSettleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKSettleView.xib; sourceTree = "<group>"; };
 		D60D84081D34B93900F7772C /* InviteFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsView.h; sourceTree = "<group>"; };
 		D60D84091D34B93900F7772C /* InviteFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsView.m; sourceTree = "<group>"; };
 		D619849E1D2F705700C0E2F6 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
@@ -1407,6 +1420,7 @@
 		195954691BF03576004B983F /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				C84C91C11DC437E600D5B2D8 /* PK */,
 				195955671BF036D2004B983F /* Treasure */,
 				195954721BF03576004B983F /* LatestAnnounced */,
 				1959546A1BF03576004B983F /* Found */,
@@ -2666,6 +2680,53 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C84C91C11DC437E600D5B2D8 /* PK */ = {
+			isa = PBXGroup;
+			children = (
+				C84C91C31DC4381B00D5B2D8 /* Model */,
+				C84C91C51DC4381B00D5B2D8 /* View */,
+				C84C91C21DC4381B00D5B2D8 /* Controller */,
+				C84C91C41DC4381B00D5B2D8 /* Network */,
+			);
+			path = PK;
+			sourceTree = "<group>";
+		};
+		C84C91C21DC4381B00D5B2D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C84C91C61DC4394A00D5B2D8 /* PKViewController.h */,
+				C84C91C71DC4394A00D5B2D8 /* PKViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C84C91C31DC4381B00D5B2D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C84C91C41DC4381B00D5B2D8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C84C91C51DC4381B00D5B2D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C84C91C91DC439B900D5B2D8 /* PKListCell.h */,
+				C84C91CA1DC439B900D5B2D8 /* PKListCell.m */,
+				C84C91CB1DC439B900D5B2D8 /* PKListCell.xib */,
+				C84C91CE1DC4EB6C00D5B2D8 /* PKSettleView.h */,
+				C84C91CF1DC4EB6C00D5B2D8 /* PKSettleView.m */,
+				C84C91D11DC4EB8D00D5B2D8 /* PKSettleView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D6C1E53A1D2A342300AA5402 /* WZViewShowHudHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -3189,6 +3250,8 @@
 				19BF123A1BF0345000018261 /* LaunchScreen.xib in Resources */,
 				D864156C1C06D8F7008D3A88 /* states01.png in Resources */,
 				19595AF81BF1E2DC004B983F /* image3.png in Resources */,
+				C84C91CD1DC439B900D5B2D8 /* PKListCell.xib in Resources */,
+				C84C91D21DC4EB8D00D5B2D8 /* PKSettleView.xib in Resources */,
 				1971FAA91C1187BE00FEF145 /* MBProgressHUD.bundle in Resources */,
 				19595AF71BF1E2DC004B983F /* image2.png in Resources */,
 				19BF12371BF0345000018261 /* Images.xcassets in Resources */,
@@ -3338,6 +3401,7 @@
 				D86BA73A1C1FB1AD001DD82E /* RedPacketController.m in Sources */,
 				1959552C1BF03576004B983F /* AFHTTPSessionManager.m in Sources */,
 				D8D88E1E1C043A250051099F /* UIView+Addition.m in Sources */,
+				C84C91C81DC4394A00D5B2D8 /* PKViewController.m in Sources */,
 				D86BA72E1C1FB0A3001DD82E /* BuyGoodsCell.m in Sources */,
 				D840ABFC1C0F01E50064919C /* ForgetPasswordController.m in Sources */,
 				19595AB91BF08E5D004B983F /* GoodsCollectionViewCell.m in Sources */,
@@ -3553,10 +3617,12 @@
 				22F15EEB1BFC7EBD005CCF26 /* NotifyController.m in Sources */,
 				1959554C1BF03576004B983F /* SDWebImageDownloader.m in Sources */,
 				D8D88E181C042FE30051099F /* MyRedCell.m in Sources */,
+				C84C91CC1DC439B900D5B2D8 /* PKListCell.m in Sources */,
 				D87F17591CA3E96F008FC2ED /* FenLeiViewCell.m in Sources */,
 				22E411B61C77093E0020A2ED /* NewGoodsModel.m in Sources */,
 				2267526C1C0469750079A01E /* MJRefreshConst.m in Sources */,
 				2290DBE41C03F37C00FD1A14 /* UserDataSingleton.m in Sources */,
+				C84C91D01DC4EB6C00D5B2D8 /* PKSettleView.m in Sources */,
 				2290DBEA1C03FE7900FD1A14 /* TopuprecordCell.m in Sources */,
 				D84FDC581C12CD8700E26DE2 /* EGOPhotoScrollView.m in Sources */,
 				1959552E1BF03576004B983F /* AFSecurityPolicy.m in Sources */,
