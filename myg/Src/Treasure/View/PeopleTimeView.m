@@ -124,13 +124,23 @@
     if ([sender.titleLabel.text isEqualToString:@"包尾"]) {
         self.sumText.text = [UserDataSingleton userInformation].listModel.shengyurenshu;
         CGFloat ratio = [self.sumText.text floatValue] / [[UserDataSingleton userInformation].listModel.zongrenshu floatValue];
-        self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+//        self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+        if (ratio < 0.01) {
+            self.rateLabel.text = @"中奖率低于1%";
+        }else{
+            self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+        }
     }else{
         
         if ([[UserDataSingleton userInformation].listModel.shengyurenshu integerValue] <= [sender.titleLabel.text integerValue]) {
             self.sumText.text = [UserDataSingleton userInformation].listModel.shengyurenshu;
             CGFloat ratio = [self.sumText.text floatValue] / [[UserDataSingleton userInformation].listModel.zongrenshu floatValue];
-            self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+//            self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+            if (ratio < 0.01) {
+                self.rateLabel.text = @"中奖率低于1%";
+            }else{
+                self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+            }
             [self createLayerBoardLineWith:self.tailTimeBtn];
             [self createNormalBoardLineWith:sender];
             [SVProgressHUD showSuccessWithStatus2:@"剩余人数不足，自动调整为包尾人次!"];
@@ -138,7 +148,12 @@
         }else{
             self.sumText.text = sender.titleLabel.text;
             CGFloat ratio = [self.sumText.text floatValue] / [[UserDataSingleton userInformation].listModel.zongrenshu floatValue];
-            self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+//            self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+            if (ratio < 0.01) {
+                self.rateLabel.text = @"中奖率低于1%";
+            }else{
+                self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+            }
         }
         
     }
@@ -146,7 +161,12 @@
 - (void)calculateRateWithText{
     
     CGFloat ratio = [self.sumText.text floatValue] / [[UserDataSingleton userInformation].listModel.zongrenshu floatValue];
-    self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+//    self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+    if (ratio < 0.01) {
+        self.rateLabel.text = @"中奖率低于1%";
+    }else{
+        self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+    }
 }
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -242,7 +262,13 @@
         
         CGFloat ratio = [self.sumText.text floatValue] / [[UserDataSingleton userInformation].listModel.zongrenshu floatValue];
 //        NSInteger endRatio = ratio * 100;
-        self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+//        self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+//        self.rateLabel.text = @"中奖率低于1%";
+        if (ratio < 0.01) {
+            self.rateLabel.text = @"中奖率低于1%";
+        }else{
+            self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+        }
     }else{
         self.sumText.text = self.firstTimeBtn.titleLabel.text;
         
@@ -305,7 +331,13 @@
     }
     CGFloat ratio = [textField.text floatValue] / [[UserDataSingleton userInformation].listModel.zongrenshu floatValue];
 //    NSInteger endRatio = ratio * 100;
-    self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+    if (ratio < 0.01) {
+        self.rateLabel.text = @"中奖率低于1%";
+    }else{
+        self.rateLabel.text = [NSString stringWithFormat:@"中奖率高于%.2f%%",ratio * 100];
+    }
+    
+    
     
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -323,4 +355,8 @@
     view.layer.borderWidth = 1;
     
 }
+
+
+
+
 @end

@@ -108,6 +108,13 @@
     [self.goodsButton setTitleColor:MainColor forState:UIControlStateNormal];
     [self.goodsButton setTitle:@"参与" forState:UIControlStateNormal];
     [self.goodsButton addTarget:self action:@selector(addShopping) forControlEvents:UIControlEventTouchDown];
+    
+    
+//    if (![[UserDataSingleton userInformation].currentVersion isEqualToString:[UserDataSingleton userInformation].xinVersion]) {
+//        self.goodsButton.hidden = YES;
+//    }
+    
+    
     [self addSubview:self.goodsButton];
 }
 #pragma mark - 加入购物车

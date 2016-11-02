@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PKListCell;
+@class PKListModel;
+@protocol PKListCellDelegate <NSObject>
+
+- (void)pkListCell:(PKListCell *)pkListCell listModel:(PKListModel *)listModel;
+
+@end
+
 
 @interface PKListCell : UITableViewCell
-
+@property (nonatomic,strong)PKListModel *listModel;
+@property (weak,nonatomic)id<PKListCellDelegate>delegate;
 @end

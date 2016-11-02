@@ -45,7 +45,10 @@
     [callBtn setTitle:@"充值" forState:(UIControlStateNormal)];
     [callBtn addTarget:self action:@selector(gototopup) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:callBtn];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    if ([[UserDataSingleton userInformation].currentVersion isEqualToString:[UserDataSingleton userInformation].xinVersion]) {
+        self.navigationItem.rightBarButtonItem = rightItem;
+    }
+    
     [self initData];
     // 修改的－－－充值记录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chongzhitongzhi:) name:@"chongzhi" object:nil];

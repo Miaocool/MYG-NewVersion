@@ -488,6 +488,11 @@
         [self.userDataView.riBtn addTarget:self action:@selector(NavBtn:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.userDataView.topUpBtn addTarget:self action:@selector(recharge1) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (![[UserDataSingleton userInformation].currentVersion isEqualToString:[UserDataSingleton userInformation].xinVersion]) {
+            self.userDataView.topUpBtn.hidden = YES;
+        }
+        
         [self.userDataView.haedBtn addTarget:self action:@selector(userData) forControlEvents:UIControlEventTouchUpInside];
         
         return self.userDataView;

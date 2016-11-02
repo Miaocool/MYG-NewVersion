@@ -7,18 +7,37 @@
 //
 
 #import "PKListCell.h"
+#import "PKListModel.h"
+@interface PKListCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *listProduceIMG;
+@property (weak, nonatomic) IBOutlet UILabel *listProduceName;
+@property (weak, nonatomic) IBOutlet UILabel *listProduceNumber;
+@property (weak, nonatomic) IBOutlet UIButton *listPKBtn;
+
+@end
+
 
 @implementation PKListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    [self setUpUI];
+    
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setUpUI{
+    
+    [self.listPKBtn addTarget:self action:@selector(pkAction) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+- (void)pkAction{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pkListCell:listModel:)]) {
+        [self.delegate pkListCell:self listModel:self.listModel];
+    }
+}
+- (void)setListModel:(PKListModel *)listModel{
+    _listModel = listModel;
+    //赋值
 }
 
 @end

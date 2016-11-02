@@ -48,7 +48,7 @@
 #endif
 #import "RedPageAlertView.h"
 #import "ChanceofViewController.h"
-
+#import "PKListViewController.h"
 @interface AppDelegate ()<WXApiDelegate,JPUSHRegisterDelegate>
 {
     NSString *Newurl;
@@ -418,17 +418,7 @@
      [tabBar.tabBar setTintColor:MainColor];
    
     self.window.rootViewController = tabBar;
-//    self.window.rootViewController = [ChanceofViewController new];
-    
-    
-//    RedPageAlertView *redview = [[RedPageAlertView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    
-//    //    [redview show];
-//    redview.backgroundColor = [UIColor redColor];
-//    [[UIApplication sharedApplication].keyWindow addSubview:redview];
-    
-    
-
+//    self.window.rootViewController = [PKListViewController new];
 }
 
 - (void)changeNumber

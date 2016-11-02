@@ -93,7 +93,13 @@
         if (currentRate * 0.01 >= self.lowValue) {
             self.rateText.text = [NSString stringWithFormat:@"%.f%%",self.lowValue * 100];
             [self createLayerBoardLineWith:self.tailRateBtn];
-            self.sumRate.text = [NSString stringWithFormat:@"%@  人次",[UserDataSingleton userInformation].listModel.shengyurenshu];
+//            self.sumRate.text = [NSString stringWithFormat:@"%@  人次",[UserDataSingleton userInformation].listModel.shengyurenshu];
+
+            
+            NSString *string = [UserDataSingleton userInformation].listModel.shengyurenshu;
+            NSAttributedString * attstring = [self setUpTextColorWith:[NSString stringWithFormat:@"%@  人次",string] length:string.length];
+            self.sumRate.attributedText = attstring;
+            
             [SVProgressHUD showSuccessWithStatus2:@"已包尾!"];
         }else{
             if (currentRate == [self.fisrtRateBtn.titleLabel.text floatValue]) {
@@ -121,8 +127,12 @@
     
     if ([eachButton.titleLabel.text isEqualToString:@"包尾"]) {
         
-        self.rateText.text  = [NSString stringWithFormat:@"%zd%%",(NSInteger)(self.lowValue * 100 + 1)];
-        self.sumRate.text = [NSString stringWithFormat:@"%@  人次",[UserDataSingleton userInformation].listModel.shengyurenshu];
+        self.rateText.text  = [NSString stringWithFormat:@"%zd%%",(NSInteger)(self.lowValue * 100)];
+//        self.sumRate.text = [NSString stringWithFormat:@"%@  人次",[UserDataSingleton userInformation].listModel.shengyurenshu];
+        
+        NSString *string = [UserDataSingleton userInformation].listModel.shengyurenshu;
+        NSAttributedString * attstring = [self setUpTextColorWith:[NSString stringWithFormat:@"%@  人次",string] length:string.length];
+        self.sumRate.attributedText = attstring;
         [self createLayerBoardLineWith:eachButton];
         [self createNormalBoardLineWith:self.fisrtRateBtn];
         [self createNormalBoardLineWith:self.secendRateBtn];
@@ -133,7 +143,11 @@
         }else{
             if (([eachButton.titleLabel.text floatValue] * 0.01 * [[UserDataSingleton userInformation].listModel.zongrenshu integerValue] >= [[UserDataSingleton userInformation].listModel.shengyurenshu integerValue])) {
                 self.rateText.text  = [NSString stringWithFormat:@"%zd",(NSInteger)(self.lowValue * 100 + 1)];
-                self.sumRate.text = [UserDataSingleton userInformation].listModel.shengyurenshu;
+//                self.sumRate.text = [UserDataSingleton userInformation].listModel.shengyurenshu;
+                
+                NSString *string = [UserDataSingleton userInformation].listModel.shengyurenshu;
+                NSAttributedString * attstring = [self setUpTextColorWith:[NSString stringWithFormat:@"%@  人次",string] length:string.length];
+                self.sumRate.attributedText = attstring;
                 [self createLayerBoardLineWith:self.tailRateBtn];
             }else{
                 self.rateText.text = [NSString stringWithFormat:@"%@",eachButton.titleLabel.text];
@@ -169,7 +183,11 @@
     }else{
         finalPtime = (NSInteger)(f2 + 1);
     }
-    self.sumRate.text = [NSString stringWithFormat:@"%zd  人次",finalPtime];
+//    self.sumRate.text = [NSString stringWithFormat:@"%zd  人次",finalPtime];
+    
+    NSString *string = [NSString stringWithFormat:@"%zd",finalPtime];
+    NSAttributedString * attstring = [self setUpTextColorWith:[NSString stringWithFormat:@"%@  人次",string] length:string.length];
+    self.sumRate.attributedText = attstring;
 }
 /**
  *立即参与
@@ -263,7 +281,10 @@
     }else{
         initPtime = (NSInteger)(f2 + 1);
     }
-    self.sumRate.text = [NSString stringWithFormat:@"%zd  人次",initPtime];
+    
+    NSString *string = [NSString stringWithFormat:@"%zd",initPtime];
+    NSAttributedString * attstring = [self setUpTextColorWith:[NSString stringWithFormat:@"%@  人次",string] length:string.length];
+    self.sumRate.attributedText = attstring;
     DebugLog(@"%f",[self.rateText.text floatValue]);
     
     
@@ -319,6 +340,8 @@
         
         if ([textField.text floatValue] == 0) {
             [SVProgressHUD showErrorWithStatus:@"不能低于最小%1！"];
+            textField.text  = @"1%";
+            [self calculatePtimWithRate:textField.text];
         }else{
             if (endValue >= self.lowValue){
                 textField.text  = [NSString stringWithFormat:@"%zd%%",(NSInteger)(self.lowValue * 100 + 1)];
@@ -328,7 +351,13 @@
                 [self createNormalBoardLineWith:self.secendRateBtn];
                 [self createNormalBoardLineWith:self.thirdRateBtn];
             }else{
-                textField.text  = [NSString stringWithFormat:@"%@%%",[textField.text substringToIndex:2]];
+                
+                if (textField.text.length == 2) {
+                    textField.text  = [NSString stringWithFormat:@"%@%%",[textField.text substringToIndex:1]];
+                }else{
+                    textField.text  = [NSString stringWithFormat:@"%@%%",[textField.text substringToIndex:2]];
+                }
+//                textField.text  = [NSString stringWithFormat:@"%@%%",[textField.text substringToIndex:2]];
                 if ([textField.text isEqualToString:self.fisrtRateBtn.titleLabel.text]) {
                     [self createLayerBoardLineWith:self.fisrtRateBtn];
                 }else{
@@ -353,7 +382,9 @@
                 }else{
                     finalPtime = (NSInteger)(f2 + 1);
                 }
-                self.sumRate.text = [NSString stringWithFormat:@"%zd",finalPtime];
+                NSString *string = [NSString stringWithFormat:@"%zd",finalPtime];
+                NSAttributedString * attstring = [self setUpTextColorWith:[NSString stringWithFormat:@"%@  人次",string] length:string.length];
+                self.sumRate.attributedText = attstring;
             }
         }
     }
@@ -368,6 +399,15 @@
     view.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
     view.layer.borderWidth = 1;
     
+}
+
+- (NSMutableAttributedString *)setUpTextColorWith:(NSString *)ptime length:(NSInteger )length{
+    
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:ptime];
+    NSRange range = NSMakeRange(0, length);
+    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#de2f50"] range:range];
+    
+    return attribute;
 }
 
 
