@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Src/PK/View/PKDetailsCell.xib">
+   </FileRef>
+   <FileRef
       location = "group:myg.xcodeproj">
    </FileRef>
    <FileRef

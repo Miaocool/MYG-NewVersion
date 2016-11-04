@@ -40,6 +40,9 @@
 		18A41F271DB5AC69000F4E27 /* RegisterRedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */; };
 		18B7BBD11DA8EAD000C8B98E /* MygappInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */; };
 		18BF9EB81DBF52820009A3A7 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */; };
+		18F273AB1DCB33A8000E2B98 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */; };
+		18F273AF1DCC7BFF000E2B98 /* PKDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */; };
+		18F273B21DCC7ECB000E2B98 /* PKDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F273B11DCC7ECB000E2B98 /* PKDetailsCell.xib */; };
 		18FA04951DC9C5E5000D7FFF /* PKSettleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA04941DC9C5E5000D7FFF /* PKSettleController.m */; };
 		18FA04981DC9DBBF000D7FFF /* PKSettleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA04971DC9DBBF000D7FFF /* PKSettleViewController.m */; };
 		18FA049B1DC9DD1B000D7FFF /* PKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA049A1DC9DD1B000D7FFF /* PKDetailViewController.m */; };
@@ -504,6 +507,11 @@
 		18B7BBCF1DA8EAD000C8B98E /* MygappInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MygappInfoModel.h; sourceTree = "<group>"; };
 		18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MygappInfoModel.m; sourceTree = "<group>"; };
 		18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
+		18F273A91DCB33A8000E2B98 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		18F273AC1DCC7BFF000E2B98 /* PKDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsCell.h; sourceTree = "<group>"; };
+		18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailsCell.m; sourceTree = "<group>"; };
+		18F273B11DCC7ECB000E2B98 /* PKDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKDetailsCell.xib; sourceTree = "<group>"; };
 		18FA04931DC9C5E5000D7FFF /* PKSettleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKSettleController.h; path = ../Controller/PKSettleController.h; sourceTree = "<group>"; };
 		18FA04941DC9C5E5000D7FFF /* PKSettleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKSettleController.m; path = ../Controller/PKSettleController.m; sourceTree = "<group>"; };
 		18FA04961DC9DBBF000D7FFF /* PKSettleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKSettleViewController.h; sourceTree = "<group>"; };
@@ -2208,6 +2216,8 @@
 				18A41F241DB5AC69000F4E27 /* RegisterRedPageView.h */,
 				18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */,
 				18680A621DB08C8F009E6854 /* RedPageAlertView.xib */,
+				18F273A91DCB33A8000E2B98 /* MainTabBarController.h */,
+				18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */,
 			);
 			path = Main;
 			sourceTree = SOURCE_ROOT;
@@ -2748,6 +2758,9 @@
 				C84C91CE1DC4EB6C00D5B2D8 /* PKSettleView.h */,
 				C84C91CF1DC4EB6C00D5B2D8 /* PKSettleView.m */,
 				C84C91D11DC4EB8D00D5B2D8 /* PKSettleView.xib */,
+				18F273AC1DCC7BFF000E2B98 /* PKDetailsCell.h */,
+				18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */,
+				18F273B11DCC7ECB000E2B98 /* PKDetailsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3274,6 +3287,7 @@
 				D84FDC611C12CD8700E26DE2 /* egopv_right.png in Resources */,
 				19BF123A1BF0345000018261 /* LaunchScreen.xib in Resources */,
 				D864156C1C06D8F7008D3A88 /* states01.png in Resources */,
+				18F273B21DCC7ECB000E2B98 /* PKDetailsCell.xib in Resources */,
 				19595AF81BF1E2DC004B983F /* image3.png in Resources */,
 				C84C91CD1DC439B900D5B2D8 /* PKListCell.xib in Resources */,
 				C84C91D21DC4EB8D00D5B2D8 /* PKSettleView.xib in Resources */,
@@ -3357,6 +3371,7 @@
 				226752681C0469750079A01E /* MJRefreshGifHeader.m in Sources */,
 				195955611BF03576004B983F /* UIAlertView+AFNetworking.m in Sources */,
 				D88308191C1291AA00705EC0 /* NSDataEx.m in Sources */,
+				18F273AB1DCB33A8000E2B98 /* MainTabBarController.m in Sources */,
 				D88308171C1291AA00705EC0 /* DataVerifier.m in Sources */,
 				22D5E3321BFC07DB00041B97 /* FoundViewCell.m in Sources */,
 				19595B071BF2DC07004B983F /* ProblemViewController.m in Sources */,
@@ -3631,6 +3646,7 @@
 				331013CE1CE335F500D78360 /* AddressViewController.m in Sources */,
 				D87773991C0EBC2400B69D41 /* RedBoxDto.m in Sources */,
 				D84FDC661C12CD8700E26DE2 /* MyPhotoSource.m in Sources */,
+				18F273AF1DCC7BFF000E2B98 /* PKDetailsCell.m in Sources */,
 				D87CFA1E1C9FC2670052B1BF /* LatesAnnountViewCell.m in Sources */,
 				D86BA7191C1FAF69001DD82E /* DiscountCell.m in Sources */,
 				19595ADD1BF18C61004B983F /* ClassificationCell.m in Sources */,

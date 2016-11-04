@@ -13,8 +13,6 @@ static NetworkTools *tools = nil;
 + (instancetype)shareInstance{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         config.timeoutIntervalForRequest = 15;
         NSURL *baseURL = [NSURL URLWithString:@""];

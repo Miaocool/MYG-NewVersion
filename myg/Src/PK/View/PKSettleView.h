@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PKSettleView;
+@class ShoppingModel;
+@protocol PKSettleViewDelegate <NSObject>
+
+- (void)pkSettleView:(PKSettleView *)pkSettleView shopModel:(ShoppingModel *)shopModel;
+
+@end
+
+
 
 @interface PKSettleView : UIView
-
+@property (weak,nonatomic)id<PKSettleViewDelegate>delegate;
 @end
