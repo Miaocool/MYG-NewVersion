@@ -49,6 +49,8 @@
 #import "RedPageAlertView.h"
 #import "ChanceofViewController.h"
 #import "PKListViewController.h"
+#import "MainTabBarController.h"
+#import "PKListViewController.h"
 @interface AppDelegate ()<WXApiDelegate,JPUSHRegisterDelegate>
 {
     NSString *Newurl;
@@ -390,6 +392,15 @@
     UITabBarItem *tabBar2 = [[UITabBarItem alloc]initWithTitle:@"最新揭晓" image: [UIImage imageNamed:@"tabbar_cart (4)"]selectedImage: [UIImage imageNamed:@"tabbar_selected (7)"]];
     latestNav.tabBarItem = tabBar2;
     
+    
+    PKListViewController *pklistVC = [PKListViewController new];
+//    pklistVC.title = @"PK专场";
+    pklistVC.tabBarItem.title = @"";
+    NavViewController *pklistNav = [[NavViewController alloc]initWithRootViewController:pklistVC];
+    
+    
+    
+    
     OrdershareController *foundVC = [[OrdershareController alloc]init];
     foundVC.title = @"晒单";
     NavViewController *foundNav = [[NavViewController alloc]initWithRootViewController:foundVC];
@@ -411,10 +422,10 @@
     myNav.tabBarItem = tabBar4;
     
     
-    UITabBarController *tabBar = [[UITabBarController alloc]init];
+    MainTabBarController *tabBar = [[MainTabBarController alloc]init];
     
 //    [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,listingNav,myNav]];
-    [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,myNav]];
+    [tabBar setViewControllers:@[takeVCNav,latestNav,pklistNav,foundNav,myNav]];
      [tabBar.tabBar setTintColor:MainColor];
    
     self.window.rootViewController = tabBar;

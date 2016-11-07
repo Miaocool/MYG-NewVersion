@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="3Br-Q8-u0X">
+            <rect key="frame" x="0.0" y="0.0" width="442" height="145"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="n2k-Gg-Wkp"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toux2" translatesAutoresizingMaskIntoConstraints="NO" id="Pu2-pa-QBp"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="mVh-eC-hDM">
+                    <color key="backgroundColor" red="0.14173020298723515" green="0.22777256875904681" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PK编号：001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPW-gR-X5p">
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reZ-X3-9gB">
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浙江省杭州市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ve-MA-bbW">
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqc-XO-4D1">
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浙江省杭州市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttH-UY-dQL">
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="sPW-gR-X5p" firstAttribute="centerX" secondItem="3Br-Q8-u0X" secondAttribute="centerX" id="6Fd-zm-Wl6"/>
+                <constraint firstItem="ttH-UY-dQL" firstAttribute="top" secondItem="xqc-XO-4D1" secondAttribute="bottom" constant="5" id="AbR-FU-AEo"/>
+                <constraint firstItem="reZ-X3-9gB" firstAttribute="centerX" secondItem="mVh-eC-hDM" secondAttribute="centerX" id="Een-Xn-vQs"/>
+                <constraint firstItem="mVh-eC-hDM" firstAttribute="top" secondItem="3Br-Q8-u0X" secondAttribute="top" constant="25" id="LGT-PD-mLU"/>
+                <constraint firstItem="xqc-XO-4D1" firstAttribute="top" secondItem="Pu2-pa-QBp" secondAttribute="bottom" constant="10" id="Lud-Hc-058"/>
+                <constraint firstItem="2Ve-MA-bbW" firstAttribute="top" secondItem="reZ-X3-9gB" secondAttribute="bottom" constant="5" id="OUf-ft-MQ0"/>
+                <constraint firstAttribute="trailing" secondItem="Pu2-pa-QBp" secondAttribute="trailing" constant="65" id="R2G-wQ-geI"/>
+                <constraint firstItem="xqc-XO-4D1" firstAttribute="centerX" secondItem="Pu2-pa-QBp" secondAttribute="centerX" id="YeO-6y-1Kd"/>
+                <constraint firstItem="reZ-X3-9gB" firstAttribute="top" secondItem="mVh-eC-hDM" secondAttribute="bottom" constant="10" id="fCD-Dx-K3U"/>
+                <constraint firstItem="n2k-Gg-Wkp" firstAttribute="top" secondItem="3Br-Q8-u0X" secondAttribute="top" constant="45" id="gEx-uj-VAc"/>
+                <constraint firstItem="ttH-UY-dQL" firstAttribute="centerX" secondItem="Pu2-pa-QBp" secondAttribute="centerX" id="iyI-vj-aDO"/>
+                <constraint firstItem="mVh-eC-hDM" firstAttribute="leading" secondItem="3Br-Q8-u0X" secondAttribute="leading" constant="65" id="keM-dh-H26"/>
+                <constraint firstItem="n2k-Gg-Wkp" firstAttribute="centerX" secondItem="3Br-Q8-u0X" secondAttribute="centerX" id="r4A-Qh-d99"/>
+                <constraint firstItem="sPW-gR-X5p" firstAttribute="centerY" secondItem="n2k-Gg-Wkp" secondAttribute="centerY" id="tH1-b0-fy9"/>
+                <constraint firstItem="2Ve-MA-bbW" firstAttribute="centerX" secondItem="mVh-eC-hDM" secondAttribute="centerX" id="tlI-Ht-7Gw"/>
+                <constraint firstItem="Pu2-pa-QBp" firstAttribute="top" secondItem="3Br-Q8-u0X" secondAttribute="top" constant="25" id="vJj-Gt-taX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="35" y="-48.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="2" width="80" height="17"/>
+        <image name="toux2" width="50" height="50"/>
+        <image name="touxiang" width="50" height="50"/>
+    </resources>
+</document>

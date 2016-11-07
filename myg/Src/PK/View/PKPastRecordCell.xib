@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PKPastRecordCell">
+            <rect key="frame" x="0.0" y="0.0" width="421" height="95"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10002123期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qm-hL-kkR">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PK成功(13/13)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6F-z4-Gjk">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hong" translatesAutoresizingMaskIntoConstraints="NO" id="Vap-pq-Ier"/>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8qm-hL-kkR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="7qV-zm-aMB"/>
+                <constraint firstItem="Vap-pq-Ier" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8Nm-J0-B6f"/>
+                <constraint firstAttribute="bottom" secondItem="8qm-hL-kkR" secondAttribute="bottom" constant="10" id="Ka7-rJ-1jn"/>
+                <constraint firstItem="W6F-z4-Gjk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="aBQ-Zs-DfO"/>
+                <constraint firstAttribute="trailing" secondItem="W6F-z4-Gjk" secondAttribute="trailing" constant="15" id="g7V-8Z-6lJ"/>
+                <constraint firstItem="Vap-pq-Ier" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hMR-JT-4o1"/>
+                <constraint firstAttribute="bottom" secondItem="W6F-z4-Gjk" secondAttribute="bottom" constant="10" id="hpt-4i-vWE"/>
+                <constraint firstItem="8qm-hL-kkR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="iMY-5v-ssS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="stageNum" destination="8qm-hL-kkR" id="1Sk-iO-wvb"/>
+            </connections>
+            <point key="canvasLocation" x="56.5" y="-231.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="hong" width="14" height="14"/>
+    </resources>
+</document>

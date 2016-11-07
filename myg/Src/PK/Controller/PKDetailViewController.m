@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     
-    
+    [self setUpUI];
     
     
 }
@@ -28,7 +28,7 @@
  */
 - (void)setUpUI{
     
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     

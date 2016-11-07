@@ -39,8 +39,9 @@
 - (UIButton *)centerBtn{
     if (!_centerBtn) {
         self.centerBtn = [[UIButton alloc] init];
-        [self.centerBtn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
-        
+//        self.centerBtn.backgroundColor = [UIColor whiteColor];
+        [self.centerBtn setImage:[UIImage imageNamed:@"hui"] forState:UIControlStateNormal];
+        [self.centerBtn setImage:[UIImage imageNamed:@"pkicon"] forState:UIControlStateSelected];
         [self.centerBtn setTitle:@"PK专区" forState:UIControlStateNormal];
         
         [self.centerBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];

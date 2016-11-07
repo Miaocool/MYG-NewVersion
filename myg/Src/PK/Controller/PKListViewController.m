@@ -9,6 +9,7 @@
 #import "PKListViewController.h"
 #import "PKListCell.h"
 #import "PKDetailViewController.h"
+
 @interface PKListViewController ()<UITableViewDelegate,UITableViewDataSource,PKListCellDelegate>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *listModels;
@@ -19,10 +20,28 @@ static NSString *const listCellID = @"PKListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+    [self setUpUI];
 }
 - (void)setUpUI{
     [self.view addSubview:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PKListCell class]) bundle:nil] forCellReuseIdentifier:listCellID];
+    self.left.hidden = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+
+    UILabel *label = [[UILabel alloc]init];
+    label.frame = CGRectMake(0, 0, 200, 44);
+    label.text = @"PK专场";
+    label.font = [UIFont systemFontOfSize:18];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = label;
+    
+    
+//    self.navigationController.navigationItem.title = @"PK专场";
+    
+//    self.tabBarItem.title = @"";
+    
 }
 //数据请求
 - (void)requestData{
@@ -50,14 +69,18 @@ static NSString *const listCellID = @"PKListCell";
     
     PKListCell *cell = [tableView dequeueReusableCellWithIdentifier:listCellID];
     cell.delegate = self;
-    cell.listModel = self.listModels[indexPath.section];
+//    cell.listModel = self.listModels[indexPath.section];
     return cell;
    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 75;
 }
 #pragma mark <PKListCellDelegate>
 - (void)pkListCell:(PKListCell *)pkListCell listModel:(PKListModel *)listModel{
     
-    
+    PKDetailViewController *pkdetailsVC = [PKDetailViewController new];
+    [self.navigationController pushViewController:pkdetailsVC animated:YES];
     
 }
 #pragma  mark <懒加载>
@@ -69,11 +92,19 @@ static NSString *const listCellID = @"PKListCell";
 }
 - (UITableView *)tableView{
     if (!_tableView) {
-        self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, MSH - 450, MSW, 450) style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, MSW, MSH-44-64) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
     }
     return _tableView;
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBarHidden = NO;
+    self.hidesBottomBarWhenPushed = NO;
 }
 @end

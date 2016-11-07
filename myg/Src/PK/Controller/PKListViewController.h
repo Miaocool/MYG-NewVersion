@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKListViewController : UIViewController
+@interface PKListViewController : MaiViewController
 
 @end

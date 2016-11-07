@@ -116,7 +116,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="titleEdgeInsets" minX="18" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="近期开奖结果" image="jia">
+                                    <state key="normal" title="近期开奖结果" image="kaijiangjieguo">
                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
@@ -153,11 +153,11 @@
                                 <constraint firstItem="gyQ-aJ-FWa" firstAttribute="leading" secondItem="76h-FT-jXc" secondAttribute="leading" id="wvq-aC-yuA"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-2h-rjD">
-                            <state key="normal" title="我选红球"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-2h-rjD">
+                            <state key="normal" title="我选红球" image="buy_hong"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fQ-c9-SwU">
-                            <state key="normal" title="我选篮球"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fQ-c9-SwU">
+                            <state key="normal" title="我选篮球" image="buy_lan"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,6 +175,16 @@
                         <constraint firstAttribute="trailing" secondItem="76h-FT-jXc" secondAttribute="trailing" id="yc6-lJ-w1r"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开奖中 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRs-w7-AMX">
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.87058823529411766" green="0.1803921568627451" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7p-yQ-v1P">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" red="0.87058823529411766" green="0.1803921568627451" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -193,13 +203,17 @@
                 <constraint firstAttribute="trailing" secondItem="lzJ-ek-cVN" secondAttribute="trailing" id="HmW-b6-TeE"/>
                 <constraint firstAttribute="trailing" secondItem="KjK-DC-fHY" secondAttribute="trailing" id="JvO-pQ-IAy"/>
                 <constraint firstItem="lzJ-ek-cVN" firstAttribute="top" secondItem="H5n-7u-I2v" secondAttribute="bottom" id="Kpv-mF-xoe"/>
+                <constraint firstAttribute="trailing" secondItem="a7p-yQ-v1P" secondAttribute="trailing" constant="17" id="PAy-8v-0Hh"/>
                 <constraint firstItem="sYa-CO-dTq" firstAttribute="top" secondItem="KjK-DC-fHY" secondAttribute="bottom" id="PUL-na-VPh"/>
+                <constraint firstItem="a7p-yQ-v1P" firstAttribute="leading" secondItem="eRs-w7-AMX" secondAttribute="trailing" id="Sc3-k4-Hob"/>
                 <constraint firstItem="tMh-nW-5Vb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UUt-in-4x9"/>
                 <constraint firstAttribute="trailing" secondItem="tMh-nW-5Vb" secondAttribute="trailing" id="WgM-bX-qNE"/>
                 <constraint firstItem="GGy-yt-BAR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dje-oI-WqD"/>
+                <constraint firstItem="a7p-yQ-v1P" firstAttribute="centerY" secondItem="Khu-dK-yOD" secondAttribute="centerY" id="dkC-GV-eMv"/>
                 <constraint firstAttribute="trailing" secondItem="H5n-7u-I2v" secondAttribute="trailing" id="eDA-fb-fs1"/>
                 <constraint firstItem="2HZ-0I-rCb" firstAttribute="leading" secondItem="VVB-Wb-LzM" secondAttribute="leading" id="fcq-HJ-9Ds"/>
                 <constraint firstItem="H5n-7u-I2v" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fkh-u4-OL7"/>
+                <constraint firstItem="eRs-w7-AMX" firstAttribute="bottom" secondItem="a7p-yQ-v1P" secondAttribute="bottom" id="gA8-zU-Th7"/>
                 <constraint firstItem="GGy-yt-BAR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hNu-RP-eXy"/>
                 <constraint firstItem="lzJ-ek-cVN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="i7J-AR-VUY"/>
                 <constraint firstItem="2HZ-0I-rCb" firstAttribute="top" secondItem="VVB-Wb-LzM" secondAttribute="bottom" constant="10" id="nzG-kc-8Bv"/>
@@ -217,6 +231,8 @@
         </view>
     </objects>
     <resources>
-        <image name="jia" width="15" height="15"/>
+        <image name="buy_hong" width="120" height="40"/>
+        <image name="buy_lan" width="120" height="40"/>
+        <image name="kaijiangjieguo" width="18" height="18"/>
     </resources>
 </document>
