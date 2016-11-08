@@ -32,12 +32,12 @@ static NSString *const listCellID = @"PKListCell";
     UILabel *label = [[UILabel alloc]init];
     label.frame = CGRectMake(0, 0, 200, 44);
     label.text = @"PK专场";
-    label.font = [UIFont systemFontOfSize:18];
+    label.font = [UIFont systemFontOfSize:22];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
     
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    self.navigationController.navigationItem.title = @"PK专场";
     
 //    self.tabBarItem.title = @"";
@@ -76,10 +76,38 @@ static NSString *const listCellID = @"PKListCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 75;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 2;
+    }else if (section == 10){
+        return 0;
+    }else{
+        return 7;
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+     if (section == 9){
+        return 1;
+    }else{
+        return 7;
+    }
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MSW, 7)];
+    headerView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
+    return headerView;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MSW, 7)];
+    footerView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
+    return footerView;
+}
 #pragma mark <PKListCellDelegate>
 - (void)pkListCell:(PKListCell *)pkListCell listModel:(PKListModel *)listModel{
     
     PKDetailViewController *pkdetailsVC = [PKDetailViewController new];
+    self.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:pkdetailsVC animated:YES];
     
 }
@@ -92,7 +120,7 @@ static NSString *const listCellID = @"PKListCell";
 }
 - (UITableView *)tableView{
     if (!_tableView) {
-        self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, MSW, MSH-44-64) style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, MSW, MSH-48-64) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         

@@ -17,6 +17,7 @@
 		180BBEDE1DB76FC300BF9F0F /* WinRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBEDD1DB76FC300BF9F0F /* WinRateView.xib */; };
 		180BBEE21DB76FE700BF9F0F /* PeopleTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBEE11DB76FE700BF9F0F /* PeopleTimeView.xib */; };
 		18680A631DB08C8F009E6854 /* RedPageAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18680A621DB08C8F009E6854 /* RedPageAlertView.xib */; };
+		187403C81DD1C4F10083B3F6 /* PKGoSettleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187403C71DD1C4F10083B3F6 /* PKGoSettleViewController.m */; };
 		18829AFD1D83A71600E5B4BD /* PromptlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18829AFC1D83A71600E5B4BD /* PromptlyViewController.m */; };
 		18829E531DB88C7700F4A963 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18829E391DB88C7700F4A963 /* Info.plist */; };
 		18829E541DB88C7700F4A963 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 18829E3B1DB88C7700F4A963 /* MASCompositeConstraint.m */; };
@@ -57,7 +58,6 @@
 		18F273AB1DCB33A8000E2B98 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */; };
 		18F273AF1DCC7BFF000E2B98 /* PKDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */; };
 		18FA04951DC9C5E5000D7FFF /* PKSettleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA04941DC9C5E5000D7FFF /* PKSettleController.m */; };
-		18FA04981DC9DBBF000D7FFF /* PKSettleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA04971DC9DBBF000D7FFF /* PKSettleViewController.m */; };
 		18FA049B1DC9DD1B000D7FFF /* PKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA049A1DC9DD1B000D7FFF /* PKDetailViewController.m */; };
 		18FA04A11DC9E010000D7FFF /* PKListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA049F1DC9E010000D7FFF /* PKListViewController.m */; };
 		18FAEC601D9E0C89002C3D2A /* jpush-ios-2.1.9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FAEC5E1D9E0C89002C3D2A /* jpush-ios-2.1.9.a */; };
@@ -470,6 +470,8 @@
 		180BBEDD1DB76FC300BF9F0F /* WinRateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinRateView.xib; sourceTree = "<group>"; };
 		180BBEE11DB76FE700BF9F0F /* PeopleTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleTimeView.xib; sourceTree = "<group>"; };
 		18680A621DB08C8F009E6854 /* RedPageAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedPageAlertView.xib; sourceTree = "<group>"; };
+		187403C61DD1C4F10083B3F6 /* PKGoSettleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGoSettleViewController.h; sourceTree = "<group>"; };
+		187403C71DD1C4F10083B3F6 /* PKGoSettleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGoSettleViewController.m; sourceTree = "<group>"; };
 		18829AFB1D83A71600E5B4BD /* PromptlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromptlyViewController.h; sourceTree = "<group>"; };
 		18829AFC1D83A71600E5B4BD /* PromptlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromptlyViewController.m; sourceTree = "<group>"; };
 		18829E391DB88C7700F4A963 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -547,8 +549,6 @@
 		18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailsCell.m; sourceTree = "<group>"; };
 		18FA04931DC9C5E5000D7FFF /* PKSettleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKSettleController.h; path = ../Controller/PKSettleController.h; sourceTree = "<group>"; };
 		18FA04941DC9C5E5000D7FFF /* PKSettleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKSettleController.m; path = ../Controller/PKSettleController.m; sourceTree = "<group>"; };
-		18FA04961DC9DBBF000D7FFF /* PKSettleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKSettleViewController.h; sourceTree = "<group>"; };
-		18FA04971DC9DBBF000D7FFF /* PKSettleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKSettleViewController.m; sourceTree = "<group>"; };
 		18FA04991DC9DD1B000D7FFF /* PKDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailViewController.h; sourceTree = "<group>"; };
 		18FA049A1DC9DD1B000D7FFF /* PKDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailViewController.m; sourceTree = "<group>"; };
 		18FA049E1DC9E010000D7FFF /* PKListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKListViewController.h; sourceTree = "<group>"; };
@@ -2750,12 +2750,12 @@
 			children = (
 				18FA04991DC9DD1B000D7FFF /* PKDetailViewController.h */,
 				18FA049A1DC9DD1B000D7FFF /* PKDetailViewController.m */,
-				18FA04961DC9DBBF000D7FFF /* PKSettleViewController.h */,
-				18FA04971DC9DBBF000D7FFF /* PKSettleViewController.m */,
 				18FA049E1DC9E010000D7FFF /* PKListViewController.h */,
 				18FA049F1DC9E010000D7FFF /* PKListViewController.m */,
 				18BBB1F51DD01C2E00D412F6 /* PKPastRecordController.h */,
 				18BBB1F61DD01C2E00D412F6 /* PKPastRecordController.m */,
+				187403C61DD1C4F10083B3F6 /* PKGoSettleViewController.h */,
+				187403C71DD1C4F10083B3F6 /* PKGoSettleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3477,7 +3477,6 @@
 				18829E581DB88C7700F4A963 /* MASViewAttribute.m in Sources */,
 				18BBB1F71DD01C2E00D412F6 /* PKPastRecordController.m in Sources */,
 				19BF122F1BF0345000018261 /* AppDelegate.m in Sources */,
-				18FA04981DC9DBBF000D7FFF /* PKSettleViewController.m in Sources */,
 				195955321BF03576004B983F /* AFURLSessionManager.m in Sources */,
 				D8E001841C3BCA65000B7A2F /* JHLeadViewController.m in Sources */,
 				19F58C0C1BF4340100B5B32A /* NSMutableString+TagReplace.m in Sources */,
@@ -3733,6 +3732,7 @@
 				D61984A01D2F705700C0E2F6 /* InviteFriendsViewController.m in Sources */,
 				22E4140D1BF9AFEE0003EA69 /* BeforeViewCell.m in Sources */,
 				D82ECBCD1CC4D44F001863C9 /* NoNetwork.m in Sources */,
+				187403C81DD1C4F10083B3F6 /* PKGoSettleViewController.m in Sources */,
 				180BBED41DB7693100BF9F0F /* BettingToolView.m in Sources */,
 				18829E561DB88C7700F4A963 /* MASConstraintMaker.m in Sources */,
 				19665CB51BFAB7E2005591E1 /* LastStepViewController.m in Sources */,

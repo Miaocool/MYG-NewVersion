@@ -36,7 +36,6 @@
     [super viewDidLoad];
     
     
-    
     // 初始化
     [self setUpUI];
     
@@ -148,7 +147,6 @@
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
     [self.view addSubview:self.chanceSurperView];
-    
     
     
     

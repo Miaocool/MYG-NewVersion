@@ -28,6 +28,9 @@
 - (void)setUpUI{
     
     [self.listPKBtn addTarget:self action:@selector(pkAction) forControlEvents:UIControlEventTouchUpInside];
+    UIView *selectView = [[UIView alloc]initWithFrame:self.bounds];
+    selectView.backgroundColor = [UIColor clearColor];
+    self.selectedBackgroundView = selectView;
     
 }
 - (void)pkAction{

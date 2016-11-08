@@ -44,7 +44,6 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
     
 }
 - (void)setUpUI{
-    
     self.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     self.identBall.backgroundColor = [UIColor whiteColor];
     self.firstBtn.tag = UIButtonTagValueFirst;

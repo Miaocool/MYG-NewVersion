@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PKDetailsCell">
             <rect key="frame" x="0.0" y="0.0" width="357" height="618"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -26,7 +26,11 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28B-xc-Ig5"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28B-xc-Ig5">
+                    <connections>
+                        <action selector="pictureDetailAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="fkF-Pi-3LA"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进行中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxr-Q6-iUy">
                     <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.46422413793103451" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -128,6 +132,9 @@
                                     <state key="normal" title="更多  &gt;">
                                         <color key="titleColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="pastRecordAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Snb-of-cS6"/>
+                                    </connections>
                                 </button>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Xne-74-81p">
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,7 +153,6 @@
                                 <constraint firstItem="Xne-74-81p" firstAttribute="leading" secondItem="76h-FT-jXc" secondAttribute="leading" constant="10" id="HBR-GL-e9M"/>
                                 <constraint firstItem="gyQ-aJ-FWa" firstAttribute="top" secondItem="76h-FT-jXc" secondAttribute="top" constant="10" id="IC5-1w-IxN"/>
                                 <constraint firstAttribute="trailing" secondItem="2cx-OF-9GJ" secondAttribute="trailing" constant="10" id="RmO-MG-Mr8"/>
-                                <constraint firstAttribute="height" constant="85" id="VdD-GK-ZW2"/>
                                 <constraint firstItem="Xne-74-81p" firstAttribute="top" secondItem="gyQ-aJ-FWa" secondAttribute="bottom" constant="15" id="X7y-pQ-UEi"/>
                                 <constraint firstAttribute="trailing" secondItem="gyQ-aJ-FWa" secondAttribute="trailing" constant="200" id="XJ8-Nx-ryb"/>
                                 <constraint firstAttribute="bottom" secondItem="Xne-74-81p" secondAttribute="bottom" constant="12" id="XfL-TW-E5J"/>
@@ -154,10 +160,18 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-2h-rjD">
-                            <state key="normal" title="我选红球" image="buy_hong"/>
+                            <state key="normal" image="buy_hong"/>
+                            <state key="highlighted" image="buy_hong"/>
+                            <connections>
+                                <action selector="selectRedOrBlueBall:" destination="iN0-l3-epB" eventType="touchUpInside" id="eiv-Q2-0En"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fQ-c9-SwU">
-                            <state key="normal" title="我选篮球" image="buy_lan"/>
+                            <state key="normal" image="buy_lan"/>
+                            <state key="highlighted" image="buy_lan"/>
+                            <connections>
+                                <action selector="selectRedOrBlueBall:" destination="iN0-l3-epB" eventType="touchUpInside" id="3pk-YA-8vj"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -227,6 +241,19 @@
                 <constraint firstItem="Khu-dK-yOD" firstAttribute="top" secondItem="nEq-Zy-1Hs" secondAttribute="bottom" constant="7" id="yhG-CB-qQ9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="blueBtn" destination="7fQ-c9-SwU" id="HJf-I3-QEZ"/>
+                <outlet property="blueHeight" destination="IxX-nR-mNl" id="Vg9-bW-jny"/>
+                <outlet property="blueNum" destination="poW-8w-J96" id="iqf-md-nvp"/>
+                <outlet property="collectionView" destination="Xne-74-81p" id="1Yt-Mf-fa1"/>
+                <outlet property="countDownTime" destination="a7p-yQ-v1P" id="0WX-14-UgA"/>
+                <outlet property="produceIMG" destination="GGy-yt-BAR" id="PUD-c8-Bd0"/>
+                <outlet property="produceName" destination="nEq-Zy-1Hs" id="8tv-2l-tsD"/>
+                <outlet property="redBtn" destination="vhE-2h-rjD" id="85J-XT-rfJ"/>
+                <outlet property="redHeight" destination="IUF-Ni-3dI" id="aEl-DB-FVg"/>
+                <outlet property="redNum" destination="DQ4-JP-t2H" id="ZyL-QE-Trl"/>
+                <outlet property="stageNum" destination="Khu-dK-yOD" id="zBu-9d-YBq"/>
+            </connections>
             <point key="canvasLocation" x="2.5" y="64"/>
         </view>
     </objects>

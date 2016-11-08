@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKDetailsCell : UITableViewCell
+typedef NS_ENUM(NSUInteger, PKBallType) {
+    PKBallTypeRedBall = 0,
+    PKBallTypeBlueBall
+};
 
+@class PKDetailsCell;
+@protocol PKDetailsCellDelegate <NSObject>
+
+- (void)pkDetailsCell:(PKDetailsCell *)pkDetailsCell ballType:(PKBallType)ballType;
+
+@end
+@interface PKDetailsCell : UITableViewCell
+@property (nonatomic,weak)id<PKDetailsCellDelegate>delegate;
 @end
