@@ -1047,21 +1047,36 @@
 {
     //支付宝测试
     NSMutableArray *array = [NSMutableArray array];
-    [[UserDataSingleton userInformation].shoppingArray enumerateObjectsUsingBlock:^(ShoppingModel *obj, NSUInteger idx, BOOL *stop) {
-        [array addObject:obj.goodsId];
-    }];
+//    [[UserDataSingleton userInformation].shoppingArray enumerateObjectsUsingBlock:^(ShoppingModel *obj, NSUInteger idx, BOOL *stop) {
+//        [array addObject:obj.goodsId];
+//        
+//        DebugLog(@"bianli");
+//    }];
+
     
-    NSString * str = [array componentsJoinedByString:@","];
+    DebugLog(@"shoparr :%@",[UserDataSingleton userInformation].shoppingArray);
+    
+//    for (ShoppingModel *obj in [UserDataSingleton userInformation].shoppingArray) {
+//        [array addObject:obj.goodsId];
+//        DebugLog(@"for---arr: %@",array);
+//    }
+    
+//    DebugLog(@"array---%zd",array.count);
+//    NSString * str = [array componentsJoinedByString:@","];
+//    DebugLog(@"str--%@",str);
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:status forKey:@"status"];
     [dict setValue:[UserDataSingleton userInformation].uid forKey:@"yhid"];
     [dict setValue:[UserDataSingleton userInformation].code forKey:@"code"];
     [dict setValue:_key forKey:@"ordernumber"];
-    [dict setValue:str forKey:@"id"];
+    [dict setValue:[UserDataSingleton userInformation].shopModel.goodsId forKey:@"id"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [SVProgressHUD showErrorWithStatus:@"网络不给力!"];
     });
+    
+    DebugLog(@"支付回调---%@",dict);
+    
     [MDYAFHelp AFPostHost:APPHost bindPath:Callback postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
         DebugLog(@"------%@",responseDic);
         

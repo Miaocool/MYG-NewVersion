@@ -55,6 +55,8 @@
 		18BBB2101DD06EE900D412F6 /* PKDetailsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB20F1DD06EE900D412F6 /* PKDetailsFooterView.m */; };
 		18BBB2121DD06F2E00D412F6 /* PKDetailsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB2111DD06F2E00D412F6 /* PKDetailsFooterView.xib */; };
 		18BF9EB81DBF52820009A3A7 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */; };
+		18BFA2CE1DD2F62C001E9ED3 /* PKPastListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFA2CD1DD2F62C001E9ED3 /* PKPastListCell.m */; };
+		18BFA2D01DD2F63A001E9ED3 /* PKPastListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFA2CF1DD2F63A001E9ED3 /* PKPastListCell.xib */; };
 		18F273AB1DCB33A8000E2B98 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */; };
 		18F273AF1DCC7BFF000E2B98 /* PKDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */; };
 		18FA04951DC9C5E5000D7FFF /* PKSettleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA04941DC9C5E5000D7FFF /* PKSettleController.m */; };
@@ -543,6 +545,9 @@
 		18BBB20F1DD06EE900D412F6 /* PKDetailsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailsFooterView.m; sourceTree = "<group>"; };
 		18BBB2111DD06F2E00D412F6 /* PKDetailsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKDetailsFooterView.xib; sourceTree = "<group>"; };
 		18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
+		18BFA2CC1DD2F62C001E9ED3 /* PKPastListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPastListCell.h; sourceTree = "<group>"; };
+		18BFA2CD1DD2F62C001E9ED3 /* PKPastListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPastListCell.m; sourceTree = "<group>"; };
+		18BFA2CF1DD2F63A001E9ED3 /* PKPastListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKPastListCell.xib; sourceTree = "<group>"; };
 		18F273A91DCB33A8000E2B98 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		18F273AC1DCC7BFF000E2B98 /* PKDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsCell.h; sourceTree = "<group>"; };
@@ -2796,6 +2801,9 @@
 				18F273AC1DCC7BFF000E2B98 /* PKDetailsCell.h */,
 				18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */,
 				18BBB1F11DD0170900D412F6 /* PKDetailsCell.xib */,
+				18BFA2CC1DD2F62C001E9ED3 /* PKPastListCell.h */,
+				18BFA2CD1DD2F62C001E9ED3 /* PKPastListCell.m */,
+				18BFA2CF1DD2F63A001E9ED3 /* PKPastListCell.xib */,
 				18BBB2041DD05B2A00D412F6 /* PKAnnounceCell.h */,
 				18BBB2051DD05B2A00D412F6 /* PKAnnounceCell.m */,
 				18BBB2071DD05B3600D412F6 /* PKAnnounceCell.xib */,
@@ -3302,6 +3310,7 @@
 			files = (
 				33CDB8ED1CEF0A3C00129ABC /* ShareSDKLocalizable.strings in Resources */,
 				3316F3551CF2F303009DD548 /* WeiboSDK.bundle in Resources */,
+				18BFA2D01DD2F63A001E9ED3 /* PKPastListCell.xib in Resources */,
 				D864156F1C06D8F7008D3A88 /* states04.png in Resources */,
 				33CDB8F71CEF0A3C00129ABC /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				D864156E1C06D8F7008D3A88 /* states03.png in Resources */,
@@ -3681,6 +3690,7 @@
 				18829E901DB897D700F4A963 /* ChanceSurperView.m in Sources */,
 				180BBEDC1DB76EFD00BF9F0F /* PeopleTimeView.m in Sources */,
 				19665CBD1BFAB801005591E1 /* TextFieldCell.m in Sources */,
+				18BFA2CE1DD2F62C001E9ED3 /* PKPastListCell.m in Sources */,
 				195955381BF03576004B983F /* MDLocalFileHelp.m in Sources */,
 				D84FDC531C12CD8700E26DE2 /* AnimatedImageView.m in Sources */,
 				D86BA7341C1FB0E9001DD82E /* CalculateViewCell.m in Sources */,

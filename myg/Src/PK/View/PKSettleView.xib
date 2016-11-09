@@ -58,6 +58,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="jFZ-bh-rxa"/>
                     </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="1">
                         <color key="titleColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -67,6 +68,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8g4-gF-BYb">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="10">
                         <color key="titleColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -76,6 +78,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM7-nb-vN3">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="20">
                         <color key="titleColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -85,6 +88,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8X-Lh-n6Z">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="40">
                         <color key="titleColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -151,6 +155,7 @@
                 <outlet property="firstBtn" destination="c4T-8o-Bsp" id="c6K-m6-3wB"/>
                 <outlet property="fourBtn" destination="I8X-Lh-n6Z" id="HKf-ZG-a89"/>
                 <outlet property="identBall" destination="Msm-pd-MeW" id="G30-sW-hwc"/>
+                <outlet property="prizeAndBallCount" destination="2uG-xi-2xY" id="Tqp-2f-4F5"/>
                 <outlet property="secendBtn" destination="8g4-gF-BYb" id="t4V-bX-llA"/>
                 <outlet property="subBtn" destination="xzf-eo-0gi" id="Ad0-LW-o5u"/>
                 <outlet property="thirdBtn" destination="PM7-nb-vN3" id="jfg-DS-7MG"/>

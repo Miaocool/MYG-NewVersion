@@ -8,15 +8,14 @@
 
 #import "PKDetailsCell.h"
 
+#import "PKPastListCell.h"
 
 
-
-@interface PKDetailsCell ()
+@interface PKDetailsCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *produceIMG;
 @property (weak, nonatomic) IBOutlet UILabel *produceName;
 @property (weak, nonatomic) IBOutlet UILabel *stageNum;
 @property (weak, nonatomic) IBOutlet UILabel *countDownTime;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *redHeight;
 @property (weak, nonatomic) IBOutlet UILabel *redNum;
 @property (weak, nonatomic) IBOutlet UIView *blueHeight;
@@ -24,10 +23,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *redBtn;
 @property (weak, nonatomic) IBOutlet UIButton *blueBtn;
 
+
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end
 
 
-
+static NSString *const cellItemID = @"PKPastListCell";
 @implementation PKDetailsCell
 
 - (void)awakeFromNib {
@@ -42,7 +44,33 @@
     
     self.redBtn.tag = PKBallTypeRedBall;
     self.blueBtn.tag = PKBallTypeBlueBall;
+    
+    
+    [self setUpCollectionView];
+    
 }
+- (void)setUpCollectionView{
+    
+
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PKPastListCell class]) bundle:nil] forCellWithReuseIdentifier:cellItemID];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+//
+    
+}
+
+#pragma mark <UICollectionViewDelegate,UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 20;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    PKPastListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellItemID forIndexPath:indexPath];
+    return cell;
+    
+}
+
 
 /**
  购买红球Or篮球
