@@ -11,7 +11,7 @@
 #import "PKPastListCell.h"
 
 
-@interface PKDetailsCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface PKDetailsCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIImageView *produceIMG;
 @property (weak, nonatomic) IBOutlet UILabel *produceName;
 @property (weak, nonatomic) IBOutlet UILabel *stageNum;
@@ -70,7 +70,9 @@ static NSString *const cellItemID = @"PKPastListCell";
     return cell;
     
 }
-
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    return CGSizeMake(self.collectionView.height, self.collectionView.height);
+//}
 
 /**
  购买红球Or篮球

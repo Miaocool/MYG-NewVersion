@@ -16,6 +16,10 @@
 		180BBEDC1DB76EFD00BF9F0F /* PeopleTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BBEDB1DB76EFD00BF9F0F /* PeopleTimeView.m */; };
 		180BBEDE1DB76FC300BF9F0F /* WinRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBEDD1DB76FC300BF9F0F /* WinRateView.xib */; };
 		180BBEE21DB76FE700BF9F0F /* PeopleTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBEE11DB76FE700BF9F0F /* PeopleTimeView.xib */; };
+		180F12A71DD458CB002876FD /* PKAnnounceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180F12A61DD458CB002876FD /* PKAnnounceCell.xib */; };
+		180F12AB1DD4812C002876FD /* aaa.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180F12AA1DD4812C002876FD /* aaa.xib */; };
+		180F12AE1DD48261002876FD /* PKDetailFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180F12AD1DD48261002876FD /* PKDetailFootView.m */; };
+		180F12B01DD48310002876FD /* PKDetailFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180F12AF1DD48310002876FD /* PKDetailFootView.xib */; };
 		18680A631DB08C8F009E6854 /* RedPageAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18680A621DB08C8F009E6854 /* RedPageAlertView.xib */; };
 		187403C81DD1C4F10083B3F6 /* PKGoSettleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187403C71DD1C4F10083B3F6 /* PKGoSettleViewController.m */; };
 		18829AFD1D83A71600E5B4BD /* PromptlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18829AFC1D83A71600E5B4BD /* PromptlyViewController.m */; };
@@ -49,11 +53,8 @@
 		18BBB2001DD01E6000D412F6 /* PKPastRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1FF1DD01E6000D412F6 /* PKPastRecordModel.m */; };
 		18BBB2031DD02AB600D412F6 /* MYGRefreshTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB2021DD02AB600D412F6 /* MYGRefreshTool.m */; };
 		18BBB2061DD05B2A00D412F6 /* PKAnnounceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB2051DD05B2A00D412F6 /* PKAnnounceCell.m */; };
-		18BBB2081DD05B3600D412F6 /* PKAnnounceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB2071DD05B3600D412F6 /* PKAnnounceCell.xib */; };
 		18BBB20B1DD0631300D412F6 /* PKAnnounceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB20A1DD0631300D412F6 /* PKAnnounceHeaderView.m */; };
 		18BBB20D1DD0631E00D412F6 /* PKAnnounceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB20C1DD0631E00D412F6 /* PKAnnounceHeaderView.xib */; };
-		18BBB2101DD06EE900D412F6 /* PKDetailsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB20F1DD06EE900D412F6 /* PKDetailsFooterView.m */; };
-		18BBB2121DD06F2E00D412F6 /* PKDetailsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB2111DD06F2E00D412F6 /* PKDetailsFooterView.xib */; };
 		18BF9EB81DBF52820009A3A7 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */; };
 		18BFA2CE1DD2F62C001E9ED3 /* PKPastListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFA2CD1DD2F62C001E9ED3 /* PKPastListCell.m */; };
 		18BFA2D01DD2F63A001E9ED3 /* PKPastListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFA2CF1DD2F63A001E9ED3 /* PKPastListCell.xib */; };
@@ -471,6 +472,11 @@
 		180BBEDB1DB76EFD00BF9F0F /* PeopleTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTimeView.m; sourceTree = "<group>"; };
 		180BBEDD1DB76FC300BF9F0F /* WinRateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinRateView.xib; sourceTree = "<group>"; };
 		180BBEE11DB76FE700BF9F0F /* PeopleTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleTimeView.xib; sourceTree = "<group>"; };
+		180F12A61DD458CB002876FD /* PKAnnounceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKAnnounceCell.xib; sourceTree = "<group>"; };
+		180F12AA1DD4812C002876FD /* aaa.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aaa.xib; sourceTree = "<group>"; };
+		180F12AC1DD48261002876FD /* PKDetailFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailFootView.h; sourceTree = "<group>"; };
+		180F12AD1DD48261002876FD /* PKDetailFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailFootView.m; sourceTree = "<group>"; };
+		180F12AF1DD48310002876FD /* PKDetailFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKDetailFootView.xib; sourceTree = "<group>"; };
 		18680A621DB08C8F009E6854 /* RedPageAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedPageAlertView.xib; sourceTree = "<group>"; };
 		187403C61DD1C4F10083B3F6 /* PKGoSettleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGoSettleViewController.h; sourceTree = "<group>"; };
 		187403C71DD1C4F10083B3F6 /* PKGoSettleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGoSettleViewController.m; sourceTree = "<group>"; };
@@ -537,13 +543,9 @@
 		18BBB2021DD02AB600D412F6 /* MYGRefreshTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYGRefreshTool.m; sourceTree = "<group>"; };
 		18BBB2041DD05B2A00D412F6 /* PKAnnounceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKAnnounceCell.h; sourceTree = "<group>"; };
 		18BBB2051DD05B2A00D412F6 /* PKAnnounceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKAnnounceCell.m; sourceTree = "<group>"; };
-		18BBB2071DD05B3600D412F6 /* PKAnnounceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKAnnounceCell.xib; sourceTree = "<group>"; };
 		18BBB2091DD0631300D412F6 /* PKAnnounceHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKAnnounceHeaderView.h; sourceTree = "<group>"; };
 		18BBB20A1DD0631300D412F6 /* PKAnnounceHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKAnnounceHeaderView.m; sourceTree = "<group>"; };
 		18BBB20C1DD0631E00D412F6 /* PKAnnounceHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKAnnounceHeaderView.xib; sourceTree = "<group>"; };
-		18BBB20E1DD06EE900D412F6 /* PKDetailsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsFooterView.h; sourceTree = "<group>"; };
-		18BBB20F1DD06EE900D412F6 /* PKDetailsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailsFooterView.m; sourceTree = "<group>"; };
-		18BBB2111DD06F2E00D412F6 /* PKDetailsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKDetailsFooterView.xib; sourceTree = "<group>"; };
 		18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
 		18BFA2CC1DD2F62C001E9ED3 /* PKPastListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPastListCell.h; sourceTree = "<group>"; };
 		18BFA2CD1DD2F62C001E9ED3 /* PKPastListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPastListCell.m; sourceTree = "<group>"; };
@@ -2806,16 +2808,17 @@
 				18BFA2CF1DD2F63A001E9ED3 /* PKPastListCell.xib */,
 				18BBB2041DD05B2A00D412F6 /* PKAnnounceCell.h */,
 				18BBB2051DD05B2A00D412F6 /* PKAnnounceCell.m */,
-				18BBB2071DD05B3600D412F6 /* PKAnnounceCell.xib */,
+				180F12A61DD458CB002876FD /* PKAnnounceCell.xib */,
 				18BBB2091DD0631300D412F6 /* PKAnnounceHeaderView.h */,
 				18BBB20A1DD0631300D412F6 /* PKAnnounceHeaderView.m */,
 				18BBB20C1DD0631E00D412F6 /* PKAnnounceHeaderView.xib */,
 				18BBB1EA1DD0163C00D412F6 /* PKPastRecordCell.h */,
 				18BBB1EB1DD0163C00D412F6 /* PKPastRecordCell.m */,
 				18BBB1F31DD0171D00D412F6 /* PKPastRecordCell.xib */,
-				18BBB20E1DD06EE900D412F6 /* PKDetailsFooterView.h */,
-				18BBB20F1DD06EE900D412F6 /* PKDetailsFooterView.m */,
-				18BBB2111DD06F2E00D412F6 /* PKDetailsFooterView.xib */,
+				180F12AC1DD48261002876FD /* PKDetailFootView.h */,
+				180F12AD1DD48261002876FD /* PKDetailFootView.m */,
+				180F12AF1DD48310002876FD /* PKDetailFootView.xib */,
+				180F12AA1DD4812C002876FD /* aaa.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3324,7 +3327,6 @@
 				D84FDC601C12CD8700E26DE2 /* egopv_photo_placeholder@2x.png in Resources */,
 				D84FDC5A1C12CD8700E26DE2 /* egopv_fullscreen_button.png in Resources */,
 				D84FDC5D1C12CD8700E26DE2 /* egopv_left@2x.png in Resources */,
-				18BBB2081DD05B3600D412F6 /* PKAnnounceCell.xib in Resources */,
 				18855EF21DC1E7F40095A8AC /* MYGPushGuideView.xib in Resources */,
 				D84FDC5E1C12CD8700E26DE2 /* egopv_minimize_fullscreen_button.png in Resources */,
 				D8E001801C3BCA2D000B7A2F /* BPushConfig.plist in Resources */,
@@ -3333,15 +3335,17 @@
 				2267526B1C0469750079A01E /* MJRefresh.bundle in Resources */,
 				D84FDC6E1C12E48900E26DE2 /* rechage.png in Resources */,
 				19BF12351BF0345000018261 /* Main.storyboard in Resources */,
-				18BBB2121DD06F2E00D412F6 /* PKDetailsFooterView.xib in Resources */,
+				180F12AB1DD4812C002876FD /* aaa.xib in Resources */,
 				33CDB8F41CEF0A3C00129ABC /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				D86BA70C1C1FAE89001DD82E /* SVProgressHUD.bundle in Resources */,
 				33CDB8EF1CEF0A3C00129ABC /* Resource.bundle in Resources */,
 				180BBEDE1DB76FC300BF9F0F /* WinRateView.xib in Resources */,
 				D84FDC5B1C12CD8700E26DE2 /* egopv_fullscreen_button@2x.png in Resources */,
+				180F12B01DD48310002876FD /* PKDetailFootView.xib in Resources */,
 				180BBEE21DB76FE700BF9F0F /* PeopleTimeView.xib in Resources */,
 				19595AF61BF1E2DC004B983F /* image1.png in Resources */,
 				18680A631DB08C8F009E6854 /* RedPageAlertView.xib in Resources */,
+				180F12A71DD458CB002876FD /* PKAnnounceCell.xib in Resources */,
 				D84FDC611C12CD8700E26DE2 /* egopv_right.png in Resources */,
 				19BF123A1BF0345000018261 /* LaunchScreen.xib in Resources */,
 				D864156C1C06D8F7008D3A88 /* states01.png in Resources */,
@@ -3639,7 +3643,6 @@
 				D8E001991C3BCC5C000B7A2F /* CommentController.m in Sources */,
 				22B986B91C7AD0110076FBC9 /* UserDataView.m in Sources */,
 				D86BA7251C1FB00D001DD82E /* MyEarningViewCell.m in Sources */,
-				18BBB2101DD06EE900D412F6 /* PKDetailsFooterView.m in Sources */,
 				195955851BF03D1A004B983F /* MyViewController.m in Sources */,
 				D84FDC551C12CD8700E26DE2 /* EGOImageViewEx.m in Sources */,
 				180BBED91DB76ED400BF9F0F /* WinRateView.m in Sources */,
@@ -3674,6 +3677,7 @@
 				19595AE01BF1C41E004B983F /* SearchViewController.m in Sources */,
 				D84FDC521C12CD8700E26DE2 /* EGOImageLoader.m in Sources */,
 				D86415591C069DCE008D3A88 /* ExtenShareViewController.m in Sources */,
+				180F12AE1DD48261002876FD /* PKDetailFootView.m in Sources */,
 				D86BA7431C201DCC001DD82E /* ClassModel.m in Sources */,
 				226752611C0469750079A01E /* MJRefreshHeader.m in Sources */,
 				D87773931C0E93EB00B69D41 /* ExchangeRecordDto.m in Sources */,

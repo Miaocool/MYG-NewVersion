@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PKDetailViewController : MaiViewController
-
+@property (nonatomic,assign)BOOL isAlReady;
 @end

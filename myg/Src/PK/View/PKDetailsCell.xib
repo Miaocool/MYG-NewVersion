@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PKDetailsCell">
-            <rect key="frame" x="0.0" y="0.0" width="357" height="618"/>
+            <rect key="frame" x="0.0" y="0.0" width="357" height="672"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGy-yt-BAR">
@@ -148,6 +148,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="116.5" id="82r-mF-x88"/>
                                 <constraint firstItem="2cx-OF-9GJ" firstAttribute="top" secondItem="gyQ-aJ-FWa" secondAttribute="top" id="8ls-FB-Oz4"/>
                                 <constraint firstAttribute="trailing" secondItem="Xne-74-81p" secondAttribute="trailing" constant="10" id="GJx-4M-Ky2"/>
                                 <constraint firstItem="Xne-74-81p" firstAttribute="leading" secondItem="76h-FT-jXc" secondAttribute="leading" constant="10" id="HBR-GL-e9M"/>
@@ -159,33 +160,32 @@
                                 <constraint firstItem="gyQ-aJ-FWa" firstAttribute="leading" secondItem="76h-FT-jXc" secondAttribute="leading" id="wvq-aC-yuA"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-2h-rjD">
-                            <state key="normal" image="buy_hong"/>
-                            <state key="highlighted" image="buy_hong"/>
-                            <connections>
-                                <action selector="selectRedOrBlueBall:" destination="iN0-l3-epB" eventType="touchUpInside" id="eiv-Q2-0En"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fQ-c9-SwU">
-                            <state key="normal" image="buy_lan"/>
-                            <state key="highlighted" image="buy_lan"/>
-                            <connections>
-                                <action selector="selectRedOrBlueBall:" destination="iN0-l3-epB" eventType="touchUpInside" id="3pk-YA-8vj"/>
-                            </connections>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7Y-va-vqI">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qq8-L7-zpY">
+                                    <state key="normal" image="buy_hong"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scW-uO-E0s">
+                                    <state key="normal" image="buy_lan"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="qq8-L7-zpY" firstAttribute="centerY" secondItem="H7Y-va-vqI" secondAttribute="centerY" id="486-I0-DZT"/>
+                                <constraint firstItem="scW-uO-E0s" firstAttribute="centerY" secondItem="H7Y-va-vqI" secondAttribute="centerY" id="EaL-Tn-Dll"/>
+                                <constraint firstItem="qq8-L7-zpY" firstAttribute="leading" secondItem="H7Y-va-vqI" secondAttribute="leading" constant="40" id="dbH-kW-LXV"/>
+                                <constraint firstAttribute="trailing" secondItem="scW-uO-E0s" secondAttribute="trailing" constant="40" id="mXL-W6-7ht"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="vhE-2h-rjD" firstAttribute="top" secondItem="76h-FT-jXc" secondAttribute="bottom" constant="20" id="1oA-FE-XxU"/>
-                        <constraint firstItem="7fQ-c9-SwU" firstAttribute="width" secondItem="vhE-2h-rjD" secondAttribute="width" id="FHU-vx-iqa"/>
-                        <constraint firstItem="vhE-2h-rjD" firstAttribute="leading" secondItem="sYa-CO-dTq" secondAttribute="leading" constant="40" id="Ia6-Fa-jrT"/>
-                        <constraint firstItem="7fQ-c9-SwU" firstAttribute="leading" secondItem="vhE-2h-rjD" secondAttribute="trailing" constant="40" id="a3d-S6-u1C"/>
-                        <constraint firstAttribute="bottom" secondItem="vhE-2h-rjD" secondAttribute="bottom" constant="18" id="hNn-UB-JOQ"/>
+                        <constraint firstAttribute="bottom" secondItem="H7Y-va-vqI" secondAttribute="bottom" id="CWY-uZ-GlH"/>
+                        <constraint firstItem="H7Y-va-vqI" firstAttribute="leading" secondItem="sYa-CO-dTq" secondAttribute="leading" id="H7w-Rv-ZPu"/>
+                        <constraint firstItem="H7Y-va-vqI" firstAttribute="top" secondItem="76h-FT-jXc" secondAttribute="bottom" id="WDx-sg-gaA"/>
                         <constraint firstItem="76h-FT-jXc" firstAttribute="top" secondItem="sYa-CO-dTq" secondAttribute="top" constant="15" id="kAM-E6-7JQ"/>
                         <constraint firstItem="76h-FT-jXc" firstAttribute="leading" secondItem="sYa-CO-dTq" secondAttribute="leading" id="mFA-R6-Did"/>
-                        <constraint firstItem="7fQ-c9-SwU" firstAttribute="height" secondItem="vhE-2h-rjD" secondAttribute="height" id="oes-ZA-nCm"/>
-                        <constraint firstItem="7fQ-c9-SwU" firstAttribute="top" secondItem="76h-FT-jXc" secondAttribute="bottom" constant="20" id="tnP-zd-hN4"/>
-                        <constraint firstAttribute="trailing" secondItem="7fQ-c9-SwU" secondAttribute="trailing" constant="40" id="u4m-fb-i5y"/>
+                        <constraint firstAttribute="trailing" secondItem="H7Y-va-vqI" secondAttribute="trailing" id="mR5-uT-E6u"/>
                         <constraint firstAttribute="trailing" secondItem="76h-FT-jXc" secondAttribute="trailing" id="yc6-lJ-w1r"/>
                     </constraints>
                 </view>
@@ -242,19 +242,17 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="blueBtn" destination="7fQ-c9-SwU" id="HJf-I3-QEZ"/>
                 <outlet property="blueHeight" destination="IxX-nR-mNl" id="Vg9-bW-jny"/>
                 <outlet property="blueNum" destination="poW-8w-J96" id="iqf-md-nvp"/>
                 <outlet property="collectionView" destination="Xne-74-81p" id="1Yt-Mf-fa1"/>
                 <outlet property="countDownTime" destination="a7p-yQ-v1P" id="0WX-14-UgA"/>
                 <outlet property="produceIMG" destination="GGy-yt-BAR" id="PUD-c8-Bd0"/>
                 <outlet property="produceName" destination="nEq-Zy-1Hs" id="8tv-2l-tsD"/>
-                <outlet property="redBtn" destination="vhE-2h-rjD" id="85J-XT-rfJ"/>
                 <outlet property="redHeight" destination="IUF-Ni-3dI" id="aEl-DB-FVg"/>
                 <outlet property="redNum" destination="DQ4-JP-t2H" id="ZyL-QE-Trl"/>
                 <outlet property="stageNum" destination="Khu-dK-yOD" id="zBu-9d-YBq"/>
             </connections>
-            <point key="canvasLocation" x="2.5" y="64"/>
+            <point key="canvasLocation" x="2.5" y="37"/>
         </view>
     </objects>
     <resources>
