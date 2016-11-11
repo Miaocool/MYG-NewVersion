@@ -72,6 +72,15 @@
                 <constraint firstItem="4ou-FE-xxS" firstAttribute="centerX" secondItem="HOn-tl-eiB" secondAttribute="centerX" id="zwQ-Qb-J39"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="blueUserAddress" destination="JeK-KY-uWB" id="MNn-rx-BLd"/>
+                <outlet property="blueUserIMG" destination="AKH-ch-voG" id="AS6-zd-5OH"/>
+                <outlet property="blueUserName" destination="j1c-7M-5Kr" id="g2W-2X-wHj"/>
+                <outlet property="pkNumber" destination="EVM-PE-yYu" id="dfz-bf-KpY"/>
+                <outlet property="redUserAddress" destination="RAo-T8-rop" id="VEj-ie-IRo"/>
+                <outlet property="redUserIMG" destination="8ad-hU-c3b" id="4ar-L9-Uqr"/>
+                <outlet property="redUserName" destination="rGC-at-PMD" id="6V5-gg-kO7"/>
+            </connections>
             <point key="canvasLocation" x="35" y="-48.5"/>
         </view>
     </objects>

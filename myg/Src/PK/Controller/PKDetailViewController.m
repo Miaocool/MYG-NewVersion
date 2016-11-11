@@ -12,12 +12,16 @@
 #import "PKDetailFootView.h"
 #import "PKAnnounceHeaderView.h"
 #import "PKAnnounceCell.h"
+#import "SettlementViewController.h"
 @interface PKDetailViewController ()<UITableViewDelegate,UITableViewDataSource,PKDetailsCellDelegate>
+
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UITableView *announceTableView;
 @property (nonatomic,strong)PKDetailFootView *footView;
 @property (nonatomic,strong)PKAnnounceHeaderView *headerView;
 @property (nonatomic,strong)NSMutableArray *alReadyArray;
+
+
 @end
 
 static NSString *const cellID1 = @"PKDetailsCell";
@@ -29,7 +33,6 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     
     
     [self setUpUI];
-    
     
 }
 /**
@@ -58,18 +61,21 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     self.announceTableView.tableHeaderView = self.headerView;
     
     self.announceTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    
-    
-    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.height-55-64, MSW, 55)];
-    footView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.footView];
+    [self.footView.atOnceGoBtn addTarget:self action:@selector(atOnceGoBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.announceTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PKAnnounceCell class]) bundle:nil] forCellReuseIdentifier:cellID2];
     
     
     
 }
-
+/**
+ *立即前往购买
+ */
+- (void)atOnceGoBtnAction{
+   
+    
+    
+}
 /**
  未揭晓
  */
@@ -131,6 +137,8 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     
     [self presentViewController:nav animated:NO completion:nil];
 }
+
+
 - (UITableView *)tableView{
     if (!_tableView) {
         self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, MSW, self.view.height) style:UITableViewStylePlain];

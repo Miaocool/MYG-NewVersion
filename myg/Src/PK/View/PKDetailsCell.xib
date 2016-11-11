@@ -164,9 +164,15 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qq8-L7-zpY">
                                     <state key="normal" image="buy_hong"/>
+                                    <connections>
+                                        <action selector="selectRedOrBlueBall:" destination="iN0-l3-epB" eventType="touchUpInside" id="Th0-1U-gBQ"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scW-uO-E0s">
                                     <state key="normal" image="buy_lan"/>
+                                    <connections>
+                                        <action selector="selectRedOrBlueBall:" destination="iN0-l3-epB" eventType="touchUpInside" id="dKD-c7-5hI"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -242,12 +248,14 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="blueBtn" destination="scW-uO-E0s" id="b9D-SD-Ffh"/>
                 <outlet property="blueHeight" destination="IxX-nR-mNl" id="Vg9-bW-jny"/>
                 <outlet property="blueNum" destination="poW-8w-J96" id="iqf-md-nvp"/>
                 <outlet property="collectionView" destination="Xne-74-81p" id="1Yt-Mf-fa1"/>
                 <outlet property="countDownTime" destination="a7p-yQ-v1P" id="0WX-14-UgA"/>
                 <outlet property="produceIMG" destination="GGy-yt-BAR" id="PUD-c8-Bd0"/>
                 <outlet property="produceName" destination="nEq-Zy-1Hs" id="8tv-2l-tsD"/>
+                <outlet property="redBtn" destination="qq8-L7-zpY" id="wmb-o3-ZiO"/>
                 <outlet property="redHeight" destination="IUF-Ni-3dI" id="aEl-DB-FVg"/>
                 <outlet property="redNum" destination="DQ4-JP-t2H" id="ZyL-QE-Trl"/>
                 <outlet property="stageNum" destination="Khu-dK-yOD" id="zBu-9d-YBq"/>

@@ -8,20 +8,32 @@
 
 #import "PKAnnounceCell.h"
 
+@interface PKAnnounceCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *blueUserIMG;
+@property (weak, nonatomic) IBOutlet UILabel *blueUserName;
+@property (weak, nonatomic) IBOutlet UILabel *blueUserAddress;
+@property (weak, nonatomic) IBOutlet UILabel *pkNumber;
+@property (weak, nonatomic) IBOutlet UIImageView *redUserIMG;
+@property (weak, nonatomic) IBOutlet UILabel *redUserName;
+@property (weak, nonatomic) IBOutlet UILabel *redUserAddress;
+@end
+
+
 @implementation PKAnnounceCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
     
-
-//    self.backgroundColor = [UIColor redColor];
+    [self setUpUI];
+    
+    
+    
+    
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setUpUI{
+    UIView *selectBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.width, self.height)];
+    selectBackView.backgroundColor = [UIColor clearColor];
+    self.selectedBackgroundView = selectBackView;
 }
 
 @end

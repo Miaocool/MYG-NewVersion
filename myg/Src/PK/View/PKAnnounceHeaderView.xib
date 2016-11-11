@@ -150,11 +150,17 @@
                                     <state key="normal" title="我的">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="allAndMyPairDetailAction:" destination="c83-hE-VBQ" eventType="touchUpInside" id="kak-xA-l2n"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FA5-eH-znS">
                                     <state key="normal" title="全部">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="allAndMyPairDetailAction:" destination="c83-hE-VBQ" eventType="touchUpInside" id="PcV-rS-Rqw"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpX-Jc-ZLS">
                                     <color key="backgroundColor" red="0.87058823529999996" green="0.18039215689999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -242,6 +248,21 @@
                 <constraint firstItem="DvV-Tp-3NK" firstAttribute="top" secondItem="8GL-32-qTL" secondAttribute="bottom" id="sv2-D9-eed"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="blueBallView" destination="cVK-Ot-d44" id="UOM-Nf-TZ9"/>
+                <outlet property="checkCalculateDetailBtn" destination="EQb-FG-OeC" id="PUY-Bg-lsY"/>
+                <outlet property="failPairCount" destination="Eiu-Js-810" id="gW3-gV-C8D"/>
+                <outlet property="lotteryNumber" destination="w5V-Oc-3lt" id="Sne-ey-zin"/>
+                <outlet property="lotteryResult" destination="SZc-Yd-zb4" id="BA1-e8-w5W"/>
+                <outlet property="prictureIMGBtn" destination="r3L-dH-uoN" id="3br-iJ-iMG"/>
+                <outlet property="productIMG" destination="jme-S4-Gag" id="Vto-c5-IKd"/>
+                <outlet property="productName" destination="fxe-jA-doX" id="UiQ-Qs-2Dm"/>
+                <outlet property="productState" destination="dSf-uQ-Lrj" id="Odg-yj-0jG"/>
+                <outlet property="redBallView" destination="AHE-7L-2zO" id="Lgj-YF-j6R"/>
+                <outlet property="selectBlueBallCount" destination="Qcy-bb-iZT" id="x14-NW-sw3"/>
+                <outlet property="selectRedBallCount" destination="18S-RB-kjM" id="4PT-oa-nsn"/>
+                <outlet property="successPairCount" destination="UHe-07-0V4" id="riR-Ai-M2K"/>
+            </connections>
             <point key="canvasLocation" x="65" y="-87.5"/>
         </view>
     </objects>

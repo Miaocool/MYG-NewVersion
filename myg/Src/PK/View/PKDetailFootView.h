@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PKDetailFootView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *atOnceGoBtn;
 
 @end

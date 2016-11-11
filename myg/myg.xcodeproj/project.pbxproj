@@ -41,6 +41,7 @@
 		1883AC651D6EBAB80001DDC1 /* LogisticInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883AC641D6EBAB80001DDC1 /* LogisticInfoVC.m */; };
 		18855EF01DC1E7E70095A8AC /* MYGPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */; };
 		18855EF21DC1E7F40095A8AC /* MYGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */; };
+		18A2EFC51DD5B81B00DD56DE /* PKURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */; };
 		18A41F261DB5AC69000F4E27 /* RedPageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */; };
 		18A41F271DB5AC69000F4E27 /* RegisterRedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */; };
 		18B7BBD11DA8EAD000C8B98E /* MygappInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */; };
@@ -521,6 +522,8 @@
 		18855EEE1DC1E7E70095A8AC /* MYGPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYGPushGuideView.h; sourceTree = "<group>"; };
 		18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYGPushGuideView.m; sourceTree = "<group>"; };
 		18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYGPushGuideView.xib; sourceTree = "<group>"; };
+		18A2EFC31DD5B81B00DD56DE /* PKURLConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKURLConst.h; sourceTree = "<group>"; };
+		18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKURLConst.m; sourceTree = "<group>"; };
 		18A41F221DB5AC69000F4E27 /* RedPageAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedPageAlertView.h; sourceTree = "<group>"; };
 		18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedPageAlertView.m; sourceTree = "<group>"; };
 		18A41F241DB5AC69000F4E27 /* RegisterRedPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterRedPageView.h; sourceTree = "<group>"; };
@@ -2785,6 +2788,8 @@
 				18BBB1F91DD01E3B00D412F6 /* NetworkTools.m */,
 				18BBB2011DD02AB600D412F6 /* MYGRefreshTool.h */,
 				18BBB2021DD02AB600D412F6 /* MYGRefreshTool.m */,
+				18A2EFC31DD5B81B00DD56DE /* PKURLConst.h */,
+				18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -3473,6 +3478,7 @@
 				18BBB2061DD05B2A00D412F6 /* PKAnnounceCell.m in Sources */,
 				19595B0E1BF2E6ED004B983F /* LoginViewController.m in Sources */,
 				22A677E21C02E347005EE362 /* IanScrollImageView.m in Sources */,
+				18A2EFC51DD5B81B00DD56DE /* PKURLConst.m in Sources */,
 				195955411BF03576004B983F /* MDNewsListsScrolView.m in Sources */,
 				D62BACA81CB6349900255A21 /* ClassifyViewCell.m in Sources */,
 				195955511BF03576004B983F /* UIImage+GIF.m in Sources */,
