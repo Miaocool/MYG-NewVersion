@@ -10,6 +10,9 @@
 #import "PKListCell.h"
 #import "PKDetailViewController.h"
 
+
+#import "PKListModel.h"
+
 @interface PKListViewController ()<UITableViewDelegate,UITableViewDataSource,PKListCellDelegate>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *listModels;
@@ -21,6 +24,7 @@ static NSString *const listCellID = @"PKListCell";
     [super viewDidLoad];
   
     [self setUpUI];
+    
 }
 - (void)setUpUI{
     [self.view addSubview:self.tableView];
@@ -38,19 +42,35 @@ static NSString *const listCellID = @"PKListCell";
     self.navigationItem.titleView = label;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.navigationController.navigationItem.title = @"PK专场";
-    
-//    self.tabBarItem.title = @"";
-    
+   
+    [self setUpDownAndUpPullRefresh];
 }
+- (void)setUpDownAndUpPullRefresh{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownLoadData)];
+    [self.tableView.mj_header beginRefreshing];
+}
+
 //数据请求
 - (void)requestData{
     
+    NetworkTools *tools = [NetworkTools shareInstance];
+    NSDictionary *parameters = @{@"order":@"10",@"p":@"1"};
+    [tools request:GET URLString:PKListURL parameters:parameters finished:^(id responseObject, NSError *error) {
+        DebugLog(@"--- %@ --- %@",responseObject,error);
+        if (responseObject == nil) {
+            [self.tableView.mj_header endRefreshing];
+        }else{
+            [self.tableView.mj_header endRefreshing];
+            self.listModels = [PKListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.tableView reloadData];
+        }
+    }];
 }
 // 下拉刷新
 - (void)pullDownLoadData{
     
     
+    [self requestData];
     
 }
 // 上拉加载
@@ -60,7 +80,7 @@ static NSString *const listCellID = @"PKListCell";
 
 #pragma mark <UITableViewDataSource>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 10;
+    return self.listModels.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -69,7 +89,7 @@ static NSString *const listCellID = @"PKListCell";
     
     PKListCell *cell = [tableView dequeueReusableCellWithIdentifier:listCellID];
     cell.delegate = self;
-//    cell.listModel = self.listModels[indexPath.section];
+    cell.listModel = self.listModels[indexPath.section];
     return cell;
    
 }
@@ -79,14 +99,14 @@ static NSString *const listCellID = @"PKListCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 2;
-    }else if (section == 10){
+    }else if (section == self.listModels.count){
         return 0;
     }else{
         return 7;
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-     if (section == 9){
+     if (section == self.listModels.count - 1){
         return 1;
     }else{
         return 7;
@@ -107,6 +127,8 @@ static NSString *const listCellID = @"PKListCell";
 - (void)pkListCell:(PKListCell *)pkListCell listModel:(PKListModel *)listModel{
     
     PKDetailViewController *pkdetailsVC = [PKDetailViewController new];
+    pkdetailsVC.isAlReady = YES;
+    pkdetailsVC.idd = [NSString stringWithFormat:@"%zd",listModel.id];
     self.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:pkdetailsVC animated:YES];
     

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PKDetailsModel.h"
 @interface PKAnnounceCell : UITableViewCell
-
+/** 详情 */
+@property (nonatomic,strong)PKDetailsModel *detail;
 @end

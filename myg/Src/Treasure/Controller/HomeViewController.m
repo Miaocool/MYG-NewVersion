@@ -1506,9 +1506,7 @@ static NSString *collectionCellName2 = @"collectionCell";
         if (_LatesAnnArray.count>0)
         {
             GoodsModel *model =[_LatesAnnArray objectAtIndex:indexPath.row];
-            
-            
-            
+
             GoodsDetailsViewController *detailsVC = [[GoodsDetailsViewController alloc]init];
             detailsVC.tiaozhuantype=2;
             detailsVC.idd=model.idd;

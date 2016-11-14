@@ -21,7 +21,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    [self setUpUI];
     
+}
+- (void)setUpUI{
+    UIView *selectBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.width, self.height)];
+    selectBackView.backgroundColor = [UIColor clearColor];
+    self.selectedBackgroundView = selectBackView;
 }
 
 - (void)setPastRecordModel:(PKPastRecordModel *)pastRecordModel{

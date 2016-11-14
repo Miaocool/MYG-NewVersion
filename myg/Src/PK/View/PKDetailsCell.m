@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *redBtn;
 @property (weak, nonatomic) IBOutlet UIButton *blueBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *productState;
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -36,6 +37,22 @@ static NSString *const cellItemID = @"PKPastListCell";
     [super awakeFromNib];
     [self setUpUI];
 }
+- (void)setDetail:(PKDetailsModel *)detail{
+    _detail = detail;
+    
+    self.productState.text = detail.type;
+    self.produceName.text = detail.title;
+    self.stageNum.text = detail.qishu;
+    
+    NSInteger buy_red = [detail.zongrenshu integerValue] - [detail.red_hasnum integerValue];
+    NSInteger buy_blue = [detail.zongrenshu integerValue] - [detail.blue_hasnum integerValue];
+    NSString *redString = [NSString stringWithFormat:@"%zd",buy_red];
+    NSString *blueString = [NSString stringWithFormat:@"%zd",buy_blue];
+    self.redNum.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"%@人选择红球",redString] length:redString.length + 1 color:@"de2e52"];
+    self.blueNum.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"%@人选择蓝球",blueString] length:blueString.length + 1 color:@"2f9be3"];
+    
+    
+}
 - (void)setUpUI{
     UIView *selectView = [[UIView alloc]initWithFrame:self.bounds];
     selectView.backgroundColor = [UIColor clearColor];
@@ -44,6 +61,9 @@ static NSString *const cellItemID = @"PKPastListCell";
     
     self.redBtn.tag = PKBallTypeRedBall;
     self.blueBtn.tag = PKBallTypeBlueBall;
+    
+    self.productState.layer.cornerRadius = 2;
+    self.productState.layer.masksToBounds = YES;
     
     
     [self setUpCollectionView];
@@ -88,6 +108,11 @@ static NSString *const cellItemID = @"PKPastListCell";
  @param sender UIButton
  */
 - (IBAction)pastRecordAction:(id)sender {
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pkDetailsCell:pastRecordResult:)]) {
+        [self.delegate pkDetailsCell:self pastRecordResult:self.detail];
+    }
+    
 }
 
 /**
@@ -96,8 +121,20 @@ static NSString *const cellItemID = @"PKPastListCell";
  @param sender UIButton
  */
 - (IBAction)pictureDetailAction:(id)sender {
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pkDetailsCell:prictureInfo:)]) {
+        [self.delegate pkDetailsCell:self prictureInfo:self.detail];
+    }
+    
 }
-
+- (NSMutableAttributedString *)setUpTextColorWith:(NSString *)ptime length:(NSInteger )length color:(NSString *)color{
+    
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:ptime];
+    NSRange range = NSMakeRange(0, length);
+    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:color] range:range];
+    
+    return attribute;
+}
 
 
 @end

@@ -23,13 +23,25 @@
 @property (weak, nonatomic) IBOutlet UILabel *successPairCount;
 @property (weak, nonatomic) IBOutlet UILabel *failPairCount;
 @end
-
-
 @implementation PKAnnounceHeaderView
 /**
  *配对信息 me & all
  */
 - (IBAction)allAndMyPairDetailAction:(id)sender {
+    
+}
+- (void)setDetail:(PKDetailsModel *)detail{
+    _detail = detail;
+    
+    [self.productIMG sd_setImageWithURL:[NSURL URLWithString:detail.picarr[0]] placeholderImage:[UIImage imageNamed:DefaultImage]];
+    self.productState.text = detail.type;
+    self.productName.text = detail.title;
+//    self.lotteryResult.text = [NSString stringWithFormat:@""];
+    
+    
+    
+    
+    
 }
 
 

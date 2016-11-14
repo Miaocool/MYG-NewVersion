@@ -1,0 +1,13 @@
+//
+//  PKDetailsBallListModel.h
+//  myg
+//
+//  Created by Apple on 16/11/14.
+//  Copyright © 2016年 bxs. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface PKDetailsBallListModel : NSObject
+
+@end

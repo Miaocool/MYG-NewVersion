@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PKDetailsModel.h"
 @interface PKAnnounceHeaderView : UIView
-
+/** model */
+@property (nonatomic,strong)PKDetailsModel *detail;
 @end

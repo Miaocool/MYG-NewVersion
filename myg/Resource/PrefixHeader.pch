@@ -21,9 +21,13 @@
 
 //#define APPHost @"http://pgmyg.miyungou.com/?" //host3
 //http://www.miyungou.com/?
-#define APPHost @"http://www.miyungou.com/?" //sheng
+#define APPHost @"http://192.168.1.188" //sheng
 #define DeveHost @"http://192.168.1.188"
 
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "NetworkTools.h"
+#import "PKURLConst.h"
 
 #define XinLang @"http://lqdb.buguyuan.com" //新浪微博回调
 

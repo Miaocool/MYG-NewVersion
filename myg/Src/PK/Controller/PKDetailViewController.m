@@ -13,6 +13,9 @@
 #import "PKAnnounceHeaderView.h"
 #import "PKAnnounceCell.h"
 #import "SettlementViewController.h"
+#import "PKDetailsModel.h"
+#import "PKPastRecordController.h"
+#import "PictureDetailController.h"
 @interface PKDetailViewController ()<UITableViewDelegate,UITableViewDataSource,PKDetailsCellDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
@@ -21,6 +24,10 @@
 @property (nonatomic,strong)PKAnnounceHeaderView *headerView;
 @property (nonatomic,strong)NSMutableArray *alReadyArray;
 
+
+@property (nonatomic,strong)PKDetailsModel *detailM;
+
+@property (nonatomic,strong)NSMutableArray *models;
 
 @end
 
@@ -33,6 +40,10 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     
     
     [self setUpUI];
+    [self setUpDownAndUpPullRefresh];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
 }
 /**
@@ -49,6 +60,10 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     }else{
        [self NoAnnounceInit];
     }
+    
+    
+    
+    
 }
 /**
  已揭晓
@@ -56,24 +71,21 @@ static NSString *const cellID2 = @"PKAnnounceCell";
 - (void)alReadyInit{
 
     [self.view addSubview:self.announceTableView];
-    
-    
     self.announceTableView.tableHeaderView = self.headerView;
-    
     self.announceTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.footView];
     [self.footView.atOnceGoBtn addTarget:self action:@selector(atOnceGoBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.announceTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PKAnnounceCell class]) bundle:nil] forCellReuseIdentifier:cellID2];
-    
-    
-    
+   
 }
 /**
  *立即前往购买
  */
 - (void)atOnceGoBtnAction{
    
-    
+    PKDetailViewController *detailVC = [PKDetailViewController new];
+    detailVC.isAlReady = NO;
+    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
 /**
@@ -84,12 +96,54 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PKDetailsCell class]) bundle:nil] forCellReuseIdentifier:cellID1];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
+- (void)setUpDownAndUpPullRefresh{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downPullRequestData)];
+    [self.tableView.mj_header beginRefreshing];
+    
+    self.announceTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downPullRequestData)];
+    [self.announceTableView.mj_header beginRefreshing];
+    
+}
+- (void)requestData{
+    
+    DebugLog(@"");
+    
+    
+//    NSDictionary *parameters = @{@"id":self.idd,@"yhid":self.zhongjiangID,@"sid":self.sid,@"logonuid":[UserDataSingleton userInformation].uid,@"qishu":self.qishu};
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:self.idd forKey:@"id"];
+    [dict setValue:self.zhongjiangID forKey:@"yhid"];
+    [dict setValue:self.sid forKey:@"sid"];
+    [dict setValue:[UserDataSingleton userInformation].uid forKey:@"logonuid"];
+    [dict setValue:self.qishu forKey:@"qishu"];
+    NetworkTools *tools = [NetworkTools shareInstance];
+    [tools request:POST URLString:PKDetailURL parameters:dict finished:^(id responseObject, NSError *error) {
+        if (responseObject == nil) {
+            [self.tableView.mj_header endRefreshing];
+            [self.announceTableView.mj_header endRefreshing];
+        }else{
+            [self.tableView.mj_header endRefreshing];
+            [self.announceTableView.mj_header endRefreshing];
+            self.detailM = [PKDetailsModel mj_objectWithKeyValues:responseObject[@"data"]];
+
+            [self.models addObject:self.detailM];
+            
+            PKAnnounceHeaderView *header = (PKAnnounceHeaderView *)self.announceTableView.tableHeaderView;
+            header.detail = [self.models firstObject];
+            
+            
+            [self.tableView reloadData];
+            [self.announceTableView reloadData];
+        }
+    }];
+}
 
 /**
  下拉刷新
  */
 - (void)downPullRequestData{
-    
+    [self requestData];
 }
 
 /**
@@ -100,7 +154,7 @@ static NSString *const cellID2 = @"PKAnnounceCell";
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([tableView isEqual:self.tableView]) {
-        return 1;
+        return self.models.count;
     }else{
         return 20;
     }
@@ -111,13 +165,13 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     if ([tableView isEqual:self.tableView]) {
         PKDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID1];
         cell.delegate = self;
+        cell.detail = self.models[indexPath.row];
         return cell;
     }else{
         PKAnnounceCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID2];
-
+        cell.detail = self.detailM;
         return cell;
-    }
-    
+    }    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([tableView isEqual:self.tableView]) {
@@ -129,15 +183,30 @@ static NSString *const cellID2 = @"PKAnnounceCell";
 #pragma mark <PKDetailsCellDelegate>
 - (void)pkDetailsCell:(PKDetailsCell *)pkDetailsCell ballType:(PKBallType)ballType{
     
+    
+    if (ballType == PKBallTypeRedBall) {
+        
+    }else{
+        
+    }
+    
     PKGoSettleViewController *pksettleVC = [[PKGoSettleViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:pksettleVC];
     nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    
-//    [self.navigationController pushViewController:pksettleVC animated:YES];
-    
     [self presentViewController:nav animated:NO completion:nil];
 }
-
+- (void)pkDetailsCell:(PKDetailsCell *)pkDetailsCell prictureInfo:(PKDetailsModel *)ballModel{
+    PictureDetailController *classVC = [[PictureDetailController alloc]init];
+    classVC.idd=self.detailM.id;
+    [self.navigationController pushViewController:classVC animated:YES];
+    
+}
+- (void)pkDetailsCell:(PKDetailsCell *)pkDetailsCell pastRecordResult:(PKDetailsModel *)ballModel{
+    
+    PKPastRecordController *recordVC = [PKPastRecordController new];
+    [self.navigationController pushViewController:recordVC animated:YES];
+    
+}
 
 - (UITableView *)tableView{
     if (!_tableView) {
@@ -173,6 +242,18 @@ static NSString *const cellID2 = @"PKAnnounceCell";
         self.headerView.frame = CGRectMake(0, 0, self.view.width, 490);
     }
     return _headerView;
+}
+- (PKDetailsModel *)detailM{
+    if (!_detailM) {
+        self.detailM = [PKDetailsModel new];
+    }
+    return _detailM;
+}
+- (NSMutableArray *)models{
+    if (!_models) {
+        self.models = [NSMutableArray array];
+    }
+    return _models;
 }
 
 @end

@@ -35,5 +35,14 @@
     selectBackView.backgroundColor = [UIColor clearColor];
     self.selectedBackgroundView = selectBackView;
 }
-
+- (void)setDetail:(PKDetailsModel *)detail{
+    _detail = detail;
+    
+    DebugLog(@"model--%@",detail.title);
+    
+    
+    
+    
+    
+}
 @end

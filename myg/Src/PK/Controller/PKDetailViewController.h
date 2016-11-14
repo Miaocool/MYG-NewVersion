@@ -10,4 +10,11 @@
 
 @interface PKDetailViewController : MaiViewController
 @property (nonatomic,assign)BOOL isAlReady;
+
+
+@property (nonatomic, copy) NSString *idd; //商品id
+@property (nonatomic, copy) NSString *zhongjiangID; //中奖人
+@property (nonatomic, copy) NSString *sid; //商品id
+
+@property (nonatomic, copy) NSString *qishu; //商品id
 @end

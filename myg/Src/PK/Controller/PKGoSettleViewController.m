@@ -10,11 +10,8 @@
 #import "PKSettleView.h"
 #import "SettlementViewController.h"
 @interface PKGoSettleViewController ()
-
 @property (nonatomic,strong)PKSettleView *pksettleView;
 @property (nonatomic,assign)BOOL isKeyboardVisible;
-
-
 @property(nonatomic,strong)NSMutableArray *classArray;  //支付方式
 @property(nonatomic,strong)NSMutableArray *zhifuNameArray; //支付名
 @property(nonatomic,strong)NSMutableArray *zhifuTishiArray; //支付小标题

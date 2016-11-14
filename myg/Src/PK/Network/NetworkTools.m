@@ -15,7 +15,11 @@ static NetworkTools *tools = nil;
     dispatch_once(&onceToken, ^{
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         config.timeoutIntervalForRequest = 15;
-        NSURL *baseURL = [NSURL URLWithString:@""];
+        
+        
+//#define APPHost @"http://www.miyungou.com/?" //sheng
+//#define DeveHost @"http://192.168.1.188"
+        NSURL *baseURL = [NSURL URLWithString:DeveHost];
         tools = [[self alloc]initWithBaseURL:baseURL sessionConfiguration:config];
     });
     return tools;

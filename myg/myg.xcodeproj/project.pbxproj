@@ -41,6 +41,8 @@
 		1883AC651D6EBAB80001DDC1 /* LogisticInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883AC641D6EBAB80001DDC1 /* LogisticInfoVC.m */; };
 		18855EF01DC1E7E70095A8AC /* MYGPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */; };
 		18855EF21DC1E7F40095A8AC /* MYGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */; };
+		189498211DD986AA002D382D /* PKDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189498201DD986AA002D382D /* PKDetailsModel.m */; };
+		189498241DD98772002D382D /* PKDetailsBallListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189498231DD98772002D382D /* PKDetailsBallListModel.m */; };
 		18A2EFC51DD5B81B00DD56DE /* PKURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */; };
 		18A41F261DB5AC69000F4E27 /* RedPageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */; };
 		18A41F271DB5AC69000F4E27 /* RegisterRedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */; };
@@ -522,6 +524,10 @@
 		18855EEE1DC1E7E70095A8AC /* MYGPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYGPushGuideView.h; sourceTree = "<group>"; };
 		18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYGPushGuideView.m; sourceTree = "<group>"; };
 		18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYGPushGuideView.xib; sourceTree = "<group>"; };
+		1894981F1DD986AA002D382D /* PKDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsModel.h; sourceTree = "<group>"; };
+		189498201DD986AA002D382D /* PKDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailsModel.m; sourceTree = "<group>"; };
+		189498221DD98772002D382D /* PKDetailsBallListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsBallListModel.h; sourceTree = "<group>"; };
+		189498231DD98772002D382D /* PKDetailsBallListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailsBallListModel.m; sourceTree = "<group>"; };
 		18A2EFC31DD5B81B00DD56DE /* PKURLConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKURLConst.h; sourceTree = "<group>"; };
 		18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKURLConst.m; sourceTree = "<group>"; };
 		18A41F221DB5AC69000F4E27 /* RedPageAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedPageAlertView.h; sourceTree = "<group>"; };
@@ -2775,6 +2781,10 @@
 			children = (
 				18BBB1FB1DD01E4A00D412F6 /* PKListModel.h */,
 				18BBB1FC1DD01E4A00D412F6 /* PKListModel.m */,
+				1894981F1DD986AA002D382D /* PKDetailsModel.h */,
+				189498201DD986AA002D382D /* PKDetailsModel.m */,
+				189498221DD98772002D382D /* PKDetailsBallListModel.h */,
+				189498231DD98772002D382D /* PKDetailsBallListModel.m */,
 				18BBB1FE1DD01E6000D412F6 /* PKPastRecordModel.h */,
 				18BBB1FF1DD01E6000D412F6 /* PKPastRecordModel.m */,
 			);
@@ -3502,6 +3512,7 @@
 				18829E5A1DB88C7700F4A963 /* NSArray+MASAdditions.m in Sources */,
 				1971F9841C0DA7AF00FEF145 /* PersonalModel.m in Sources */,
 				2267525F1C0469750079A01E /* MJRefreshComponent.m in Sources */,
+				189498211DD986AA002D382D /* PKDetailsModel.m in Sources */,
 				195955741BF0391A004B983F /* MBTestMainModel.m in Sources */,
 				195955431BF03576004B983F /* MDScrollNaviView.m in Sources */,
 				D86BA72B1C1FB08D001DD82E /* DiscountSecondCell.m in Sources */,
@@ -3675,6 +3686,7 @@
 				2293B44C1C7550EE00238CAF /* MyStudentCell.m in Sources */,
 				1883AC651D6EBAB80001DDC1 /* LogisticInfoVC.m in Sources */,
 				ABB2F2F61D421EB400778553 /* AwardTipView.m in Sources */,
+				189498241DD98772002D382D /* PKDetailsBallListModel.m in Sources */,
 				18829E5D1DB88C7700F4A963 /* ViewController+MASAdditions.m in Sources */,
 				18829E571DB88C7700F4A963 /* MASLayoutConstraint.m in Sources */,
 				1971F99D1C0F006500FEF145 /* ExchangeRecordCell.m in Sources */,

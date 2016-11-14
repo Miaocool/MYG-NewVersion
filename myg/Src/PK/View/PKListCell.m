@@ -41,6 +41,10 @@
 - (void)setListModel:(PKListModel *)listModel{
     _listModel = listModel;
     //赋值
+    [self.listProduceIMG sd_setImageWithURL:[NSURL URLWithString:listModel.thumb] placeholderImage:[UIImage imageNamed:DefaultImage]];
+    self.listProduceName.text = listModel.title;
+    self.listProduceNumber.text = listModel.qishu;
+    
 }
 
 @end
