@@ -156,6 +156,8 @@
 #pragma mark <ChanceSurperViewDelegate>
 - (void)chanceSurperView:(ChanceSurperView *)chanceSurperView settleModel:(ShoppingModel *)model{
     
+    [PKGlobalTool shareInstance].isWhetherPKPay = NO;
+    
     [self settlement];
     
 }

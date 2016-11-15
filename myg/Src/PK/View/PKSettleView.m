@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
 };
 
 
-@interface PKSettleView ()
+@interface PKSettleView ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *identBall;
 @property (weak, nonatomic) IBOutlet UIButton *subBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
@@ -71,6 +71,13 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
     self.subBtn.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
     self.subBtn.layer.borderWidth = 0.5;
     
+    self.ballText.delegate = self;
+    
+    self.ballText.text = @"1";
+    
+    self.ballType = [PKGlobalTool shareInstance].ballType;
+    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%@米币（1个%@）",[PKGlobalTool shareInstance].ballMoney,self.ballType];
+    
 }
 - (IBAction)subAndAdd:(UIButton *)sender {
     NSInteger count = [self.ballText.text integerValue];
@@ -78,18 +85,29 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
         count--;
         if (count < 1) {
             self.ballText.text = @"1";
-            self.prizeAndBallCount.text = @"合计：200米币（1个红球）";
+            self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%@米币（1个%@）",[PKGlobalTool shareInstance].ballMoney,self.ballType];
             [SVProgressHUD showErrorWithStatus:@"不能低于最低数量!"];
         }else{
             self.ballText.text = [NSString stringWithFormat:@"%zd",count];
-            self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：200米币（%zd个红球）",count];
+            
+            NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
+            self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%zd个%@）",sumMoney,count,self.ballType];
         }
     }else if (sender.tag == UIButtonTagValueAdd){
         count++;
         self.ballText.text = [NSString stringWithFormat:@"%zd",count];
-        self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：200米币（%zd个红球）",count];
+        NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
+        self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%zd个%@）",sumMoney,count,self.ballType];
     }
     [self setLayerBoardNormalAndSelect];
+}
+#pragma mark <UITextFieldDelegate>
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    [self setLayerBoardNormalAndSelect];
+    NSInteger count = [self.ballText.text integerValue];
+    NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
+    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%@个%@）",sumMoney,self.ballText.text,self.ballType];
 }
 - (void)setLayerBoardNormalAndSelect{
     if ([self.ballText.text isEqualToString:self.firstBtn.titleLabel.text]) {
@@ -116,7 +134,9 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
 - (IBAction)selectBallNumAction:(UIButton *)sender {
     
     self.ballText.text = sender.titleLabel.text;
-    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：200米币（%@个红球）",sender.titleLabel.text];
+    NSInteger count = [self.ballText.text integerValue];
+    NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
+    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%@个%@）",sumMoney,self.ballText.text,self.ballType];
     if (![self.ballNumBtn isEqual:sender]) {
         [self setNormalLayerBoardWith:self.ballNumBtn];
     }
@@ -125,8 +145,19 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
 }
 - (IBAction)settleAction:(id)sender {
     
+    
+    PKPayModel *model = [PKPayModel new];
+    model.count = self.ballText.text;
+    model.sid = [PKGlobalTool shareInstance].sid;
+    if ([[PKGlobalTool shareInstance].ballType isEqualToString:@"红球"]) {
+        model.type = @"0";
+    }else{
+        model.type = @"1";
+    }
+    [PKGlobalTool shareInstance].payModel = model;
+    
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pkSettleView:shopModel:)]) {
-        [self.delegate pkSettleView:self shopModel:nil];
+        [self.delegate pkSettleView:self shopModel:model];
     }
     
 }

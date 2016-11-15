@@ -765,7 +765,14 @@
                 return;
             }
         }
-        [MDYAFHelp AFPostHost:APPHost bindPath:Pay postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
+        NSString *string = [NSString string];
+        if ([PKGlobalTool shareInstance].isWhetherPKPay) {
+            string = PKPaySubmitURL;
+        }else{
+            string = Pay;
+        }
+        
+        [MDYAFHelp AFPostHost:APPHost bindPath:string postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
             
             DebugLog(@"responseDic：------------%@",responseDic);
             if ([responseDic[@"code"] isEqualToString:@"400"])
@@ -868,7 +875,13 @@
                 return;
             }
         }
-        [MDYAFHelp AFPostHost:APPHost bindPath:Pay postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
+        NSString *string = [NSString string];
+        if ([PKGlobalTool shareInstance].isWhetherPKPay) {
+            string = PKPaySubmitURL;
+        }else{
+            string = Pay;
+        }
+        [MDYAFHelp AFPostHost:APPHost bindPath:string postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
             DebugLog(@"responseDic：------------------------%@",responseDic);
             if ([responseDic[@"code"] isEqualToString:@"400"])
             {
@@ -1064,24 +1077,34 @@
 //    DebugLog(@"array---%zd",array.count);
 //    NSString * str = [array componentsJoinedByString:@","];
 //    DebugLog(@"str--%@",str);
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:status forKey:@"status"];
-    [dict setValue:[UserDataSingleton userInformation].uid forKey:@"yhid"];
-    [dict setValue:[UserDataSingleton userInformation].code forKey:@"code"];
-    [dict setValue:_key forKey:@"ordernumber"];
-    [dict setValue:[UserDataSingleton userInformation].shopModel.goodsId forKey:@"id"];
     
+    NSString *string = [NSString string];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if ([PKGlobalTool shareInstance].isWhetherPKPay) {
+        string = PKPayCallBack;
+        [dict setValue:status forKey:@"status"];
+        [dict setValue:[UserDataSingleton userInformation].uid forKey:@"yhid"];
+        [dict setValue:[UserDataSingleton userInformation].code forKey:@"code"];
+        [dict setValue:_key forKey:@"ordernumber"];
+        [dict setValue:[PKGlobalTool shareInstance].payModel.sid forKey:@"id"];
+    }else{
+        string = Callback;
+//        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setValue:status forKey:@"status"];
+        [dict setValue:[UserDataSingleton userInformation].uid forKey:@"yhid"];
+        [dict setValue:[UserDataSingleton userInformation].code forKey:@"code"];
+        [dict setValue:_key forKey:@"ordernumber"];
+        [dict setValue:[UserDataSingleton userInformation].shopModel.goodsId forKey:@"id"];
+    }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [SVProgressHUD showErrorWithStatus:@"网络不给力!"];
     });
     
     DebugLog(@"支付回调---%@",dict);
     
-    [MDYAFHelp AFPostHost:APPHost bindPath:Callback postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
+    [MDYAFHelp AFPostHost:APPHost bindPath:string postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
         DebugLog(@"------%@",responseDic);
-        
-        
-        
 //        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
         
         if ([responseDic[@"code"] isEqualToString:@"200"]) {
@@ -1140,14 +1163,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

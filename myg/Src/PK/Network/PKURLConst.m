@@ -18,7 +18,7 @@ NSString * const PKPastRecordURL = @"/app/pk/drawsingle";
 
 NSString * const PKDrawlistURL = @"/app/pk/drawlist";
 
-NSString * const PKCartPayURL = @"/app/pkcart/pay";
+NSString * const PKCartPayURL = @"/app/pkcart/ap_pay";
 
 NSString * const PKPaySubmitURL = @"/app/pkcart/paysubmit";
 

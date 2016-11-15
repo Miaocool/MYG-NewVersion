@@ -9,7 +9,7 @@
 #import "PKGoSettleViewController.h"
 #import "PKSettleView.h"
 #import "SettlementViewController.h"
-@interface PKGoSettleViewController ()
+@interface PKGoSettleViewController ()<PKSettleViewDelegate>
 @property (nonatomic,strong)PKSettleView *pksettleView;
 @property (nonatomic,assign)BOOL isKeyboardVisible;
 @property(nonatomic,strong)NSMutableArray *classArray;  //支付方式
@@ -55,10 +55,23 @@
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
     [self.view addSubview:self.pksettleView];
-    
+    self.pksettleView.delegate = self;
     [self keyboardNotification];
     
 }
+
+#pragma mark <PKSettleViewDelegate>
+- (void)pkSettleView:(PKSettleView *)pkSettleView shopModel:(ShoppingModel *)shopModel{
+    
+    DebugLog(@"----buy red or blue");
+    
+    [PKGlobalTool shareInstance].isWhetherPKPay = YES;
+    
+    [self settlement];
+      
+}
+
+
 - (PKSettleView *)pksettleView{
     if (!_pksettleView) {
         self.pksettleView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PKSettleView class]) owner:nil options:nil].lastObject;
@@ -143,95 +156,157 @@
 - (void)settlement
 {
     __block NSString *settlementString;
-    NSMutableArray *settlementArray = [NSMutableArray array]; //结算array
-    
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     if ([UserDataSingleton userInformation].isLogin == YES)
     {
         //解析数据对象
-        settlementString =  [NSString stringWithFormat:@"{\"shopid\":%@,\"number\":%ld}",[UserDataSingleton userInformation].shopModel.goodsId,(long)[UserDataSingleton userInformation].shopModel.num];
+        settlementString =  [NSString stringWithFormat:@"{\"shopid\":%@,\"number\":%ld,\"ball_type\":%@}",[PKGlobalTool shareInstance].payModel.sid,(long)[[PKGlobalTool shareInstance].payModel.count integerValue],[PKGlobalTool shareInstance].payModel.type];
         NSString *string = [NSString stringWithFormat:@"[%@]",settlementString];
         DebugLog(@"!!!!!!!!!!!解析%@",string);
-        //        [{"shopid":10125,"number":10}]
+        //        [{"shopid":10125,"number":10}]   [{"shopid":1,"number":1,"ball_type":1}]
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:[UserDataSingleton userInformation].uid forKey:@"yhid"];
         [dict setValue:[UserDataSingleton userInformation].code forKey:@"code"];
         [dict setValue:string forKey:@"cart"];
         [dict setValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forKey:@"ver"];
-        [MDYAFHelp AFPostHost:APPHost bindPath:xinjiesuan postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
-            DebugLog(@"====%@ ====%@",responseDic,responseDic[@"msg"]);
-            if ([responseDic[@"code"] isEqualToString:@"302"])
-            {
-                [SVProgressHUD showErrorWithStatus:@"请登录"];
+        
+        [[NetworkTools shareInstance] request:POST URLString:PKCartPayURL parameters:dict finished:^(id responseObject, NSError *error) {
+            if (responseObject == nil) {
                 
-                LoginViewController *loginVC = [[LoginViewController alloc]init];
-                loginVC.hidesBottomBarWhenPushed=YES;
-                [self.navigationController pushViewController:loginVC animated:YES];
-            }
-            if ([responseDic[@"code"]isEqualToString:@"400"])
-            {
-                [SVProgressHUD showErrorWithStatus:responseDic[@"msg"]];
-            }
-            if ([responseDic[@"code"] isEqualToString:@"200"])
-            {
-                [SVProgressHUD dismiss];
+            }else{
                 
-                [self.classArray removeAllObjects];
-                [self.zhifuNameArray removeAllObjects];
-                [self.zhifuTishiArray removeAllObjects];
-                [self.zhifuColorArray removeAllObjects];
-                [self.zhifuImgArray removeAllObjects];
-                
-                NSDictionary *dict = responseDic[@"data"];
-                SettlementModel *model = [[SettlementModel alloc]initWithDictionary:dict];
-                if ([[UserDataSingleton userInformation].currentVersion isEqualToString:[UserDataSingleton userInformation].xinVersion]) {
-                    for (int i=0; i<model.pay_type.count; i++) {
-                        NSDictionary*dic1=[model.pay_type objectAtIndex:i];
-                        [self.classArray addObject:dic1[@"pay_class"]];
-                        [self.zhifuNameArray addObject:dic1[@"pay_name"]];
-                        [self.zhifuTishiArray addObject:dic1[@"tishi"]];
-                        [self.zhifuColorArray addObject:dic1[@"color"]];
-                        [self.zhifuImgArray addObject:dic1[@"img"]];
-                        //
-                        DebugLog(@"---->%@",self.classArray);
-                        DebugLog(@"++++>%@",self.zhifuNameArray);
-                    }
+                if ([responseObject[@"code"] isEqualToString:@"302"])
+                {
+                    [SVProgressHUD showErrorWithStatus:@"请登录"];
                     
-                }else{
-                    
-                    
-                    //                    wapalipayhttp://www.miyungou.com/statics/uploads/pay/alipay.png
-                    [self.classArray addObject:@"wapalipay"];
-                    [self.zhifuNameArray addObject:@"支付宝网页支付"];
-                    [self.zhifuTishiArray addObject:@"推荐5元以上支付的用户使用"];
-                    [self.zhifuImgArray addObject:@"http://www.miyungou.com/statics/uploads/pay/alipay.png"];
-                    [self.zhifuColorArray addObject:@"#FF0000"];
-                    
+                    LoginViewController *loginVC = [[LoginViewController alloc]init];
+                    loginVC.hidesBottomBarWhenPushed=YES;
+                    [self.navigationController pushViewController:loginVC animated:YES];
                 }
-                
-                
-                SettlementViewController *settVC = [[SettlementViewController alloc]init];
-                settVC.settModel = model;
-                settVC.goods = string;
-                settVC.totalYue = [NSString stringWithFormat:@"%@",dict[@"totalYue"]];
-                settVC.classArray=self.classArray;
-                settVC.zhifuNameArray=self.zhifuNameArray;
-                settVC.zhifuTishiArray=self.zhifuTishiArray;
-                settVC.zhifuColorArray=self.zhifuColorArray;
-                settVC.zhifuImgArray=self.zhifuImgArray;
-                
-                [self.navigationController pushViewController:settVC animated:YES];
-                _isback=1;
-                
+                if ([responseObject[@"code"]isEqualToString:@"400"])
+                {
+                    [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+                }
+                if ([responseObject[@"code"] isEqualToString:@"200"])
+                {
+                    [SVProgressHUD dismiss];
+                    
+                    [self.classArray removeAllObjects];
+                    [self.zhifuNameArray removeAllObjects];
+                    [self.zhifuTishiArray removeAllObjects];
+                    [self.zhifuColorArray removeAllObjects];
+                    [self.zhifuImgArray removeAllObjects];
+                    
+                    NSDictionary *dict = responseObject[@"data"];
+                    SettlementModel *model = [[SettlementModel alloc]initWithDictionary:dict];
+                    if ([[UserDataSingleton userInformation].currentVersion isEqualToString:[UserDataSingleton userInformation].xinVersion]) {
+                        for (int i=0; i<model.pay_type.count; i++) {
+                            NSDictionary*dic1=[model.pay_type objectAtIndex:i];
+                            [self.classArray addObject:dic1[@"pay_class"]];
+                            [self.zhifuNameArray addObject:dic1[@"pay_name"]];
+                            [self.zhifuTishiArray addObject:dic1[@"tishi"]];
+                            [self.zhifuColorArray addObject:dic1[@"color"]];
+                            [self.zhifuImgArray addObject:dic1[@"img"]];
+                            DebugLog(@"---->%@",self.classArray);
+                            DebugLog(@"++++>%@",self.zhifuNameArray);
+                        }
+                    }else{
+                        //                    wapalipayhttp://www.miyungou.com/statics/uploads/pay/alipay.png
+                        [self.classArray addObject:@"wapalipay"];
+                        [self.zhifuNameArray addObject:@"支付宝网页支付"];
+                        [self.zhifuTishiArray addObject:@"推荐5元以上支付的用户使用"];
+                        [self.zhifuImgArray addObject:@"http://www.miyungou.com/statics/uploads/pay/alipay.png"];
+                        [self.zhifuColorArray addObject:@"#FF0000"];
+                    }
+                    SettlementViewController *settVC = [[SettlementViewController alloc]init];
+                    settVC.settModel = model;
+                    settVC.goods = string;
+                    settVC.totalYue = [NSString stringWithFormat:@"%@",dict[@"totalYue"]];
+                    settVC.classArray=self.classArray;
+                    settVC.zhifuNameArray=self.zhifuNameArray;
+                    settVC.zhifuTishiArray=self.zhifuTishiArray;
+                    settVC.zhifuColorArray=self.zhifuColorArray;
+                    settVC.zhifuImgArray=self.zhifuImgArray;
+                    
+                    [self.navigationController pushViewController:settVC animated:YES];
+                    _isback=1;
+                }
             }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"请检查您的网络"];
-            [settlementArray removeAllObjects];
-            DebugLog(@"%@",error);
-            NSData *data = [operation responseData];
-            NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-            DebugLog(@"请求下来的数据%@",str);
         }];
+//        [MDYAFHelp AFPostHost:APPHost bindPath:xinjiesuan postParam:dict getParam:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseDic) {
+//            DebugLog(@"====%@ ====%@",responseDic,responseDic[@"msg"]);
+//            if ([responseDic[@"code"] isEqualToString:@"302"])
+//            {
+//                [SVProgressHUD showErrorWithStatus:@"请登录"];
+//                
+//                LoginViewController *loginVC = [[LoginViewController alloc]init];
+//                loginVC.hidesBottomBarWhenPushed=YES;
+//                [self.navigationController pushViewController:loginVC animated:YES];
+//            }
+//            if ([responseDic[@"code"]isEqualToString:@"400"])
+//            {
+//                [SVProgressHUD showErrorWithStatus:responseDic[@"msg"]];
+//            }
+//            if ([responseDic[@"code"] isEqualToString:@"200"])
+//            {
+//                [SVProgressHUD dismiss];
+//                
+//                [self.classArray removeAllObjects];
+//                [self.zhifuNameArray removeAllObjects];
+//                [self.zhifuTishiArray removeAllObjects];
+//                [self.zhifuColorArray removeAllObjects];
+//                [self.zhifuImgArray removeAllObjects];
+//                
+//                NSDictionary *dict = responseDic[@"data"];
+//                SettlementModel *model = [[SettlementModel alloc]initWithDictionary:dict];
+//                if ([[UserDataSingleton userInformation].currentVersion isEqualToString:[UserDataSingleton userInformation].xinVersion]) {
+//                    for (int i=0; i<model.pay_type.count; i++) {
+//                        NSDictionary*dic1=[model.pay_type objectAtIndex:i];
+//                        [self.classArray addObject:dic1[@"pay_class"]];
+//                        [self.zhifuNameArray addObject:dic1[@"pay_name"]];
+//                        [self.zhifuTishiArray addObject:dic1[@"tishi"]];
+//                        [self.zhifuColorArray addObject:dic1[@"color"]];
+//                        [self.zhifuImgArray addObject:dic1[@"img"]];
+//                        //
+//                        DebugLog(@"---->%@",self.classArray);
+//                        DebugLog(@"++++>%@",self.zhifuNameArray);
+//                    }
+//                    
+//                }else{
+//                    
+//                    
+//                    //                    wapalipayhttp://www.miyungou.com/statics/uploads/pay/alipay.png
+//                    [self.classArray addObject:@"wapalipay"];
+//                    [self.zhifuNameArray addObject:@"支付宝网页支付"];
+//                    [self.zhifuTishiArray addObject:@"推荐5元以上支付的用户使用"];
+//                    [self.zhifuImgArray addObject:@"http://www.miyungou.com/statics/uploads/pay/alipay.png"];
+//                    [self.zhifuColorArray addObject:@"#FF0000"];
+//                    
+//                }
+//                
+//                
+//                SettlementViewController *settVC = [[SettlementViewController alloc]init];
+//                settVC.settModel = model;
+//                settVC.goods = string;
+//                settVC.totalYue = [NSString stringWithFormat:@"%@",dict[@"totalYue"]];
+//                settVC.classArray=self.classArray;
+//                settVC.zhifuNameArray=self.zhifuNameArray;
+//                settVC.zhifuTishiArray=self.zhifuTishiArray;
+//                settVC.zhifuColorArray=self.zhifuColorArray;
+//                settVC.zhifuImgArray=self.zhifuImgArray;
+//                
+//                [self.navigationController pushViewController:settVC animated:YES];
+//                _isback=1;
+//                
+//            }
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            [SVProgressHUD showErrorWithStatus:@"请检查您的网络"];
+//            [settlementArray removeAllObjects];
+//            DebugLog(@"%@",error);
+//            NSData *data = [operation responseData];
+//            NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//            DebugLog(@"请求下来的数据%@",str);
+//        }];
     }
     else
     {

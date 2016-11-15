@@ -70,7 +70,7 @@
     [button addTarget:self action:@selector(shopping)
      forControlEvents:UIControlEventTouchUpInside];
     button.frame = CGRectMake(0, 0, 40, 40);
-    [self.view1 addSubview:button];
+//    [self.view1 addSubview:button]; 
     
     
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:self.view1];

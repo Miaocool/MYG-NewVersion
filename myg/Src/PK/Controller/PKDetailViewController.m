@@ -126,13 +126,9 @@ static NSString *const cellID2 = @"PKAnnounceCell";
             [self.tableView.mj_header endRefreshing];
             [self.announceTableView.mj_header endRefreshing];
             self.detailM = [PKDetailsModel mj_objectWithKeyValues:responseObject[@"data"]];
-
             [self.models addObject:self.detailM];
-            
             PKAnnounceHeaderView *header = (PKAnnounceHeaderView *)self.announceTableView.tableHeaderView;
             header.detail = [self.models firstObject];
-            
-            
             [self.tableView reloadData];
             [self.announceTableView reloadData];
         }
@@ -183,16 +179,15 @@ static NSString *const cellID2 = @"PKAnnounceCell";
 #pragma mark <PKDetailsCellDelegate>
 - (void)pkDetailsCell:(PKDetailsCell *)pkDetailsCell ballType:(PKBallType)ballType{
     
-    
-    if (ballType == PKBallTypeRedBall) {
-        
-    }else{
-        
-    }
-    
     PKGoSettleViewController *pksettleVC = [[PKGoSettleViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:pksettleVC];
     nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    if (ballType == PKBallTypeRedBall) {
+        [PKGlobalTool shareInstance].ballType = @"红球";
+    }else{
+        [PKGlobalTool shareInstance].ballType = @"蓝球";
+    }
+    [PKGlobalTool shareInstance].sid = self.detailM.id;
     [self presentViewController:nav animated:NO completion:nil];
 }
 - (void)pkDetailsCell:(PKDetailsCell *)pkDetailsCell prictureInfo:(PKDetailsModel *)ballModel{

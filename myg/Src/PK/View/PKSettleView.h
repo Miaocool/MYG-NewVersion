@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @class PKSettleView;
-@class ShoppingModel;
+@class PKPayModel;
 @protocol PKSettleViewDelegate <NSObject>
 
-- (void)pkSettleView:(PKSettleView *)pkSettleView shopModel:(ShoppingModel *)shopModel;
+- (void)pkSettleView:(PKSettleView *)pkSettleView shopModel:(PKPayModel *)shopModel;
 
 @end
 
@@ -19,4 +19,5 @@
 
 @interface PKSettleView : UIView
 @property (weak,nonatomic)id<PKSettleViewDelegate>delegate;
+@property (nonatomic,strong)NSString *ballType;
 @end

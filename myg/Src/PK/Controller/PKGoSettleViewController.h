@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PKGoSettleViewController : UIViewController
-
+@property (nonatomic,strong)NSString *ballType;
 @end

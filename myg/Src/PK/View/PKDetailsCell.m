@@ -95,8 +95,9 @@ static NSString *const cellItemID = @"PKPastListCell";
 
  @param sender UIButton
  */
-- (IBAction)selectRedOrBlueBall:(UIButton *)sender {
+- (IBAction)selectRedOrBlueBall:(UIButton *)sender{
     
+    [PKGlobalTool shareInstance].ballMoney = self.detail.money;
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pkDetailsCell:ballType:)]) {
         
         [self.delegate pkDetailsCell:self ballType:sender.tag];

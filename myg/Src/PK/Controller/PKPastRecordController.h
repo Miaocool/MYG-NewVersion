@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PKPastRecordController : UIViewController
+@interface PKPastRecordController : MaiViewController
 
 @end

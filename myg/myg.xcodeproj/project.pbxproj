@@ -46,6 +46,8 @@
 		18A2EFC51DD5B81B00DD56DE /* PKURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */; };
 		18A41F261DB5AC69000F4E27 /* RedPageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */; };
 		18A41F271DB5AC69000F4E27 /* RegisterRedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */; };
+		18A7C9D41DDAA939004B2B84 /* PKGlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7C9D31DDAA938004B2B84 /* PKGlobalTool.m */; };
+		18A7C9D71DDAAE44004B2B84 /* PKPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7C9D61DDAAE44004B2B84 /* PKPayModel.m */; };
 		18B7BBD11DA8EAD000C8B98E /* MygappInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */; };
 		18BBB1EC1DD0163C00D412F6 /* PKPastRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BBB1EB1DD0163C00D412F6 /* PKPastRecordCell.m */; };
 		18BBB1F21DD0170900D412F6 /* PKDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBB1F11DD0170900D412F6 /* PKDetailsCell.xib */; };
@@ -534,6 +536,10 @@
 		18A41F231DB5AC69000F4E27 /* RedPageAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedPageAlertView.m; sourceTree = "<group>"; };
 		18A41F241DB5AC69000F4E27 /* RegisterRedPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterRedPageView.h; sourceTree = "<group>"; };
 		18A41F251DB5AC69000F4E27 /* RegisterRedPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterRedPageView.m; sourceTree = "<group>"; };
+		18A7C9D21DDAA938004B2B84 /* PKGlobalTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGlobalTool.h; sourceTree = "<group>"; };
+		18A7C9D31DDAA938004B2B84 /* PKGlobalTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGlobalTool.m; sourceTree = "<group>"; };
+		18A7C9D51DDAAE44004B2B84 /* PKPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPayModel.h; sourceTree = "<group>"; };
+		18A7C9D61DDAAE44004B2B84 /* PKPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPayModel.m; sourceTree = "<group>"; };
 		18B7BBCF1DA8EAD000C8B98E /* MygappInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MygappInfoModel.h; sourceTree = "<group>"; };
 		18B7BBD01DA8EAD000C8B98E /* MygappInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MygappInfoModel.m; sourceTree = "<group>"; };
 		18BBB1EA1DD0163C00D412F6 /* PKPastRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPastRecordCell.h; sourceTree = "<group>"; };
@@ -2800,6 +2806,10 @@
 				18BBB2021DD02AB600D412F6 /* MYGRefreshTool.m */,
 				18A2EFC31DD5B81B00DD56DE /* PKURLConst.h */,
 				18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */,
+				18A7C9D21DDAA938004B2B84 /* PKGlobalTool.h */,
+				18A7C9D31DDAA938004B2B84 /* PKGlobalTool.m */,
+				18A7C9D51DDAAE44004B2B84 /* PKPayModel.h */,
+				18A7C9D61DDAAE44004B2B84 /* PKPayModel.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -3537,6 +3547,7 @@
 				22AC4D0E1C05434B00228DF0 /* MyShareOrderController.m in Sources */,
 				2217869A1C80252A0090172C /* HomeViewController.m in Sources */,
 				D87CFA151C9FC2230052B1BF /* MyLable.m in Sources */,
+				18A7C9D71DDAAE44004B2B84 /* PKPayModel.m in Sources */,
 				22FD2E411C08543700C0FF01 /* ShoppingModel.m in Sources */,
 				19BD737B1BF5B2E900BE6599 /* UserNameViewController.m in Sources */,
 				D88308141C1291AA00705EC0 /* Order.m in Sources */,
@@ -3609,6 +3620,7 @@
 				195955311BF03576004B983F /* AFURLResponseSerialization.m in Sources */,
 				195955881BF04353004B983F /* AdvertisingCell.m in Sources */,
 				19595B0A1BF2DC9A004B983F /* MDHeadView.m in Sources */,
+				18A7C9D41DDAA939004B2B84 /* PKGlobalTool.m in Sources */,
 				195955531BF03576004B983F /* UIImage+WebP.m in Sources */,
 				1959554E1BF03576004B983F /* SDWebImageManager.m in Sources */,
 				195955641BF03576004B983F /* UIProgressView+AFNetworking.m in Sources */,

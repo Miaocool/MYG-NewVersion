@@ -16,6 +16,7 @@
 @interface PKListViewController ()<UITableViewDelegate,UITableViewDataSource,PKListCellDelegate>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *listModels;
+@property (nonatomic, strong) NoNetwork *nonetwork;
 @end
 static NSString *const listCellID = @"PKListCell";
 @implementation PKListViewController
@@ -51,15 +52,22 @@ static NSString *const listCellID = @"PKListCell";
 }
 
 //数据请求
-- (void)requestData{
+- (void)requestData1{
     
     NetworkTools *tools = [NetworkTools shareInstance];
     NSDictionary *parameters = @{@"order":@"10",@"p":@"1"};
     [tools request:GET URLString:PKListURL parameters:parameters finished:^(id responseObject, NSError *error) {
         DebugLog(@"--- %@ --- %@",responseObject,error);
         if (responseObject == nil) {
+            [self nonetworking];
             [self.tableView.mj_header endRefreshing];
         }else{
+            [self.nonetwork removeFromSuperview];
+            if ([responseObject[@"code"] isEqual:@"400"]) {
+                [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            }
+            
+            
             [self.tableView.mj_header endRefreshing];
             self.listModels = [PKListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.tableView reloadData];
@@ -70,7 +78,7 @@ static NSString *const listCellID = @"PKListCell";
 - (void)pullDownLoadData{
     
     
-    [self requestData];
+    [self requestData1];
     
 }
 // 上拉加载
@@ -132,6 +140,16 @@ static NSString *const listCellID = @"PKListCell";
     self.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:pkdetailsVC animated:YES];
     
+}
+- (void)nonetworking
+{
+    if (!self.nonetwork)
+    {
+        self.nonetwork = [[NoNetwork alloc]init];
+        
+        [self.nonetwork.btrefresh addTarget:self action:@selector(requestData1) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [self.view addSubview:self.nonetwork];
 }
 #pragma  mark <懒加载>
 - (NSMutableArray *)listModels{
