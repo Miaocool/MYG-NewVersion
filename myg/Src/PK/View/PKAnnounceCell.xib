@@ -48,6 +48,8 @@
                         <constraint firstAttribute="height" constant="1" id="Umc-F4-eUv"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lanyuan" translatesAutoresizingMaskIntoConstraints="NO" id="5dj-Sr-wm9"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hongyuan" translatesAutoresizingMaskIntoConstraints="NO" id="jY1-hS-Kvm"/>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -57,6 +59,9 @@
                 <constraint firstItem="8ad-hU-c3b" firstAttribute="top" secondItem="HOn-tl-eiB" secondAttribute="top" constant="25" id="J5S-4u-dJ4"/>
                 <constraint firstItem="rGC-at-PMD" firstAttribute="centerX" secondItem="8ad-hU-c3b" secondAttribute="centerX" id="Jyk-nT-CbR"/>
                 <constraint firstItem="RAo-T8-rop" firstAttribute="centerX" secondItem="8ad-hU-c3b" secondAttribute="centerX" id="K8E-Mi-SjC"/>
+                <constraint firstItem="jY1-hS-Kvm" firstAttribute="centerY" secondItem="8ad-hU-c3b" secondAttribute="centerY" id="M3y-LW-nYW"/>
+                <constraint firstItem="jY1-hS-Kvm" firstAttribute="centerX" secondItem="8ad-hU-c3b" secondAttribute="centerX" id="PbY-TU-vYX"/>
+                <constraint firstItem="5dj-Sr-wm9" firstAttribute="centerX" secondItem="AKH-ch-voG" secondAttribute="centerX" id="Qw6-bW-y7N"/>
                 <constraint firstItem="AKH-ch-voG" firstAttribute="top" secondItem="HOn-tl-eiB" secondAttribute="top" constant="25" id="SHj-0s-8zW"/>
                 <constraint firstItem="JeK-KY-uWB" firstAttribute="top" secondItem="j1c-7M-5Kr" secondAttribute="bottom" constant="5" id="XF6-td-Ovg"/>
                 <constraint firstItem="I7i-Wf-cA8" firstAttribute="leading" secondItem="HOn-tl-eiB" secondAttribute="leading" id="axA-pp-yqF"/>
@@ -69,14 +74,17 @@
                 <constraint firstItem="j1c-7M-5Kr" firstAttribute="top" secondItem="AKH-ch-voG" secondAttribute="bottom" constant="10" id="hBa-bu-MGs"/>
                 <constraint firstAttribute="trailing" secondItem="8ad-hU-c3b" secondAttribute="trailing" constant="65" id="tKP-cH-fH5"/>
                 <constraint firstItem="AKH-ch-voG" firstAttribute="leading" secondItem="HOn-tl-eiB" secondAttribute="leading" constant="65" id="vv9-lf-ysH"/>
+                <constraint firstItem="5dj-Sr-wm9" firstAttribute="centerY" secondItem="AKH-ch-voG" secondAttribute="centerY" id="xBY-b7-ZLd"/>
                 <constraint firstItem="4ou-FE-xxS" firstAttribute="centerX" secondItem="HOn-tl-eiB" secondAttribute="centerX" id="zwQ-Qb-J39"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="blueHead" destination="5dj-Sr-wm9" id="2Rg-ep-799"/>
                 <outlet property="blueUserAddress" destination="JeK-KY-uWB" id="MNn-rx-BLd"/>
                 <outlet property="blueUserIMG" destination="AKH-ch-voG" id="AS6-zd-5OH"/>
                 <outlet property="blueUserName" destination="j1c-7M-5Kr" id="g2W-2X-wHj"/>
                 <outlet property="pkNumber" destination="EVM-PE-yYu" id="dfz-bf-KpY"/>
+                <outlet property="redHead" destination="jY1-hS-Kvm" id="7bD-02-6zP"/>
                 <outlet property="redUserAddress" destination="RAo-T8-rop" id="VEj-ie-IRo"/>
                 <outlet property="redUserIMG" destination="8ad-hU-c3b" id="4ar-L9-Uqr"/>
                 <outlet property="redUserName" destination="rGC-at-PMD" id="6V5-gg-kO7"/>
@@ -86,6 +94,8 @@
     </objects>
     <resources>
         <image name="2" width="80" height="17"/>
+        <image name="hongyuan" width="50" height="50"/>
+        <image name="lanyuan" width="50" height="50"/>
         <image name="toux2" width="50" height="50"/>
         <image name="touxiang" width="50" height="50"/>
     </resources>

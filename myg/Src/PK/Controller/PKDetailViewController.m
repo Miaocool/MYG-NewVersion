@@ -111,6 +111,8 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     
 //    NSDictionary *parameters = @{@"id":self.idd,@"yhid":self.zhongjiangID,@"sid":self.sid,@"logonuid":[UserDataSingleton userInformation].uid,@"qishu":self.qishu};
     
+    [self.models removeAllObjects];
+    
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:self.idd forKey:@"id"];
     [dict setValue:self.zhongjiangID forKey:@"yhid"];
@@ -119,6 +121,8 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     [dict setValue:self.qishu forKey:@"qishu"];
     NetworkTools *tools = [NetworkTools shareInstance];
     [tools request:POST URLString:PKDetailURL parameters:dict finished:^(id responseObject, NSError *error) {
+        NSDictionary *dict = responseObject[@"data"];
+        DebugLog(@"%@---%@",responseObject[@"data"],dict[@"blue_hasnum"]);
         if (responseObject == nil) {
             [self.tableView.mj_header endRefreshing];
             [self.announceTableView.mj_header endRefreshing];
@@ -199,10 +203,9 @@ static NSString *const cellID2 = @"PKAnnounceCell";
 - (void)pkDetailsCell:(PKDetailsCell *)pkDetailsCell pastRecordResult:(PKDetailsModel *)ballModel{
     
     PKPastRecordController *recordVC = [PKPastRecordController new];
+    recordVC.sid = self.detailM.sid;
     [self.navigationController pushViewController:recordVC animated:YES];
-    
 }
-
 - (UITableView *)tableView{
     if (!_tableView) {
         self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, MSW, self.view.height) style:UITableViewStylePlain];

@@ -76,7 +76,18 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
     self.ballText.text = @"1";
     
     self.ballType = [PKGlobalTool shareInstance].ballType;
-    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%@米币（1个%@）",[PKGlobalTool shareInstance].ballMoney,self.ballType];
+    
+    NSString *color = [NSString string];
+    if ([self.ballType isEqualToString:@"红球"]) {
+        color = @"de2e52";
+    }else{
+        color = @"2f9be3";
+    }
+    self.prizeAndBallCount.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"合计：%@米币（1个%@）",[PKGlobalTool shareInstance].ballMoney,self.ballType] length1:[PKGlobalTool shareInstance].ballMoney.length color1:color length2:1 color2:color];
+    
+    
+    
+//    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%@米币（1个%@）",[PKGlobalTool shareInstance].ballMoney,self.ballType];
     
 }
 - (IBAction)subAndAdd:(UIButton *)sender {
@@ -91,13 +102,34 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
             self.ballText.text = [NSString stringWithFormat:@"%zd",count];
             
             NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
-            self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%zd个%@）",sumMoney,count,self.ballType];
+            NSString *money = [NSString stringWithFormat:@"%zd",sumMoney];
+            NSString *countStr = [NSString stringWithFormat:@"%zd",count];
+            NSString *color = [NSString string];
+            if ([self.ballType isEqualToString:@"红球"]) {
+                color = @"de2e52";
+            }else{
+                color = @"2f9be3";
+            }
+            self.prizeAndBallCount.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"合计：%@米币（%@个%@）",money,self.ballText.text,self.ballType] length1:money.length color1:color length2:countStr.length color2:color];
+            
+            
+//            self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%zd个%@）",sumMoney,count,self.ballType];
         }
     }else if (sender.tag == UIButtonTagValueAdd){
         count++;
         self.ballText.text = [NSString stringWithFormat:@"%zd",count];
         NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
-        self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%zd个%@）",sumMoney,count,self.ballType];
+        NSString *money = [NSString stringWithFormat:@"%zd",sumMoney];
+        NSString *countStr = [NSString stringWithFormat:@"%zd",count];
+        NSString *color = [NSString string];
+        if ([self.ballType isEqualToString:@"红球"]) {
+            color = @"de2e52";
+        }else{
+            color = @"2f9be3";
+        }
+        self.prizeAndBallCount.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"合计：%@米币（%@个%@）",money,self.ballText.text,self.ballType] length1:money.length color1:color length2:countStr.length color2:color];
+        
+//        self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%zd个%@）",sumMoney,count,self.ballType];
     }
     [self setLayerBoardNormalAndSelect];
 }
@@ -107,7 +139,17 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
     [self setLayerBoardNormalAndSelect];
     NSInteger count = [self.ballText.text integerValue];
     NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
-    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%@个%@）",sumMoney,self.ballText.text,self.ballType];
+    NSString *money = [NSString stringWithFormat:@"%zd",sumMoney];
+    NSString *countStr = [NSString stringWithFormat:@"%zd",count];
+    NSString *color = [NSString string];
+    if ([self.ballType isEqualToString:@"红球"]) {
+        color = @"de2e52";
+    }else{
+        color = @"2f9be3";
+    }
+    self.prizeAndBallCount.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"合计：%@米币（%@个%@）",money,self.ballText.text,self.ballType] length1:money.length color1:color length2:countStr.length color2:color];
+    
+//    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%@个%@）",sumMoney,self.ballText.text,self.ballType];
 }
 - (void)setLayerBoardNormalAndSelect{
     if ([self.ballText.text isEqualToString:self.firstBtn.titleLabel.text]) {
@@ -136,7 +178,18 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
     self.ballText.text = sender.titleLabel.text;
     NSInteger count = [self.ballText.text integerValue];
     NSInteger sumMoney = [[PKGlobalTool shareInstance].ballMoney integerValue] * count;
-    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%@个%@）",sumMoney,self.ballText.text,self.ballType];
+    
+    NSString *countStr = [NSString stringWithFormat:@"%zd",count];
+    NSString *money = [NSString stringWithFormat:@"%zd",sumMoney];
+    NSString *color = [NSString string];
+    if ([self.ballType isEqualToString:@"红球"]) {
+        color = @"de2e52";
+    }else{
+        color = @"2f9be3";
+    }
+    self.prizeAndBallCount.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"合计：%@米币（%@个%@）",money,self.ballText.text,self.ballType] length1:money.length color1:color length2:countStr.length color2:color];
+    
+//    self.prizeAndBallCount.text = [NSString stringWithFormat:@"合计：%zd米币（%@个%@）",sumMoney,self.ballText.text,self.ballType];
     if (![self.ballNumBtn isEqual:sender]) {
         [self setNormalLayerBoardWith:self.ballNumBtn];
     }
@@ -182,5 +235,14 @@ typedef NS_ENUM(NSInteger, UIButtonTagValue) {
     button.layer.borderColor = [UIColor colorWithHexString:@"#e1e1e1"].CGColor;
     button.layer.borderWidth = 1;
     
+}
+- (NSMutableAttributedString *)setUpTextColorWith:(NSString *)string length1:(NSInteger)length1 color1:(NSString *)color1 length2:(NSInteger)length2 color2:(NSString *)color2{
+    
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:string];
+    NSRange range1 = NSMakeRange(3, length1);
+    NSRange range2 = NSMakeRange(3+length1 + 3, length2 + 3);
+    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:color1] range:range1];
+    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:color2] range:range2];
+    return attribute;
 }
 @end

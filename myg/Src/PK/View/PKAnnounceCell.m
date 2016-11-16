@@ -16,6 +16,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *redUserIMG;
 @property (weak, nonatomic) IBOutlet UILabel *redUserName;
 @property (weak, nonatomic) IBOutlet UILabel *redUserAddress;
+
+@property (weak, nonatomic) IBOutlet UIImageView *blueHead;
+
+@property (weak, nonatomic) IBOutlet UIImageView *redHead;
+
 @end
 
 

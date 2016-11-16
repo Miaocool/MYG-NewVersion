@@ -196,7 +196,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开奖中 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRs-w7-AMX">
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <color key="textColor" red="0.87058823529411766" green="0.1803921568627451" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -251,6 +251,7 @@
                 <outlet property="blueBtn" destination="scW-uO-E0s" id="b9D-SD-Ffh"/>
                 <outlet property="blueHeight" destination="IxX-nR-mNl" id="Vg9-bW-jny"/>
                 <outlet property="blueNum" destination="poW-8w-J96" id="iqf-md-nvp"/>
+                <outlet property="buyRedAndBlueBall" destination="KjK-DC-fHY" id="38J-QW-YfP"/>
                 <outlet property="collectionView" destination="Xne-74-81p" id="1Yt-Mf-fa1"/>
                 <outlet property="countDownTime" destination="a7p-yQ-v1P" id="0WX-14-UgA"/>
                 <outlet property="produceIMG" destination="GGy-yt-BAR" id="PUD-c8-Bd0"/>

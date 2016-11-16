@@ -20,6 +20,9 @@
                 <constraint firstItem="O39-PX-vgI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mwU-IR-z97"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ballTypeIMG" destination="O39-PX-vgI" id="KMe-xZ-9iJ"/>
+            </connections>
             <point key="canvasLocation" x="-101.5" y="-5"/>
         </view>
     </objects>

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PKDetailsBallListModel.h"
 @interface PKPastListCell : UICollectionViewCell
 
+/** model */
+@property (nonatomic,strong)PKDetailsBallListModel *model;
 @end

@@ -10,4 +10,9 @@
 
 @interface PKDetailsBallListModel : NSObject
 
+/** ball_type */
+@property (nonatomic,strong)NSString *ball_type;
+
+/** id */
+@property (nonatomic,assign)NSInteger id;
 @end

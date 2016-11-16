@@ -13,7 +13,7 @@ NSString * const PKCarouselURL = @"/app/pk/slides";
 NSString * const PKListURL = @"/app/pk/glist";
 
 NSString * const PKDetailURL = @"/app/pk/detail";
-
+#pragma mark <废弃了>
 NSString * const PKPastRecordURL = @"/app/pk/drawsingle";
 
 NSString * const PKDrawlistURL = @"/app/pk/drawlist";

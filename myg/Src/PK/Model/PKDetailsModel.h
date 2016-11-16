@@ -46,6 +46,13 @@
 @property (nonatomic,strong)NSArray *picarr;
 /** blue_hasnum */
 @property (nonatomic,strong)NSString *blue_hasnum;
+
+
+/** buy_bluenum */
+@property (nonatomic,strong)NSString *buy_bluenum;
+
+/** buy_rednum */
+@property (nonatomic,strong)NSString *buy_rednum;
 /** id */
 @property (nonatomic,strong)NSString *id;
 /** money */
@@ -77,7 +84,7 @@
 /** url */
 @property (nonatomic,strong)NSString *url;
 /** waittime */
-@property (nonatomic,strong)NSString *waittime;
+@property (nonatomic,assign)NSInteger waittime;
 /** zongrenshu */
 @property (nonatomic,strong)NSString *zongrenshu;
 @end

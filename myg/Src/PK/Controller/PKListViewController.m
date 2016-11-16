@@ -12,11 +12,16 @@
 
 
 #import "PKListModel.h"
-
+#import "IanScrollView.h"
+#import "AdModel.h"
 @interface PKListViewController ()<UITableViewDelegate,UITableViewDataSource,PKListCellDelegate>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *listModels;
 @property (nonatomic, strong) NoNetwork *nonetwork;
+
+
+@property (nonatomic, strong) NSMutableArray *imageArray; // 轮播图
+@property (nonatomic, strong) IanScrollView *scrollView;
 @end
 static NSString *const listCellID = @"PKListCell";
 @implementation PKListViewController
@@ -25,6 +30,7 @@ static NSString *const listCellID = @"PKListCell";
     [super viewDidLoad];
   
     [self setUpUI];
+    [self carouselRequestData];
     
 }
 - (void)setUpUI{
@@ -46,6 +52,93 @@ static NSString *const listCellID = @"PKListCell";
    
     [self setUpDownAndUpPullRefresh];
 }
+
+#pragma mark - UI
+- (void)createUI
+{
+    
+    if (!self.scrollView)
+    {
+        self.scrollView = [[IanScrollView alloc] initWithFrame:CGRectMake(0, 0, MSW ,MSW*0.4)];
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSInteger i = 0; i < self.imageArray.count; i ++) {
+            [array addObject:[NSString stringWithFormat:@"%@",((AdModel *)self.imageArray[i]).img]];
+        }
+        self.scrollView.slideImagesArray = array;
+        self.scrollView.ianEcrollViewSelectAction = ^(NSInteger i){
+            
+            
+            
+//            AdModel *model=[self.imageArray objectAtIndex:(long)i];
+//            
+//            if ([model.type isEqualToString:@"1"]) {//文章
+//                PictureDetailController *classVC = [[PictureDetailController alloc]init];
+//                classVC.style=3;
+//                classVC.fromtitle=model.title;
+//                classVC.fromurl=model.val;
+//                [self.navigationController pushViewController:classVC animated:YES];
+//            }
+//            if ([model.type isEqualToString:@"2"]) {//专题
+//                PictureDetailController *classVC = [[PictureDetailController alloc]init];
+//                classVC.style=3;
+//                classVC.fromtitle=model.title;
+//                classVC.fromurl=model.val;
+//                [self.navigationController pushViewController:classVC animated:YES];
+//            }
+//            
+//            if ([model.type isEqualToString:@"3"]) {
+//                //  商品列表
+//                GoodsDetailsViewController *detailsVC = [[GoodsDetailsViewController alloc]init];
+//                detailsVC.tiaozhuantype = 1;
+//                detailsVC.idd = model.val;//
+//                detailsVC.hidesBottomBarWhenPushed = YES;
+//                [self.navigationController pushViewController:detailsVC animated:YES];
+//            }
+//            if ([model.type isEqualToString:@"4"]) {//商品详情
+//                
+//                ClassificationGoodsViewController *classVC = [[ClassificationGoodsViewController alloc]init];
+//                classVC.dataString = model.val;
+//                classVC.title = @"搜索结果";
+//                classVC.titlestr= model.val;
+//                classVC.nameString=model.val;
+//                classVC.isSarch=YES;
+//                classVC.isSection=NO;
+//                classVC.hidesBottomBarWhenPushed = YES;
+//                [self.navigationController pushViewController:classVC animated:YES];
+//                
+//            }
+            
+        };
+        self.scrollView.ianCurrentIndex = ^(NSInteger index){
+            DebugLog(@"测试一下：%ld",(long)index);
+        };
+        self.scrollView.PageControlPageIndicatorTintColor = [UIColor colorWithRed:255/255.0f green:244/255.0f blue:227/255.0f alpha:1];
+        self.scrollView.pageControlCurrentPageIndicatorTintColor = [UIColor colorWithRed:67/255.0f green:174/255.0f blue:168/255.0f alpha:1];
+        self.scrollView.autoTime = [NSNumber numberWithFloat:4.0f];
+        
+        [self.scrollView startLoading];
+        self.tableView.tableHeaderView = self.scrollView;
+        
+    }
+}
+
+/**
+ 轮播图请求
+ */
+- (void)carouselRequestData{
+    ;
+    [[NetworkTools shareInstance] request:GET URLString:PKCarouselURL parameters:nil finished:^(id responseObject, NSError *error) {
+        
+        DebugLog(@"-- 轮播 %@",responseObject);
+        if (responseObject == nil) {
+            
+        }else{
+            self.imageArray = [AdModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self createUI];
+        }
+    }];
+}
+
 - (void)setUpDownAndUpPullRefresh{
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownLoadData)];
     [self.tableView.mj_header beginRefreshing];
@@ -157,6 +250,12 @@ static NSString *const listCellID = @"PKListCell";
         self.listModels = [NSMutableArray array];
     }
     return _listModels;
+}
+- (NSMutableArray *)imageArray{
+    if (!_imageArray) {
+        self.imageArray = [NSMutableArray array];
+    }
+    return _imageArray;
 }
 - (UITableView *)tableView{
     if (!_tableView) {

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PKPastRecordController : MaiViewController
-
+@property (nonatomic,strong)NSString *sid;
 @end

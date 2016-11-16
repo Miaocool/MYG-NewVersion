@@ -25,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *productState;
 
+@property (weak, nonatomic) IBOutlet UILabel *buyRedAndBlueBall;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end
@@ -50,6 +51,10 @@ static NSString *const cellItemID = @"PKPastListCell";
     NSString *blueString = [NSString stringWithFormat:@"%zd",buy_blue];
     self.redNum.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"%@人选择红球",redString] length:redString.length + 1 color:@"de2e52"];
     self.blueNum.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"%@人选择蓝球",blueString] length:blueString.length + 1 color:@"2f9be3"];
+    
+    self.buyRedAndBlueBall.attributedText = [self setUpTextColorWith:[NSString stringWithFormat:@"您已经购买了%@个红球,%@个篮球",detail.buy_rednum,detail.buy_bluenum] length1:detail.buy_rednum.length + 3 color1:@"de2e52" length2:detail.buy_bluenum.length + 3 color2:@"2f9be3"];
+    
+    [self.produceIMG sd_setImageWithURL:[NSURL URLWithString:detail.picarr[0]] placeholderImage:[UIImage imageNamed:DefaultImage]];
     
     
 }
@@ -82,11 +87,12 @@ static NSString *const cellItemID = @"PKPastListCell";
 
 #pragma mark <UICollectionViewDelegate,UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 20;
+    return self.detail.ball_list.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     PKPastListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellItemID forIndexPath:indexPath];
+    cell.model = self.detail.ball_list[indexPath.item];
     return cell;
     
 }
@@ -134,6 +140,15 @@ static NSString *const cellItemID = @"PKPastListCell";
     NSRange range = NSMakeRange(0, length);
     [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:color] range:range];
     
+    return attribute;
+}
+- (NSMutableAttributedString *)setUpTextColorWith:(NSString *)string length1:(NSInteger)length1 color1:(NSString *)color1 length2:(NSInteger)length2 color2:(NSString *)color2{
+    
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:string];
+    NSRange range1 = NSMakeRange(6, length1);
+    NSRange range2 = NSMakeRange(6+length1+1, length2);
+    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:color1] range:range1];
+    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:color2] range:range2];
     return attribute;
 }
 

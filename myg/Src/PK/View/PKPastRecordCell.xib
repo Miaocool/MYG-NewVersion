@@ -37,6 +37,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="ballTypeIMG" destination="Vap-pq-Ier" id="P1A-GS-bvq"/>
+                <outlet property="pkSuccess" destination="W6F-z4-Gjk" id="nlc-y8-CcA"/>
                 <outlet property="stageNum" destination="8qm-hL-kkR" id="1Sk-iO-wvb"/>
             </connections>
             <point key="canvasLocation" x="56.5" y="-231.5"/>
