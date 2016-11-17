@@ -249,11 +249,14 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="allPairBtn" destination="FA5-eH-znS" id="1fH-RU-j5a"/>
                 <outlet property="blueBallView" destination="cVK-Ot-d44" id="UOM-Nf-TZ9"/>
                 <outlet property="checkCalculateDetailBtn" destination="EQb-FG-OeC" id="PUY-Bg-lsY"/>
                 <outlet property="failPairCount" destination="Eiu-Js-810" id="gW3-gV-C8D"/>
+                <outlet property="lineView" destination="BpX-Jc-ZLS" id="PgY-Au-3yM"/>
                 <outlet property="lotteryNumber" destination="w5V-Oc-3lt" id="Sne-ey-zin"/>
                 <outlet property="lotteryResult" destination="SZc-Yd-zb4" id="BA1-e8-w5W"/>
+                <outlet property="mePairBtn" destination="Fyn-r4-4pt" id="rJr-cg-aer"/>
                 <outlet property="prictureIMGBtn" destination="r3L-dH-uoN" id="3br-iJ-iMG"/>
                 <outlet property="productIMG" destination="jme-S4-Gag" id="Vto-c5-IKd"/>
                 <outlet property="productName" destination="fxe-jA-doX" id="UiQ-Qs-2Dm"/>

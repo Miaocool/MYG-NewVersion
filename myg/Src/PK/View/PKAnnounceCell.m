@@ -28,26 +28,30 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     [self setUpUI];
-    
-    
-    
-    
 }
 - (void)setUpUI{
     UIView *selectBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.width, self.height)];
     selectBackView.backgroundColor = [UIColor clearColor];
     self.selectedBackgroundView = selectBackView;
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-- (void)setDetail:(PKDetailsModel *)detail{
-    _detail = detail;
-    
-    DebugLog(@"model--%@",detail.title);
+- (void)setUser:(PKUserPairModel *)user{
+    _user = user;
     
     
+    [self.blueUserIMG sd_setImageWithURL:[NSURL URLWithString:user.blue.thumb] placeholderImage:[UIImage imageNamed:nil]];
+    self.blueUserName.text = user.blue.username;
+    NSArray *stringArr1 = [user.blue.ip componentsSeparatedByString:@","];
+    self.blueUserAddress.text = [stringArr1 firstObject];
+    
+    self.pkNumber.text = [NSString stringWithFormat:@"PK编号 : %@",user.code];
     
     
-    
+    [self.redUserIMG sd_setImageWithURL:[NSURL URLWithString:user.red.thumb] placeholderImage:[UIImage imageNamed:nil]];
+    self.redUserName.text = user.red.username;
+    NSArray *stringArr2 = [user.blue.ip componentsSeparatedByString:@","];
+    self.redUserAddress.text = [stringArr2 firstObject];
 }
 @end

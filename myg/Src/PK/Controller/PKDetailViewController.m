@@ -16,7 +16,7 @@
 #import "PKDetailsModel.h"
 #import "PKPastRecordController.h"
 #import "PictureDetailController.h"
-@interface PKDetailViewController ()<UITableViewDelegate,UITableViewDataSource,PKDetailsCellDelegate>
+@interface PKDetailViewController ()<UITableViewDelegate,UITableViewDataSource,PKDetailsCellDelegate,PKAnnounceHeaderViewDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UITableView *announceTableView;
@@ -29,6 +29,14 @@
 
 @property (nonatomic,strong)NSMutableArray *models;
 
+@property (nonatomic,strong)NSArray *myPairArray;
+@property (nonatomic,strong)NSArray *allPairArray;
+
+@property (nonatomic,strong)NSString *pkokNum;
+@property (nonatomic,strong)NSString *pkfailNum;
+
+@property (nonatomic,assign)BOOL isMeOrAll;
+
 @end
 
 static NSString *const cellID1 = @"PKDetailsCell";
@@ -37,7 +45,9 @@ static NSString *const cellID2 = @"PKAnnounceCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self requestPairData];
     
+    self.isMeOrAll = YES;
     
     [self setUpUI];
     [self setUpDownAndUpPullRefresh];
@@ -54,15 +64,8 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     
     self.title = @"PK夺宝";
-
-    if (!_isAlReady) {
-        [self alReadyInit];
-    }else{
-       [self NoAnnounceInit];
-    }
     
-    
-    
+    [self NoAnnounceInit];
     
 }
 /**
@@ -73,6 +76,7 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     [self.view addSubview:self.announceTableView];
     self.announceTableView.tableHeaderView = self.headerView;
     self.announceTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                                                                  
     [self.view addSubview:self.footView];
     [self.footView.atOnceGoBtn addTarget:self action:@selector(atOnceGoBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.announceTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PKAnnounceCell class]) bundle:nil] forCellReuseIdentifier:cellID2];
@@ -94,7 +98,16 @@ static NSString *const cellID2 = @"PKAnnounceCell";
 - (void)NoAnnounceInit{
     [self.view addSubview:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PKDetailsCell class]) bundle:nil] forCellReuseIdentifier:cellID1];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PKAnnounceCell class]) bundle:nil] forCellReuseIdentifier:cellID2];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    if (_isAlReady) {
+        self.tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 55);
+        self.tableView.tableHeaderView = self.headerView;
+        [self.view addSubview:self.footView];
+        [self.footView.atOnceGoBtn addTarget:self action:@selector(atOnceGoBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        self.tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    }
 }
 - (void)setUpDownAndUpPullRefresh{
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downPullRequestData)];
@@ -105,14 +118,9 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     
 }
 - (void)requestData{
-    
-    DebugLog(@"");
-    
-    
 //    NSDictionary *parameters = @{@"id":self.idd,@"yhid":self.zhongjiangID,@"sid":self.sid,@"logonuid":[UserDataSingleton userInformation].uid,@"qishu":self.qishu};
     
     [self.models removeAllObjects];
-    
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:self.idd forKey:@"id"];
     [dict setValue:self.zhongjiangID forKey:@"yhid"];
@@ -121,24 +129,24 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     [dict setValue:self.qishu forKey:@"qishu"];
     NetworkTools *tools = [NetworkTools shareInstance];
     [tools request:POST URLString:PKDetailURL parameters:dict finished:^(id responseObject, NSError *error) {
-        NSDictionary *dict = responseObject[@"data"];
-        DebugLog(@"%@---%@",responseObject[@"data"],dict[@"blue_hasnum"]);
         if (responseObject == nil) {
             [self.tableView.mj_header endRefreshing];
-            [self.announceTableView.mj_header endRefreshing];
         }else{
             [self.tableView.mj_header endRefreshing];
-            [self.announceTableView.mj_header endRefreshing];
-            self.detailM = [PKDetailsModel mj_objectWithKeyValues:responseObject[@"data"]];
+            DebugLog(@"data:%@",responseObject[@"data"]);
+            if ([responseObject[@"data"] isEqual:@""]) {
+                [SVProgressHUD showErrorWithStatus:@"网络不给力!"];
+            }else{
+                self.detailM = [PKDetailsModel mj_objectWithKeyValues:responseObject[@"data"]];
+            }
             [self.models addObject:self.detailM];
-            PKAnnounceHeaderView *header = (PKAnnounceHeaderView *)self.announceTableView.tableHeaderView;
+            PKAnnounceHeaderView *header = (PKAnnounceHeaderView *)self.tableView.tableHeaderView;
             header.detail = [self.models firstObject];
             [self.tableView reloadData];
-            [self.announceTableView reloadData];
+            
         }
     }];
 }
-
 /**
  下拉刷新
  */
@@ -153,28 +161,37 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if ([tableView isEqual:self.tableView]) {
-        return self.models.count;
+    if (_isAlReady) {
+
+        if (self.isMeOrAll) {
+            return self.myPairArray.count;
+        }else{
+            return self.allPairArray.count;
+        }
     }else{
-        return 20;
+        return self.models.count;
     }
-    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    if ([tableView isEqual:self.tableView]) {
+    if (!_isAlReady) {
         PKDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID1];
         cell.delegate = self;
         cell.detail = self.models[indexPath.row];
         return cell;
     }else{
         PKAnnounceCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID2];
-        cell.detail = self.detailM;
+        if (self.isMeOrAll) {
+            cell.user = self.myPairArray[indexPath.row];
+        }else{
+            cell.user = self.allPairArray[indexPath.row];
+        }
+        
         return cell;
     }    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([tableView isEqual:self.tableView]) {
+    if (!_isAlReady) {
         return self.view.height;
     }else{
         return 125;
@@ -205,6 +222,44 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     PKPastRecordController *recordVC = [PKPastRecordController new];
     recordVC.sid = self.detailM.sid;
     [self.navigationController pushViewController:recordVC animated:YES];
+}
+#pragma mark <PKAnnounceHeaderViewDelegate>
+- (void)pkAnnounceHeaderView:(PKAnnounceHeaderView *)pkAnnounceHeaderView button:(UIButton *)button{
+    
+    if (button.tag == 0) {
+        self.isMeOrAll = YES;
+    }else{
+        self.isMeOrAll = NO;
+    }
+    [self.tableView reloadData];
+    
+}
+- (void)requestPairData{
+    
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:self.idd forKey:@"id"];
+    [dict setValue:self.zhongjiangID forKey:@"yhid"];
+    [dict setValue:self.sid forKey:@"sid"];
+    [dict setValue:[UserDataSingleton userInformation].uid forKey:@"logonuid"];
+    [dict setValue:self.qishu forKey:@"qishu"];
+    
+    
+    
+    [[NetworkTools shareInstance] request:GET URLString:PKPairInfoURL parameters:dict finished:^(id responseObject, NSError *error) {
+        NSDictionary *dict = responseObject[@"data"];
+        DebugLog(@"%@---%@",responseObject,dict);
+        if (responseObject == nil) {
+            DebugLog(@"error --- %@",error);
+        }else{
+            PKAnnounceHeaderView *header = (PKAnnounceHeaderView *)self.tableView.tableHeaderView;
+            header.pkokNum = dict[@"pkoknum"];
+            header.pkfailNum = dict[@"pkfailnum"];
+            self.myPairArray = [PKUserPairModel mj_objectArrayWithKeyValuesArray:dict[@"mypklist"]];
+            self.allPairArray = [PKUserPairModel mj_objectArrayWithKeyValuesArray:dict[@"pklist"]];
+        }
+        [self.tableView reloadData];
+    }];
 }
 - (UITableView *)tableView{
     if (!_tableView) {
@@ -238,6 +293,7 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     if (!_headerView) {
         self.headerView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PKAnnounceHeaderView class]) owner:nil options:nil].lastObject;
         self.headerView.frame = CGRectMake(0, 0, self.view.width, 490);
+        self.headerView.delegate = self;
     }
     return _headerView;
 }
@@ -252,6 +308,18 @@ static NSString *const cellID2 = @"PKAnnounceCell";
         self.models = [NSMutableArray array];
     }
     return _models;
+}
+- (NSArray *)myPairArray{
+    if (!_myPairArray) {
+        self.myPairArray = [NSArray array];
+    }
+    return _myPairArray;
+}
+- (NSArray *)allPairArray{
+    if (!_allPairArray) {
+        self.allPairArray = [NSArray array];
+    }
+    return _allPairArray;
 }
 
 @end

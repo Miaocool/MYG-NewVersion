@@ -26,3 +26,5 @@ UIKIT_EXTERN NSString * const PKCartPayURL;
 UIKIT_EXTERN NSString * const PKPaySubmitURL;
 /** 支付回调 */
 UIKIT_EXTERN NSString * const PKPayCallBack;
+
+UIKIT_EXTERN NSString * const PKPairInfoURL;

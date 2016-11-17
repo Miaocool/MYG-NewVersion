@@ -22,12 +22,45 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectBlueBallCount;
 @property (weak, nonatomic) IBOutlet UILabel *successPairCount;
 @property (weak, nonatomic) IBOutlet UILabel *failPairCount;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
+@property (weak, nonatomic) IBOutlet UIButton *mePairBtn;
+@property (weak, nonatomic) IBOutlet UIButton *allPairBtn;
+
+
 @end
+
+
+
+
 @implementation PKAnnounceHeaderView
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+    self.mePairBtn.tag = 0;
+    self.allPairBtn.tag = 1;
+    
+}
+
+
 /**
  *配对信息 me & all
  */
-- (IBAction)allAndMyPairDetailAction:(id)sender {
+- (IBAction)allAndMyPairDetailAction:(UIButton *)sender {
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pkAnnounceHeaderView:button:)]) {
+        [self.delegate pkAnnounceHeaderView:self button:sender];
+    }
+    [self changeLineViewXWith:sender];
+}
+- (void)changeLineViewXWith:(UIButton *)selectBtn{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.lineView.centerX = selectBtn.centerX;
+    }];
+    
+    
+    
     
 }
 - (void)setDetail:(PKDetailsModel *)detail{

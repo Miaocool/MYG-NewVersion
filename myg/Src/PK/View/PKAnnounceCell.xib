@@ -13,9 +13,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="4ou-FE-xxS"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toux2" translatesAutoresizingMaskIntoConstraints="NO" id="8ad-hU-c3b"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toux2" translatesAutoresizingMaskIntoConstraints="NO" id="8ad-hU-c3b">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="CKF-Fj-TgQ"/>
+                        <constraint firstAttribute="width" constant="50" id="Muh-Xh-T71"/>
+                    </constraints>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="AKH-ch-voG">
                     <color key="backgroundColor" red="0.141730203" green="0.22777256879999999" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Jno-95-k8v"/>
+                        <constraint firstAttribute="width" constant="50" id="vqJ-sh-7O1"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PK编号：001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVM-PE-yYu">
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>

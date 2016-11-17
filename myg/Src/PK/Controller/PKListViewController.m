@@ -229,7 +229,8 @@ static NSString *const listCellID = @"PKListCell";
     
     PKDetailViewController *pkdetailsVC = [PKDetailViewController new];
     pkdetailsVC.isAlReady = YES;
-    pkdetailsVC.idd = [NSString stringWithFormat:@"%zd",listModel.id];
+//    [NSString stringWithFormat:@"%zd",listModel.id]
+    pkdetailsVC.idd = @"26";
     self.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:pkdetailsVC animated:YES];
     

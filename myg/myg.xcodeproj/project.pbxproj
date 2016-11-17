@@ -41,6 +41,8 @@
 		1883AC651D6EBAB80001DDC1 /* LogisticInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883AC641D6EBAB80001DDC1 /* LogisticInfoVC.m */; };
 		18855EF01DC1E7E70095A8AC /* MYGPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */; };
 		18855EF21DC1E7F40095A8AC /* MYGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */; };
+		1891FDE31DDD8075005EC067 /* PKUserPairModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891FDE21DDD8075005EC067 /* PKUserPairModel.m */; };
+		1891FDE61DDD942C005EC067 /* PKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891FDE51DDD942C005EC067 /* PKUser.m */; };
 		189498211DD986AA002D382D /* PKDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189498201DD986AA002D382D /* PKDetailsModel.m */; };
 		189498241DD98772002D382D /* PKDetailsBallListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189498231DD98772002D382D /* PKDetailsBallListModel.m */; };
 		18A2EFC51DD5B81B00DD56DE /* PKURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A2EFC41DD5B81B00DD56DE /* PKURLConst.m */; };
@@ -526,6 +528,10 @@
 		18855EEE1DC1E7E70095A8AC /* MYGPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYGPushGuideView.h; sourceTree = "<group>"; };
 		18855EEF1DC1E7E70095A8AC /* MYGPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYGPushGuideView.m; sourceTree = "<group>"; };
 		18855EF11DC1E7F40095A8AC /* MYGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYGPushGuideView.xib; sourceTree = "<group>"; };
+		1891FDE11DDD8075005EC067 /* PKUserPairModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKUserPairModel.h; sourceTree = "<group>"; };
+		1891FDE21DDD8075005EC067 /* PKUserPairModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKUserPairModel.m; sourceTree = "<group>"; };
+		1891FDE41DDD942C005EC067 /* PKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKUser.h; sourceTree = "<group>"; };
+		1891FDE51DDD942C005EC067 /* PKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKUser.m; sourceTree = "<group>"; };
 		1894981F1DD986AA002D382D /* PKDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsModel.h; sourceTree = "<group>"; };
 		189498201DD986AA002D382D /* PKDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailsModel.m; sourceTree = "<group>"; };
 		189498221DD98772002D382D /* PKDetailsBallListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsBallListModel.h; sourceTree = "<group>"; };
@@ -2793,6 +2799,10 @@
 				189498231DD98772002D382D /* PKDetailsBallListModel.m */,
 				18BBB1FE1DD01E6000D412F6 /* PKPastRecordModel.h */,
 				18BBB1FF1DD01E6000D412F6 /* PKPastRecordModel.m */,
+				1891FDE11DDD8075005EC067 /* PKUserPairModel.h */,
+				1891FDE21DDD8075005EC067 /* PKUserPairModel.m */,
+				1891FDE41DDD942C005EC067 /* PKUser.h */,
+				1891FDE51DDD942C005EC067 /* PKUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3579,6 +3589,7 @@
 				331013DA1CE3366D00D78360 /* payController.m in Sources */,
 				226752621C0469750079A01E /* MJRefreshAutoGifFooter.m in Sources */,
 				1971FAAF1C1187F000FEF145 /* UIImage-Extensions.m in Sources */,
+				1891FDE31DDD8075005EC067 /* PKUserPairModel.m in Sources */,
 				221F3B871C8042D800B0C60E /* TudiBangdanModel.m in Sources */,
 				D88308151C1291AA00705EC0 /* base64.m in Sources */,
 				D88308161C1291AA00705EC0 /* DataSigner.m in Sources */,
@@ -3632,6 +3643,7 @@
 				195955491BF03576004B983F /* SDImageCache.m in Sources */,
 				195955301BF03576004B983F /* AFURLRequestSerialization.m in Sources */,
 				D86BA7131C1FAF30001DD82E /* SettlementModel.m in Sources */,
+				1891FDE61DDD942C005EC067 /* PKUser.m in Sources */,
 				D88A10C21CD09031007F1C4B /* QQViewController.m in Sources */,
 				19F58C161BF4351C00B5B32A /* WPHotspotLabel.m in Sources */,
 				19F58C061BF42B2100B5B32A /* AdCell.m in Sources */,

@@ -23,3 +23,5 @@ NSString * const PKCartPayURL = @"/app/pkcart/ap_pay";
 NSString * const PKPaySubmitURL = @"/app/pkcart/paysubmit";
 
 NSString * const PKPayCallBack = @"/app/pkcart/qiantai";
+
+NSString * const PKPairInfoURL = @"/app/pk/pkinfo";
