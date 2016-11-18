@@ -84,7 +84,7 @@
 /** url */
 @property (nonatomic,strong)NSString *url;
 /** waittime */
-@property (nonatomic,assign)NSInteger waittime;
+@property (nonatomic,strong)NSString *waittime;
 /** zongrenshu */
 @property (nonatomic,strong)NSString *zongrenshu;
 @end

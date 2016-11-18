@@ -247,6 +247,8 @@ static NSString *const cellID2 = @"PKAnnounceCell";
     
     
     [[NetworkTools shareInstance] request:GET URLString:PKPairInfoURL parameters:dict finished:^(id responseObject, NSError *error) {
+        
+        DebugLog(@"%@",[NSThread currentThread]);
         NSDictionary *dict = responseObject[@"data"];
         DebugLog(@"%@---%@",responseObject,dict);
         if (responseObject == nil) {

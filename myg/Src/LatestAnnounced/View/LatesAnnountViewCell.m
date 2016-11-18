@@ -213,9 +213,6 @@
     
     if (self.seconds == 0 && self.ms == 0 && self.minutes == 0)
     {
-        
-        
-        
         _lblTime.font = [UIFont systemFontOfSize:15];
 #warning 添加通知
         _lblTime.text = @"正在开奖中...";

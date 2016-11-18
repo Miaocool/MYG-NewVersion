@@ -28,6 +28,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *buyRedAndBlueBall;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+
+@property (nonatomic,assign) NSInteger ms;
+@property (nonatomic,assign) NSInteger minutes;
+@property (nonatomic,assign) NSInteger seconds;
+@property (nonatomic,weak) NSTimer *timer;
 @end
 
 
@@ -57,6 +63,17 @@ static NSString *const cellItemID = @"PKPastListCell";
     [self.produceIMG sd_setImageWithURL:[NSURL URLWithString:detail.picarr[0]] placeholderImage:[UIImage imageNamed:DefaultImage]];
     
     
+    
+    
+    self.minutes = [detail.waittime integerValue] / 60;
+    self.seconds = [detail.waittime integerValue] % 60;
+    self.ms = 0;
+    if(!self.timer)
+    {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(showCount:) userInfo:nil repeats:YES];
+        //把定时器放到子线程
+        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    }
 }
 - (void)setUpUI{
     UIView *selectView = [[UIView alloc]initWithFrame:self.bounds];
@@ -84,6 +101,59 @@ static NSString *const cellItemID = @"PKPastListCell";
 //
     
 }
+#pragma mark - 倒计时
+-(void)showCount:(NSTimer *)timer
+{
+    //minutes 分钟
+    //seconds 秒
+    //ms 毫秒
+    
+    
+    if (self.ms == 0)
+    {
+        
+        
+        if (self.minutes > 0 || self.seconds > 0)
+        {
+            self.ms = 100;
+            if (self.seconds > 0)
+            {
+                self.seconds =  self.seconds - 1;
+            }
+            if (self.seconds == 0 && self.minutes > 0)
+            {
+                self.seconds = 59;
+                self.minutes = self.minutes -1;
+            }
+            
+        }
+        
+    }
+    self.ms--;
+    
+    
+    //    self.lblTime.text = [NSString stringWithFormat:@"揭晓倒计时：%d:%d:%d",self.minutes,self.seconds,self.ms];
+//    self.lblTime.frame= CGRectMake(imgHeight + 20+20+10, 72,[UIScreen mainScreen].bounds.size.width - imgHeight - 30,30);
+//    _lblTime.font = [UIFont systemFontOfSize:30];
+//    self.lblTime.text = [NSString stringWithFormat:@"%02d:%02d:%02d",self.minutes,self.seconds,self.ms];
+//    _latestModel.used_time = [NSString stringWithFormat:@"%zd",self.minutes*60+self.seconds];
+    
+    if (self.seconds == 0 && self.ms == 0 && self.minutes == 0)
+    {
+//        _lblTime.font = [UIFont systemFontOfSize:15];
+//#warning 添加通知
+//        _lblTime.text = @"正在开奖中...";
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"openPrize" object:_lblTime];
+
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    
+    
+}
+
+
 
 #pragma mark <UICollectionViewDelegate,UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
