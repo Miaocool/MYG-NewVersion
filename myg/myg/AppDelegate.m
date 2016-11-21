@@ -51,6 +51,9 @@
 #import "PKListViewController.h"
 #import "MainTabBarController.h"
 #import "PKListViewController.h"
+
+#import "PKPrizeDetailController.h"
+
 @interface AppDelegate ()<WXApiDelegate,JPUSHRegisterDelegate>
 {
     NSString *Newurl;
@@ -399,6 +402,9 @@
     NavViewController *pklistNav = [[NavViewController alloc]initWithRootViewController:pklistVC];
     
     
+    PKPrizeDetailController *prizeDetailVC = [PKPrizeDetailController new];
+    NavViewController *prizeDetailNav = [[NavViewController alloc]initWithRootViewController:prizeDetailVC];
+    
     
     
     OrdershareController *foundVC = [[OrdershareController alloc]init];
@@ -425,7 +431,7 @@
     MainTabBarController *tabBar = [[MainTabBarController alloc]init];
     
 //    [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,listingNav,myNav]];
-    [tabBar setViewControllers:@[takeVCNav,latestNav,pklistNav,foundNav,myNav]];
+    [tabBar setViewControllers:@[takeVCNav,latestNav,prizeDetailNav,foundNav,myNav]];
      [tabBar.tabBar setTintColor:MainColor];
    
     self.window.rootViewController = tabBar;

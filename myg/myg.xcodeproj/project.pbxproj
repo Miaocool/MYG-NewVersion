@@ -17,7 +17,6 @@
 		180BBEDE1DB76FC300BF9F0F /* WinRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBEDD1DB76FC300BF9F0F /* WinRateView.xib */; };
 		180BBEE21DB76FE700BF9F0F /* PeopleTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180BBEE11DB76FE700BF9F0F /* PeopleTimeView.xib */; };
 		180F12A71DD458CB002876FD /* PKAnnounceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180F12A61DD458CB002876FD /* PKAnnounceCell.xib */; };
-		180F12AB1DD4812C002876FD /* aaa.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180F12AA1DD4812C002876FD /* aaa.xib */; };
 		180F12AE1DD48261002876FD /* PKDetailFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180F12AD1DD48261002876FD /* PKDetailFootView.m */; };
 		180F12B01DD48310002876FD /* PKDetailFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180F12AF1DD48310002876FD /* PKDetailFootView.xib */; };
 		18680A631DB08C8F009E6854 /* RedPageAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18680A621DB08C8F009E6854 /* RedPageAlertView.xib */; };
@@ -65,6 +64,13 @@
 		18BF9EB81DBF52820009A3A7 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BF9EB61DBF52820009A3A7 /* HomeCollectionCell.xib */; };
 		18BFA2CE1DD2F62C001E9ED3 /* PKPastListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BFA2CD1DD2F62C001E9ED3 /* PKPastListCell.m */; };
 		18BFA2D01DD2F63A001E9ED3 /* PKPastListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BFA2CF1DD2F63A001E9ED3 /* PKPastListCell.xib */; };
+		18C053651DE2965900144BC4 /* PKPrizeStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C053641DE2965900144BC4 /* PKPrizeStateCell.m */; };
+		18C053681DE296A200144BC4 /* PKPrizeAccountMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C053671DE296A200144BC4 /* PKPrizeAccountMessageCell.m */; };
+		18C0536E1DE296D000144BC4 /* PKPrizeMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C0536D1DE296D000144BC4 /* PKPrizeMessageCell.m */; };
+		18C053701DE296DE00144BC4 /* PKPrizeStateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C0536F1DE296DE00144BC4 /* PKPrizeStateCell.xib */; };
+		18C053721DE296E700144BC4 /* PKPrizeAccountMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C053711DE296E700144BC4 /* PKPrizeAccountMessageCell.xib */; };
+		18C053741DE296F200144BC4 /* PKPrizeMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C053731DE296F200144BC4 /* PKPrizeMessageCell.xib */; };
+		18C053771DE2C14100144BC4 /* PKPrizeDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C053761DE2C14100144BC4 /* PKPrizeDetailController.m */; };
 		18F273AB1DCB33A8000E2B98 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */; };
 		18F273AF1DCC7BFF000E2B98 /* PKDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F273AD1DCC7BFF000E2B98 /* PKDetailsCell.m */; };
 		18FA04951DC9C5E5000D7FFF /* PKSettleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA04941DC9C5E5000D7FFF /* PKSettleController.m */; };
@@ -480,7 +486,6 @@
 		180BBEDD1DB76FC300BF9F0F /* WinRateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinRateView.xib; sourceTree = "<group>"; };
 		180BBEE11DB76FE700BF9F0F /* PeopleTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleTimeView.xib; sourceTree = "<group>"; };
 		180F12A61DD458CB002876FD /* PKAnnounceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKAnnounceCell.xib; sourceTree = "<group>"; };
-		180F12AA1DD4812C002876FD /* aaa.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aaa.xib; sourceTree = "<group>"; };
 		180F12AC1DD48261002876FD /* PKDetailFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailFootView.h; sourceTree = "<group>"; };
 		180F12AD1DD48261002876FD /* PKDetailFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDetailFootView.m; sourceTree = "<group>"; };
 		180F12AF1DD48310002876FD /* PKDetailFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKDetailFootView.xib; sourceTree = "<group>"; };
@@ -571,6 +576,17 @@
 		18BFA2CC1DD2F62C001E9ED3 /* PKPastListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPastListCell.h; sourceTree = "<group>"; };
 		18BFA2CD1DD2F62C001E9ED3 /* PKPastListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPastListCell.m; sourceTree = "<group>"; };
 		18BFA2CF1DD2F63A001E9ED3 /* PKPastListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKPastListCell.xib; sourceTree = "<group>"; };
+		18C053631DE2965900144BC4 /* PKPrizeStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPrizeStateCell.h; sourceTree = "<group>"; };
+		18C053641DE2965900144BC4 /* PKPrizeStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPrizeStateCell.m; sourceTree = "<group>"; };
+		18C053661DE296A200144BC4 /* PKPrizeAccountMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPrizeAccountMessageCell.h; sourceTree = "<group>"; };
+		18C053671DE296A200144BC4 /* PKPrizeAccountMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPrizeAccountMessageCell.m; sourceTree = "<group>"; };
+		18C0536C1DE296D000144BC4 /* PKPrizeMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPrizeMessageCell.h; sourceTree = "<group>"; };
+		18C0536D1DE296D000144BC4 /* PKPrizeMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPrizeMessageCell.m; sourceTree = "<group>"; };
+		18C0536F1DE296DE00144BC4 /* PKPrizeStateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKPrizeStateCell.xib; sourceTree = "<group>"; };
+		18C053711DE296E700144BC4 /* PKPrizeAccountMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKPrizeAccountMessageCell.xib; sourceTree = "<group>"; };
+		18C053731DE296F200144BC4 /* PKPrizeMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKPrizeMessageCell.xib; sourceTree = "<group>"; };
+		18C053751DE2C14100144BC4 /* PKPrizeDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPrizeDetailController.h; sourceTree = "<group>"; };
+		18C053761DE2C14100144BC4 /* PKPrizeDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPrizeDetailController.m; sourceTree = "<group>"; };
 		18F273A91DCB33A8000E2B98 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		18F273AA1DCB33A8000E2B98 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		18F273AC1DCC7BFF000E2B98 /* PKDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDetailsCell.h; sourceTree = "<group>"; };
@@ -2784,6 +2800,8 @@
 				18BBB1F61DD01C2E00D412F6 /* PKPastRecordController.m */,
 				187403C61DD1C4F10083B3F6 /* PKGoSettleViewController.h */,
 				187403C71DD1C4F10083B3F6 /* PKGoSettleViewController.m */,
+				18C053751DE2C14100144BC4 /* PKPrizeDetailController.h */,
+				18C053761DE2C14100144BC4 /* PKPrizeDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2853,7 +2871,15 @@
 				180F12AC1DD48261002876FD /* PKDetailFootView.h */,
 				180F12AD1DD48261002876FD /* PKDetailFootView.m */,
 				180F12AF1DD48310002876FD /* PKDetailFootView.xib */,
-				180F12AA1DD4812C002876FD /* aaa.xib */,
+				18C053631DE2965900144BC4 /* PKPrizeStateCell.h */,
+				18C053641DE2965900144BC4 /* PKPrizeStateCell.m */,
+				18C0536F1DE296DE00144BC4 /* PKPrizeStateCell.xib */,
+				18C053661DE296A200144BC4 /* PKPrizeAccountMessageCell.h */,
+				18C053671DE296A200144BC4 /* PKPrizeAccountMessageCell.m */,
+				18C053711DE296E700144BC4 /* PKPrizeAccountMessageCell.xib */,
+				18C0536C1DE296D000144BC4 /* PKPrizeMessageCell.h */,
+				18C0536D1DE296D000144BC4 /* PKPrizeMessageCell.m */,
+				18C053731DE296F200144BC4 /* PKPrizeMessageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3351,6 +3377,7 @@
 				18BFA2D01DD2F63A001E9ED3 /* PKPastListCell.xib in Resources */,
 				D864156F1C06D8F7008D3A88 /* states04.png in Resources */,
 				33CDB8F71CEF0A3C00129ABC /* ShareSDKFlatShareViewUI.bundle in Resources */,
+				18C053721DE296E700144BC4 /* PKPrizeAccountMessageCell.xib in Resources */,
 				D864156E1C06D8F7008D3A88 /* states03.png in Resources */,
 				D864156D1C06D8F7008D3A88 /* states02.png in Resources */,
 				191DD47F1C085716003CABD8 /* Address.plist in Resources */,
@@ -3368,9 +3395,10 @@
 				19595AF51BF1E2DC004B983F /* image0.png in Resources */,
 				19595AFA1BF1E448004B983F /* AdDataPlist.plist in Resources */,
 				2267526B1C0469750079A01E /* MJRefresh.bundle in Resources */,
+				18C053701DE296DE00144BC4 /* PKPrizeStateCell.xib in Resources */,
 				D84FDC6E1C12E48900E26DE2 /* rechage.png in Resources */,
+				18C053741DE296F200144BC4 /* PKPrizeMessageCell.xib in Resources */,
 				19BF12351BF0345000018261 /* Main.storyboard in Resources */,
-				180F12AB1DD4812C002876FD /* aaa.xib in Resources */,
 				33CDB8F41CEF0A3C00129ABC /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				D86BA70C1C1FAE89001DD82E /* SVProgressHUD.bundle in Resources */,
 				33CDB8EF1CEF0A3C00129ABC /* Resource.bundle in Resources */,
@@ -3578,6 +3606,7 @@
 				1959552D1BF03576004B983F /* AFNetworkReachabilityManager.m in Sources */,
 				D84FDC6C1C12D25000E26DE2 /* UIImageTransformation.m in Sources */,
 				19F58BFE1BF3335900B5B32A /* NoDataView.m in Sources */,
+				18C053771DE2C14100144BC4 /* PKPrizeDetailController.m in Sources */,
 				2236EE0B1C05A6DD00375667 /* TreasureNoController.m in Sources */,
 				D877739C1C0ED3A300B69D41 /* NoticeDto.m in Sources */,
 				22E1B9DB1CA8DB1500F0CB9E /* HonorRollViewCell.m in Sources */,
@@ -3690,6 +3719,7 @@
 				D8D88DF51C04007E0051099F /* postBLL.m in Sources */,
 				D88A10C51CD0903C007F1C4B /* AddGameController.m in Sources */,
 				22C9D5211C74622D00C6920C /* MyStudentController.m in Sources */,
+				18C053651DE2965900144BC4 /* PKPrizeStateCell.m in Sources */,
 				D84FDC591C12CD8700E26DE2 /* EGOPhotoViewController.m in Sources */,
 				19F58C1A1BF4743900B5B32A /* ListingCell.m in Sources */,
 				D85DB6C91CABAD6300D8DA2E /* ServiceViewController.m in Sources */,
@@ -3732,6 +3762,7 @@
 				2267525E1C0469750079A01E /* MJRefreshBackFooter.m in Sources */,
 				22A90A7A1BF970100063B706 /* OrdershareViewCell.m in Sources */,
 				19665CC41BFAB841005591E1 /* AddAddressViewController.m in Sources */,
+				18C053681DE296A200144BC4 /* PKPrizeAccountMessageCell.m in Sources */,
 				D84FDC561C12CD8700E26DE2 /* EGOPhotoCaptionView.m in Sources */,
 				18829E901DB897D700F4A963 /* ChanceSurperView.m in Sources */,
 				180BBEDC1DB76EFD00BF9F0F /* PeopleTimeView.m in Sources */,
@@ -3765,6 +3796,7 @@
 				221F3B8A1C80576500B0C60E /* ZhaomuWenzhangModel.m in Sources */,
 				19AC67FD1BFC422E0080AEF9 /* AdModel.m in Sources */,
 				D84FDC541C12CD8700E26DE2 /* EGOImageView.m in Sources */,
+				18C0536E1DE296D000144BC4 /* PKPrizeMessageCell.m in Sources */,
 				1971F9A01C0F009D00FEF145 /* LatestAnnouncedModel.m in Sources */,
 				D84FDC651C12CD8700E26DE2 /* MyPhoto.m in Sources */,
 				18829E8D1DB8943E00F4A963 /* PopverPresentationController.m in Sources */,

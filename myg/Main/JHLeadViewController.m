@@ -19,7 +19,7 @@
 #import "MyViewController.h"
 #import "OrdershareController.h"
 #import "NavViewController.h"
-
+#import "PKListViewController.h"
 
 @interface JHLeadViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -117,12 +117,18 @@
     
     
     
-   ListingViewController *listingVC= [[ListingViewController alloc]init];
-    listingVC.title = @"清单";
-    NavViewController *listingNav = [[NavViewController alloc]initWithRootViewController:listingVC];
-    self.tabBar5 = [[UITabBarItem alloc]initWithTitle:@"清单" image: [UIImage imageNamed:@"tabbar_cart (6)"]selectedImage: [UIImage imageNamed:@"tabbar_selected (9)"]];
+//   ListingViewController *listingVC= [[ListingViewController alloc]init];
+//    listingVC.title = @"清单";
+//    NavViewController *listingNav = [[NavViewController alloc]initWithRootViewController:listingVC];
+//    self.tabBar5 = [[UITabBarItem alloc]initWithTitle:@"清单" image: [UIImage imageNamed:@"tabbar_cart (6)"]selectedImage: [UIImage imageNamed:@"tabbar_selected (9)"]];
+//    
+//    listingNav.tabBarItem = self.tabBar5;
     
-    listingNav.tabBarItem = self.tabBar5;
+    
+    PKListViewController *pklistVC = [PKListViewController new];
+    //    pklistVC.title = @"PK专场";
+    pklistVC.tabBarItem.title = @"";
+    NavViewController *pklistNav = [[NavViewController alloc]initWithRootViewController:pklistVC];
     
     MyViewController *myVC = [[MyViewController alloc]init];
     myVC.title = @"我的";
@@ -133,7 +139,7 @@
     
     UITabBarController *tabBar = [[UITabBarController alloc]init];
     
-    [tabBar setViewControllers:@[takeVCNav,latestNav,foundNav,listingNav,myNav]];
+    [tabBar setViewControllers:@[takeVCNav,latestNav,pklistVC,foundNav,myNav]];
     [tabBar.tabBar setTintColor:MainColor];
 
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];

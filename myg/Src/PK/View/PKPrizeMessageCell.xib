@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PKPrizeMessageCell">
+            <rect key="frame" x="0.0" y="0.0" width="353" height="125"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewg-qv-B86">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="G7D-Hj-38Z"/>
+                        <constraint firstAttribute="height" constant="67" id="r70-GW-oXe"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="京东E卡经典卡300面值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvt-c7-sMo">
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总需：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8U-ML-EjY">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="380人次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThO-x1-pza">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="幸运号码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwn-9b-l9M">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000342" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrU-id-Ag9">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.87058823529411766" green="0.18431372549019609" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本期参与：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z69-6W-pfZ">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="181人次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoA-EB-tqm">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-08-31 16:21:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA5-hM-udY">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Jwn-9b-l9M" firstAttribute="top" secondItem="y8U-ML-EjY" secondAttribute="bottom" constant="8" id="7NM-4c-iFh"/>
+                <constraint firstItem="z69-6W-pfZ" firstAttribute="leading" secondItem="Jwn-9b-l9M" secondAttribute="leading" id="7u2-j6-WN8"/>
+                <constraint firstItem="jrU-id-Ag9" firstAttribute="top" secondItem="Jwn-9b-l9M" secondAttribute="top" id="7zS-TF-Kzr"/>
+                <constraint firstItem="xoA-EB-tqm" firstAttribute="leading" secondItem="z69-6W-pfZ" secondAttribute="trailing" constant="3" id="LuB-9F-FuV"/>
+                <constraint firstItem="ewg-qv-B86" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="WKM-pr-puc"/>
+                <constraint firstItem="zA5-hM-udY" firstAttribute="leading" secondItem="z69-6W-pfZ" secondAttribute="leading" id="Wck-ps-lDO"/>
+                <constraint firstItem="Rvt-c7-sMo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="YhB-DE-6wv"/>
+                <constraint firstItem="Jwn-9b-l9M" firstAttribute="leading" secondItem="y8U-ML-EjY" secondAttribute="leading" id="afm-d9-JGC"/>
+                <constraint firstItem="xoA-EB-tqm" firstAttribute="top" secondItem="z69-6W-pfZ" secondAttribute="top" id="dNB-af-1EZ"/>
+                <constraint firstItem="y8U-ML-EjY" firstAttribute="leading" secondItem="Rvt-c7-sMo" secondAttribute="leading" id="deG-CS-yGt"/>
+                <constraint firstItem="Rvt-c7-sMo" firstAttribute="leading" secondItem="ewg-qv-B86" secondAttribute="trailing" constant="10" id="eNy-Rt-F5s"/>
+                <constraint firstItem="jrU-id-Ag9" firstAttribute="leading" secondItem="Jwn-9b-l9M" secondAttribute="trailing" constant="3" id="fR6-FE-eIT"/>
+                <constraint firstItem="ThO-x1-pza" firstAttribute="top" secondItem="y8U-ML-EjY" secondAttribute="top" id="lED-nX-7pY"/>
+                <constraint firstItem="ThO-x1-pza" firstAttribute="leading" secondItem="y8U-ML-EjY" secondAttribute="trailing" constant="3" id="mfa-aF-ECZ"/>
+                <constraint firstItem="z69-6W-pfZ" firstAttribute="top" secondItem="Jwn-9b-l9M" secondAttribute="bottom" constant="8" id="n41-Om-0uq"/>
+                <constraint firstItem="ewg-qv-B86" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oOB-4e-Yyc"/>
+                <constraint firstItem="y8U-ML-EjY" firstAttribute="top" secondItem="Rvt-c7-sMo" secondAttribute="bottom" constant="8" id="t4a-fT-8QR"/>
+                <constraint firstAttribute="bottom" secondItem="zA5-hM-udY" secondAttribute="bottom" constant="5" id="wYZ-U6-3Jb"/>
+                <constraint firstItem="ewg-qv-B86" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="x9G-Y8-hgi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="joinPeopleTime" destination="xoA-EB-tqm" id="noy-8h-tkK"/>
+                <outlet property="luckNum" destination="jrU-id-Ag9" id="mNg-Vh-VcS"/>
+                <outlet property="peopleTime" destination="ThO-x1-pza" id="2Gc-hX-Pwd"/>
+                <outlet property="prizeTime" destination="zA5-hM-udY" id="Zef-Gq-Mtl"/>
+                <outlet property="produceIMG" destination="ewg-qv-B86" id="EeP-Dk-UYY"/>
+                <outlet property="produceName" destination="Rvt-c7-sMo" id="spZ-cT-vSw"/>
+            </connections>
+            <point key="canvasLocation" x="-242.5" y="-176.5"/>
+        </view>
+    </objects>
+</document>
